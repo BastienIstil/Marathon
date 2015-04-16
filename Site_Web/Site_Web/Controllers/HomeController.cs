@@ -7,7 +7,7 @@ namespace Site_Web.Controllers
     {
         public ActionResult Index()
         {
-            Telechargement.telechargement(HttpContext.Response, "Toto.png", "http://www.ac-grenoble.fr/ien.vienne1-2/spip/IMG/bmp_Image004.bmp");
+            //Telechargement.telechargement(HttpContext.Response, "Toto.png", "http://www.ac-grenoble.fr/ien.vienne1-2/spip/IMG/bmp_Image004.bmp");
             return View();
         }
 
