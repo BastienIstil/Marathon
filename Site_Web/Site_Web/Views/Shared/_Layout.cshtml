@@ -10,31 +10,54 @@
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Nom d'application", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Accueil", "Index", "Home")</li>
-                    <li>@Html.ActionLink("À propos de", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
+    <div id="headerSite">
+        <div id="logoMarathon"></div>
+        <nav id="menuSite">
+            <ul>
+                <li class="menu1">
+                    <a>Inscription</a>
+                    <!-- Sous-Menu1 -->
+                    <div class="ssMenu">
+                        <ul>
+                            <li>Teléchargement du formulaire</li>
+                            <li>Inscription en ligne</li>
+                        </ul>
+                    </div>
+                    <!-- Fin Sous Menu-->
+                    <!-- le </li> et <li class="menu2"> sont collés pour éviter le problème du white space
+                    quand elles sont en display:inline-block -->
+                </li>
+                <li class="menu2">
+                    <a>Courses</a>
+                    <!-- Sous-Menu2 -->
+                    <div class="ssMenu">
+                        <ul>
+                            <li>Liste des courses</li>
+                        </ul>
+                    </div>
+                    <!-- Fin Sous Menu-->
+                    <!-- le </li> et <li class="menu3"> sont collés pour éviter le problème du white space
+                        quand elles sont en display:inline-block -->
+                </li>
+                <li class="menu3">
+                    <a>Classement</a>
+                    <!-- Sous-Menu3 -->
+                    <div class="ssMenu">
+                        <ul>
+                            <li>Général</li>
+                            <li>Par course</li>
+                        </ul>
+                    </div>
+                    <!-- Fin Sous Menu-->
+                </li>
+            </ul>
+        </nav>
     </div>
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>Marathon Annecy 2015</p>
         </footer>
     </div>
 

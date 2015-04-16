@@ -15,3 +15,38 @@ select,
 textarea {
     max-width: 280px;
 }
+a, a:focus, a:hover, a:active{
+    color: white;
+    text-decoration: none;
+}
+li{
+    list-style-type:none;
+}
+.ssMenu>ul li:before{
+    content:'> ';
+}
+
+.ssMenu>ul li{
+    text-align: left;
+}
+
+#menuSite{
+    width: 80%;
+    margin: auto;
+}
+
+.menu1, .menu2, .menu3{
+    display:inline-block;
+    width: 33%;
+    text-align:center;
+    padding: 5px 0;
+    background: #BCD0F5;
+}
+
+.menu1, .menu2{
+    border-right:solid 1px #000;
+}
+.menu1:hover, .menu2:hover, .menu3:hover{
+    background: #046380;
+}
+
