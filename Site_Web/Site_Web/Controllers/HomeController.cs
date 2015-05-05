@@ -1,5 +1,7 @@
 ﻿using System.Web.Mvc;
 using Site_Web.Class_Metier.Web_Common;
+using System.IO;
+using System;
 
 namespace Site_Web.Controllers
 {
@@ -7,7 +9,10 @@ namespace Site_Web.Controllers
     {
         public ActionResult Index()
         {
-            //Telechargement.telechargement(HttpContext.Response, "Toto.png", "http://www.ac-grenoble.fr/ien.vienne1-2/spip/IMG/bmp_Image004.bmp");
+            Console.Error.WriteLine(Path.GetFullPath("Ressource")) ;
+
+
+            Telechargement.telechargementLocal(Response, "InscriptionClub", "Ressource/FormulaireInscriptionClub.docx");
             return View();
         }
 

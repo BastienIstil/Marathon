@@ -55,6 +55,10 @@ textarea {
             width: 70%;
         }
 
+        #logoMarathon, #blocConnexion{
+            display:inline-block;
+        }
+                
         .menu1, .menu2, .menu3{
             display:inline-table;
             width: 33%;

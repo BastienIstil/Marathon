@@ -11,7 +11,11 @@
 </head>
 <body>
     <section id="headerSite">
-        <div id="logoMarathon"></div>
+        <div id="logoMarathon">
+        </div>
+        <div id="blocConnexion">
+            @Html.Partial("../Account/Login")
+        </div>
         <nav id="menuSite">
             <ul>
                 <li class="menu1">
@@ -50,9 +54,7 @@
                 </li>
             </ul>
         </nav>
-        <div id="blocConnexion">
 
-        </div>
     </section>
     <div class="container body-content">
         @RenderBody()

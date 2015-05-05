@@ -7,7 +7,7 @@ namespace Site_Web.Class_Metier.Web_Common
 {
     public class Telechargement
     {
-        public static void telechargement(HttpResponseBase pResp, string pFileName, string pUrl)
+        public static void telechargementWeb(HttpResponseBase pResp, string pFileName, string pUrl)
         {
             //Create a stream for the file
             Stream stream = null;
@@ -72,6 +72,27 @@ namespace Site_Web.Class_Metier.Web_Common
                     //Close the input stream
                     stream.Close();
                 }
+            }
+        }
+
+        public static void telechargementLocal(HttpResponseBase pResp, string pFileName, string pPath)
+        {
+            string filename = @"Specify the file path in the server over here....";
+            FileInfo fileInfo = new FileInfo(filename);
+
+            if (fileInfo.Exists)
+            {
+                pResp.Clear();
+                pResp.AddHeader("Content-Disposition", "attachment; filename=" + fileInfo.Name);
+                pResp.AddHeader("Content-Length", fileInfo.Length.ToString());
+                pResp.ContentType = "application/octet-stream";
+                pResp.Flush();
+                pResp.TransmitFile(fileInfo.FullName);
+                pResp.End();
+            }
+            else
+            {
+                Console.Error.WriteLine("File not found", pPath);
             }
         }
     }
