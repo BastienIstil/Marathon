@@ -81,8 +81,11 @@ textarea {
 
         .ssMenu>ul li{
             text-align: left;
+            color: #fff;
         }
-
+        .ssMenu>ul li:hover{
+            font-weight: bold;
+        }
         .menu1, .menu2, .menu3{
             display:inline-table;
             width: 33%;
@@ -96,10 +99,7 @@ textarea {
         }
         .menu1:hover, .menu2:hover, .menu3:hover{
             background: #537CDB;
-        }
-
-        #menuSite>ul>li>div{
-            
+            border: none;
         }
 
     /* Bloc Login */
