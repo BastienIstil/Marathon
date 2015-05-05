@@ -22,8 +22,41 @@ textarea {
 /** Header **/
 /************/
     
-    /* Banniere */
+    /* Charte Taille Police + Margin + Interlignage*/
+        *{
+            font-family: 'Trebuchet MS';
+        }
+        .titre{
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .ssTitre{
+            font-size: 16px;
+            margin-bottom: 18px;
+        }
+        .texte{
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+        .paragraphe{
+            font-size: 14px;
+            margin-bottom: 16px;
+            line-height: 17px;
+        }
+        .texteBoutton{
+            font-size: 16px;
+            margin-bottom: 18px;
+        }
+        .lienFooter{
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
     
+
+    /* Banniere */
+        #logoMarathon{
+            display:inline-block;
+        }
 
     
     /* Menu */
@@ -42,6 +75,7 @@ textarea {
         }
         .menu1:hover .ssMenu, .menu2:hover .ssMenu, .menu3:hover .ssMenu{
             display:block;
+            padding-top: 10px;
         }
         .ssMenu>ul li:before{
             content:'> ';
@@ -51,14 +85,6 @@ textarea {
             text-align: left;
         }
 
-        #menuSite{
-            width: 70%;
-        }
-
-        #logoMarathon, #blocConnexion{
-            display:inline-block;
-        }
-                
         .menu1, .menu2, .menu3{
             display:inline-table;
             width: 33%;
@@ -66,7 +92,7 @@ textarea {
             padding: 5px 0;
             background: #BCD0F5;
         }
-
+         
         .menu1, .menu2{
             border-right:solid 1px #000;
         }
@@ -74,5 +100,11 @@ textarea {
             background: #537CDB;
         }
 
-    /* Bloc Login */
+        #menuSite>ul>li>div{
+            
+        }
 
+    /* Bloc Login */
+        #blocConnexion{
+            display:inline-block;
+        }

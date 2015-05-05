@@ -14,12 +14,17 @@ using Site_Web.Models;
 
 namespace Site_Web.Controllers
 {
-    [Authorize]
     public class AccountController : Controller
     {
+        [ActionName("_Login")]
         public ActionResult Login()
         {
-            return View();
+            LoginViewModel modelLogin = new LoginViewModel();
+            modelLogin.Password = "toto";
+            modelLogin.Email = "test0";
+            // Convertir Model pour la view
+            return PartialView("_Login",modelLogin);
         }
+
     }
 }
