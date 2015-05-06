@@ -222,6 +222,17 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Metadata\P_Classement.cs" />
+    <Compile Include="Models\Metadata\P_Borne.cs" />
+    <Compile Include="Models\Metadata\P_Categorie.cs" />
+    <Compile Include="Models\Metadata\P_Club.cs" />
+    <Compile Include="Models\Metadata\P_Coureur.cs" />
+    <Compile Include="Models\Metadata\P_Course.cs" />
+    <Compile Include="Models\Metadata\P_Defi.cs" />
+    <Compile Include="Models\Metadata\P_InformationPublique.cs" />
+    <Compile Include="Models\Metadata\P_Lot.cs" />
+    <Compile Include="Models\Metadata\P_Paiement.cs" />
+    <Compile Include="Models\Metadata\P_Participation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="App_Data\T_E_INFORMATIONPUBLIQUE_INF.cs">
