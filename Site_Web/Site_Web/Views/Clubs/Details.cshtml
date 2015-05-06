@@ -1,0 +1,42 @@
+﻿@model Site_Web.App_Data.CLUB
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CLUB</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CLU_NOM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLU_NOM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CLU_LICENCE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLU_LICENCE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CLU_EMAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLU_EMAIL)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CLU_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

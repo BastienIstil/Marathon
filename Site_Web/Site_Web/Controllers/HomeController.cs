@@ -9,10 +9,15 @@ namespace Site_Web.Controllers
     {
         public ActionResult Index()
         {
-            Console.Error.WriteLine(Path.GetFullPath("Ressource")) ;
+            Console.Error.WriteLine(Path.GetFullPath("Ressource"));
 
 
             Telechargement.telechargementLocal(Response, "InscriptionClub", "Ressource/FormulaireInscriptionClub.docx");
+            return View();
+        }
+
+        public ActionResult Index2()
+        {
             return View();
         }
 
