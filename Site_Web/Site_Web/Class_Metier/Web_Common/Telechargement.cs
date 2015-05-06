@@ -77,13 +77,13 @@ namespace Site_Web.Class_Metier.Web_Common
 
         public static void telechargementLocal(HttpResponseBase pResp, string pFileName, string pPath)
         {
-            string filename = @"Specify the file path in the server over here....";
+            string filename = pPath ;
             FileInfo fileInfo = new FileInfo(filename);
 
             if (fileInfo.Exists)
             {
                 pResp.Clear();
-                pResp.AddHeader("Content-Disposition", "attachment; filename=" + fileInfo.Name);
+                pResp.AddHeader("Content-Disposition", "attachment; filename=" + filename);
                 pResp.AddHeader("Content-Length", fileInfo.Length.ToString());
                 pResp.ContentType = "application/octet-stream";
                 pResp.Flush();

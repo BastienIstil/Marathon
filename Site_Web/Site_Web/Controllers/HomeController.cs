@@ -1,4 +1,6 @@
-﻿using System.Web.Mvc;
+﻿
+
+using System.Web.Mvc;
 using Site_Web.Class_Metier.Web_Common;
 using System.IO;
 using System;
@@ -9,10 +11,8 @@ namespace Site_Web.Controllers
     {
         public ActionResult Index()
         {
-            Console.Error.WriteLine(Path.GetFullPath("Ressource")) ;
+            
 
-
-            Telechargement.telechargementLocal(Response, "InscriptionClub", "Ressource/FormulaireInscriptionClub.docx");
             return View();
         }
 
@@ -28,5 +28,13 @@ namespace Site_Web.Controllers
             ViewBag.Message = "Your contact page.";
             return View();
         }
+
+        public ActionResult Telecharge()
+        {
+            Console.Error.WriteLine(Path.GetFullPath("Resources"));
+            Telechargement.telechargementLocal(Response, "InscriptionIndividu", Server.MapPath("../Resources/InscriptionMarathonAnnecy2015.pdf"));
+            return View();        
+        }
     }
+
 }
