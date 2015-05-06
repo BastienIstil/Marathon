@@ -43,6 +43,8 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -153,6 +155,45 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Data\BORNE.cs">
+      <DependentUpon>ModelMarathonBDD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\CATEGORIE.cs">
+      <DependentUpon>ModelMarathonBDD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\CLASSEMENT.cs">
+      <DependentUpon>ModelMarathonBDD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\CLUB.cs">
+      <DependentUpon>ModelMarathonBDD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\COUREUR.cs">
+      <DependentUpon>ModelMarathonBDD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\COURSE.cs">
+      <DependentUpon>ModelMarathonBDD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\DEFI.cs">
+      <DependentUpon>ModelMarathonBDD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\GENERATION.cs">
+      <DependentUpon>ModelMarathonBDD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\LOT.cs">
+      <DependentUpon>ModelMarathonBDD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\PAIEMENT.cs">
+      <DependentUpon>ModelMarathonBDD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\PARTICIPATION.cs">
+      <DependentUpon>ModelMarathonBDD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\PARTICIPATIONENGROUPE.cs">
+      <DependentUpon>ModelMarathonBDD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\TEMPSCOUBORNE.cs">
+      <DependentUpon>ModelMarathonBDD.tt</DependentUpon>
+    </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
@@ -164,10 +205,31 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="App_Data\ModelMarathonBDD.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelMarathonBDD.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\ModelMarathonBDD.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelMarathonBDD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\ModelMarathonBDD.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelMarathonBDD.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="App_Data\T_E_INFORMATIONPUBLIQUE_INF.cs">
+      <DependentUpon>ModelMarathonBDD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\T_E_INSCRIT_INS.cs">
+      <DependentUpon>ModelMarathonBDD.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -178,6 +240,23 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="App_Data\ModelMarathonBDD.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelMarathonBDD.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="App_Data\ModelMarathonBDD.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelMarathonBDD.edmx</DependentUpon>
+      <LastGenOutput>ModelMarathonBDD.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_Data\ModelMarathonBDD.edmx.diagram">
+      <DependentUpon>ModelMarathonBDD.edmx</DependentUpon>
+    </Content>
+    <Content Include="App_Data\ModelMarathonBDD.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelMarathonBDD.edmx</DependentUpon>
+      <LastGenOutput>ModelMarathonBDD.cs</LastGenOutput>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -209,7 +288,6 @@
     <Content Include="Views\Account\_Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Ressource\" />
   </ItemGroup>
   <ItemGroup>
@@ -218,6 +296,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
