@@ -1,0 +1,42 @@
+﻿@model Site_Web.App_Data.PAIEMENT
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PAIEMENT</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PAI_MONTANT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PAI_MONTANT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PAI_MOYENDEPAIEMENT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PAI_MOYENDEPAIEMENT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PAI_DATEPAIEMENT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PAI_DATEPAIEMENT)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PAI_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
