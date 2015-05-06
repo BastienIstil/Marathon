@@ -4,11 +4,11 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 
-namespace Site_Web.Models
+namespace Site_Web.App_Data
 {
+    [MetadataType(typeof(LOTMetadata))]
     public partial class LOT
     {
-        [MetadataType(typeof(LOTMetadata))]
         public class LOTMetadata
         {
             [Display(Name = "N° de lot")]

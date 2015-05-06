@@ -245,6 +245,7 @@
     <Compile Include="Models\Metadata\P_Lot.cs" />
     <Compile Include="Models\Metadata\P_Paiement.cs" />
     <Compile Include="Models\Metadata\P_Participation.cs" />
+    <Compile Include="Models\Metadata\P_ParticipationEnGroupe.cs" />
     <Compile Include="Models\Metadata\P_TempsCoureurBorne.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 
-namespace Site_Web.Models
+namespace Site_Web.App_Data
 {
     [MetadataType(typeof(CLASSEMENTMetadata))]
 
@@ -14,6 +14,7 @@ namespace Site_Web.Models
         {
             [Display(Name = "")]
             public int CLA_ID { get; set; }
+            [Display(Name = "Temps")]
             public Nullable<int> CLA_TEMPS { get; set; }
         }
     }
