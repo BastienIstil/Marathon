@@ -10,6 +10,7 @@
             <PropertyRef Name="COU_ID" />
           </Key>
           <Property Name="COU_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="INS_ID" Type="int" Nullable="false" />
           <Property Name="CLU_ID" Type="int" />
           <Property Name="CAT_ID" Type="int" Nullable="false" />
           <Property Name="COU_NOM" Type="varchar" MaxLength="50" Nullable="false" />
@@ -44,7 +45,7 @@
           </Key>
           <Property Name="INS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="INS_LOGIN" Type="varchar" MaxLength="255" Nullable="false" />
-          <Property Name="INS_MDP" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="INS_MDP" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="INS_NIVEAUAUTHENTIFICATION" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="T_E_PAIEMENT_PAI">
@@ -53,10 +54,6 @@
           </Key>
           <Property Name="PAI_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PAR_ID" Type="int" Nullable="false" />
-          <Property Name="CLU_ID" Type="int" />
-          <Property Name="COR_ID" Type="int" Nullable="false" />
-          <Property Name="PAS_ID" Type="int" Nullable="false" />
-          <Property Name="COU_ID" Type="int" />
           <Property Name="PAI_MONTANT" Type="int" Nullable="false" />
           <Property Name="PAI_MOYENPAIEMENT" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="PAI_DATEPAIEMENT" Type="datetime" Nullable="false" />
@@ -64,10 +61,6 @@
         <EntityType Name="T_E_PARTICIPATION_PAR">
           <Key>
             <PropertyRef Name="PAR_ID" />
-            <PropertyRef Name="CLU_ID" />
-            <PropertyRef Name="COR_ID" />
-            <PropertyRef Name="PAS_ID" />
-            <PropertyRef Name="COU_ID" />
           </Key>
           <Property Name="PAR_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CLU_ID" Type="int" Nullable="false" />
@@ -85,7 +78,7 @@
           <Key>
             <PropertyRef Name="PAS_ID" />
           </Key>
-          <Property Name="PAS_ID" Type="int" Nullable="false" />
+          <Property Name="PAS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PAS_NBMAXPARTICIPANT" Type="int" />
         </EntityType>
         <EntityType Name="T_J_CLASSEMENT_CLA">
@@ -144,6 +137,7 @@
             <PropertyRef Name="CLU_ID" />
           </Key>
           <Property Name="CLU_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="INS_ID" Type="int" Nullable="false" />
           <Property Name="CLU_NOM" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="CLU_LICENCE" Type="varchar" MaxLength="255" Nullable="false" />
           <Property Name="CLU_EMAIL" Type="varchar" MaxLength="255" Nullable="false" />
@@ -200,23 +194,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_T_E_COUR_EST_INSCR_T_E_INSC">
+          <End Role="T_E_INSCRIT_INS" Type="Self.T_E_INSCRIT_INS" Multiplicity="1" />
+          <End Role="T_E_COUREUR_COU" Type="Self.T_E_COUREUR_COU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_INSCRIT_INS">
+              <PropertyRef Name="INS_ID" />
+            </Principal>
+            <Dependent Role="T_E_COUREUR_COU">
+              <PropertyRef Name="INS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_T_E_PAIE_PAYE_T_E_PART">
-          <End Role="T_E_PARTICIPATION_PAR" Type="Self.T_E_PARTICIPATION_PAR" Multiplicity="0..1" />
+          <End Role="T_E_PARTICIPATION_PAR" Type="Self.T_E_PARTICIPATION_PAR" Multiplicity="1" />
           <End Role="T_E_PAIEMENT_PAI" Type="Self.T_E_PAIEMENT_PAI" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="T_E_PARTICIPATION_PAR">
               <PropertyRef Name="PAR_ID" />
-              <PropertyRef Name="CLU_ID" />
-              <PropertyRef Name="COR_ID" />
-              <PropertyRef Name="PAS_ID" />
-              <PropertyRef Name="COU_ID" />
             </Principal>
             <Dependent Role="T_E_PAIEMENT_PAI">
               <PropertyRef Name="PAR_ID" />
-              <PropertyRef Name="CLU_ID" />
-              <PropertyRef Name="COR_ID" />
-              <PropertyRef Name="PAS_ID" />
-              <PropertyRef Name="COU_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -388,6 +386,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_T_R_CLUB_EST_INSCR_T_E_INSC">
+          <End Role="T_E_INSCRIT_INS" Type="Self.T_E_INSCRIT_INS" Multiplicity="1" />
+          <End Role="T_R_CLUB_CLU" Type="Self.T_R_CLUB_CLU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_INSCRIT_INS">
+              <PropertyRef Name="INS_ID" />
+            </Principal>
+            <Dependent Role="T_R_CLUB_CLU">
+              <PropertyRef Name="INS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_T_R_LOT__DISTRIBUE_T_E_COUR">
           <End Role="T_E_COUREUR_COU" Type="Self.T_E_COUREUR_COU" Multiplicity="0..1" />
           <End Role="T_R_LOT_LOT" Type="Self.T_R_LOT_LOT" Multiplicity="*" />
@@ -423,6 +433,10 @@
           </AssociationSet>
           <AssociationSet Name="FK_T_E_COUR_EST_DEFIN_T_R_CATE" Association="Self.FK_T_E_COUR_EST_DEFIN_T_R_CATE">
             <End Role="T_R_CATEGORIE_CAT" EntitySet="T_R_CATEGORIE_CAT" />
+            <End Role="T_E_COUREUR_COU" EntitySet="T_E_COUREUR_COU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_E_COUR_EST_INSCR_T_E_INSC" Association="Self.FK_T_E_COUR_EST_INSCR_T_E_INSC">
+            <End Role="T_E_INSCRIT_INS" EntitySet="T_E_INSCRIT_INS" />
             <End Role="T_E_COUREUR_COU" EntitySet="T_E_COUREUR_COU" />
           </AssociationSet>
           <AssociationSet Name="FK_T_E_PAIE_PAYE_T_E_PART" Association="Self.FK_T_E_PAIE_PAYE_T_E_PART">
@@ -485,6 +499,10 @@
             <End Role="T_R_COURSE_COR" EntitySet="T_R_COURSE_COR" />
             <End Role="T_R_BORNE_BOR" EntitySet="T_R_BORNE_BOR" />
           </AssociationSet>
+          <AssociationSet Name="FK_T_R_CLUB_EST_INSCR_T_E_INSC" Association="Self.FK_T_R_CLUB_EST_INSCR_T_E_INSC">
+            <End Role="T_E_INSCRIT_INS" EntitySet="T_E_INSCRIT_INS" />
+            <End Role="T_R_CLUB_CLU" EntitySet="T_R_CLUB_CLU" />
+          </AssociationSet>
           <AssociationSet Name="FK_T_R_LOT__DISTRIBUE_T_E_COUR" Association="Self.FK_T_R_LOT__DISTRIBUE_T_E_COUR">
             <End Role="T_E_COUREUR_COU" EntitySet="T_E_COUREUR_COU" />
             <End Role="T_R_LOT_LOT" EntitySet="T_R_LOT_LOT" />
@@ -517,6 +535,10 @@
             <End Role="T_R_CATEGORIE_CAT" EntitySet="CATEGORIEs" />
             <End Role="T_E_COUREUR_COU" EntitySet="COUREURs" />
           </AssociationSet>
+          <AssociationSet Name="FK_T_E_COUR_EST_INSCR_T_E_INSC" Association="MarathonModel.FK_T_E_COUR_EST_INSCR_T_E_INSC">
+            <End Role="T_E_INSCRIT_INS" EntitySet="INSCRITs" />
+            <End Role="T_E_COUREUR_COU" EntitySet="COUREURs" />
+          </AssociationSet>
           <AssociationSet Name="FK_T_E_PART_PARTICIPE_T_E_COUR" Association="MarathonModel.FK_T_E_PART_PARTICIPE_T_E_COUR">
             <End Role="T_E_COUREUR_COU" EntitySet="COUREURs" />
             <End Role="T_E_PARTICIPATION_PAR" EntitySet="PARTICIPATIONs" />
@@ -532,6 +554,10 @@
           <AssociationSet Name="FK_T_R_LOT__DISTRIBUE_T_E_COUR" Association="MarathonModel.FK_T_R_LOT__DISTRIBUE_T_E_COUR">
             <End Role="T_E_COUREUR_COU" EntitySet="COUREURs" />
             <End Role="T_R_LOT_LOT" EntitySet="LOTs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_R_CLUB_EST_INSCR_T_E_INSC" Association="MarathonModel.FK_T_R_CLUB_EST_INSCR_T_E_INSC">
+            <End Role="T_E_INSCRIT_INS" EntitySet="INSCRITs" />
+            <End Role="T_R_CLUB_CLU" EntitySet="CLUBs" />
           </AssociationSet>
           <AssociationSet Name="FK_T_E_PAIE_PAYE_T_E_PART" Association="MarathonModel.FK_T_E_PAIE_PAYE_T_E_PART">
             <End Role="T_E_PARTICIPATION_PAR" EntitySet="PARTICIPATIONs" />
@@ -579,6 +605,7 @@
             <PropertyRef Name="COU_ID" />
           </Key>
           <Property Name="COU_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="INS_ID" Type="Int32" Nullable="false" />
           <Property Name="CLU_ID" Type="Int32" />
           <Property Name="CAT_ID" Type="Int32" Nullable="false" />
           <Property Name="COU_NOM" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -598,6 +625,7 @@
           <Property Name="COU_CERTIFICATMEDICAL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="T_R_CLUB_CLU" Relationship="MarathonModel.FK_T_E_COUR_EST_AFFIL_T_R_CLUB" FromRole="T_E_COUREUR_COU" ToRole="T_R_CLUB_CLU" />
           <NavigationProperty Name="T_R_CATEGORIE_CAT" Relationship="MarathonModel.FK_T_E_COUR_EST_DEFIN_T_R_CATE" FromRole="T_E_COUREUR_COU" ToRole="T_R_CATEGORIE_CAT" />
+          <NavigationProperty Name="T_E_INSCRIT_INS" Relationship="MarathonModel.FK_T_E_COUR_EST_INSCR_T_E_INSC" FromRole="T_E_COUREUR_COU" ToRole="T_E_INSCRIT_INS" />
           <NavigationProperty Name="T_E_PARTICIPATION_PAR" Relationship="MarathonModel.FK_T_E_PART_PARTICIPE_T_E_COUR" FromRole="T_E_COUREUR_COU" ToRole="T_E_PARTICIPATION_PAR" />
           <NavigationProperty Name="T_J_CLASSEMENT_CLA" Relationship="MarathonModel.FK_T_J_CLAS_T_J_CLASS_T_E_COUR" FromRole="T_E_COUREUR_COU" ToRole="T_J_CLASSEMENT_CLA" />
           <NavigationProperty Name="T_J_TEMPSCOUBORNE_TCB" Relationship="MarathonModel.FK_T_J_TEMP_T_J_TEMPS_T_E_COUR" FromRole="T_E_COUREUR_COU" ToRole="T_J_TEMPSCOUBORNE_TCB" />
@@ -620,8 +648,10 @@
           </Key>
           <Property Name="INS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="INS_LOGIN" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="INS_MDP" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="INS_MDP" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="INS_NIVEAUAUTHENTIFICATION" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="T_E_COUREUR_COU" Relationship="MarathonModel.FK_T_E_COUR_EST_INSCR_T_E_INSC" FromRole="T_E_INSCRIT_INS" ToRole="T_E_COUREUR_COU" />
+          <NavigationProperty Name="T_R_CLUB_CLU" Relationship="MarathonModel.FK_T_R_CLUB_EST_INSCR_T_E_INSC" FromRole="T_E_INSCRIT_INS" ToRole="T_R_CLUB_CLU" />
         </EntityType>
         <EntityType Name="PAIEMENT">
           <Key>
@@ -629,10 +659,6 @@
           </Key>
           <Property Name="PAI_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PAR_ID" Type="Int32" Nullable="false" />
-          <Property Name="CLU_ID" Type="Int32" />
-          <Property Name="COR_ID" Type="Int32" Nullable="false" />
-          <Property Name="PAS_ID" Type="Int32" Nullable="false" />
-          <Property Name="COU_ID" Type="Int32" />
           <Property Name="PAI_MONTANT" Type="Int32" Nullable="false" />
           <Property Name="PAI_MOYENPAIEMENT" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="PAI_DATEPAIEMENT" Type="DateTime" Nullable="false" Precision="3" />
@@ -642,10 +668,6 @@
         <EntityType Name="PARTICIPATION">
           <Key>
             <PropertyRef Name="PAR_ID" />
-            <PropertyRef Name="CLU_ID" />
-            <PropertyRef Name="COR_ID" />
-            <PropertyRef Name="PAS_ID" />
-            <PropertyRef Name="COU_ID" />
           </Key>
           <Property Name="PAR_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CLU_ID" Type="Int32" Nullable="false" />
@@ -669,7 +691,7 @@
           <Key>
             <PropertyRef Name="PAS_ID" />
           </Key>
-          <Property Name="PAS_ID" Type="Int32" Nullable="false" />
+          <Property Name="PAS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="PAS_NBMAXPARTICIPANT" Type="Int32" />
           <NavigationProperty Name="T_E_PARTICIPATION_PAR" Relationship="MarathonModel.FK_T_E_PART_ASSOCIE_T_E_PAST" FromRole="T_E_PASTAPARTY_PAS" ToRole="T_E_PARTICIPATION_PAR" />
         </EntityType>
@@ -720,10 +742,12 @@
             <PropertyRef Name="CLU_ID" />
           </Key>
           <Property Name="CLU_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="INS_ID" Type="Int32" Nullable="false" />
           <Property Name="CLU_NOM" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="CLU_LICENCE" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="CLU_EMAIL" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="T_E_COUREUR_COU" Relationship="MarathonModel.FK_T_E_COUR_EST_AFFIL_T_R_CLUB" FromRole="T_R_CLUB_CLU" ToRole="T_E_COUREUR_COU" />
+          <NavigationProperty Name="T_E_INSCRIT_INS" Relationship="MarathonModel.FK_T_R_CLUB_EST_INSCR_T_E_INSC" FromRole="T_R_CLUB_CLU" ToRole="T_E_INSCRIT_INS" />
           <NavigationProperty Name="T_E_PARTICIPATION_PAR" Relationship="MarathonModel.FK_T_E_PART_PARTICIPE_T_R_CLUB" FromRole="T_R_CLUB_CLU" ToRole="T_E_PARTICIPATION_PAR" />
         </EntityType>
         <EntityType Name="COURSE">
@@ -785,6 +809,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_T_E_COUR_EST_INSCR_T_E_INSC">
+          <End Type="MarathonModel.INSCRIT" Role="T_E_INSCRIT_INS" Multiplicity="1" />
+          <End Type="MarathonModel.COUREUR" Role="T_E_COUREUR_COU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_INSCRIT_INS">
+              <PropertyRef Name="INS_ID" />
+            </Principal>
+            <Dependent Role="T_E_COUREUR_COU">
+              <PropertyRef Name="INS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_T_E_PART_PARTICIPE_T_E_COUR">
           <End Type="MarathonModel.COUREUR" Role="T_E_COUREUR_COU" Multiplicity="1" />
           <End Type="MarathonModel.PARTICIPATION" Role="T_E_PARTICIPATION_PAR" Multiplicity="*" />
@@ -833,23 +869,27 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_T_R_CLUB_EST_INSCR_T_E_INSC">
+          <End Type="MarathonModel.INSCRIT" Role="T_E_INSCRIT_INS" Multiplicity="1" />
+          <End Type="MarathonModel.CLUB" Role="T_R_CLUB_CLU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_INSCRIT_INS">
+              <PropertyRef Name="INS_ID" />
+            </Principal>
+            <Dependent Role="T_R_CLUB_CLU">
+              <PropertyRef Name="INS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_T_E_PAIE_PAYE_T_E_PART">
-          <End Type="MarathonModel.PARTICIPATION" Role="T_E_PARTICIPATION_PAR" Multiplicity="0..1" />
+          <End Type="MarathonModel.PARTICIPATION" Role="T_E_PARTICIPATION_PAR" Multiplicity="1" />
           <End Type="MarathonModel.PAIEMENT" Role="T_E_PAIEMENT_PAI" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="T_E_PARTICIPATION_PAR">
               <PropertyRef Name="PAR_ID" />
-              <PropertyRef Name="CLU_ID" />
-              <PropertyRef Name="COR_ID" />
-              <PropertyRef Name="PAS_ID" />
-              <PropertyRef Name="COU_ID" />
             </Principal>
             <Dependent Role="T_E_PAIEMENT_PAI">
               <PropertyRef Name="PAR_ID" />
-              <PropertyRef Name="CLU_ID" />
-              <PropertyRef Name="COR_ID" />
-              <PropertyRef Name="PAS_ID" />
-              <PropertyRef Name="COU_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -971,6 +1011,7 @@
                 <ScalarProperty Name="COU_NOM" ColumnName="COU_NOM" />
                 <ScalarProperty Name="CAT_ID" ColumnName="CAT_ID" />
                 <ScalarProperty Name="CLU_ID" ColumnName="CLU_ID" />
+                <ScalarProperty Name="INS_ID" ColumnName="INS_ID" />
                 <ScalarProperty Name="COU_ID" ColumnName="COU_ID" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -1002,10 +1043,6 @@
                 <ScalarProperty Name="PAI_DATEPAIEMENT" ColumnName="PAI_DATEPAIEMENT" />
                 <ScalarProperty Name="PAI_MOYENPAIEMENT" ColumnName="PAI_MOYENPAIEMENT" />
                 <ScalarProperty Name="PAI_MONTANT" ColumnName="PAI_MONTANT" />
-                <ScalarProperty Name="COU_ID" ColumnName="COU_ID" />
-                <ScalarProperty Name="PAS_ID" ColumnName="PAS_ID" />
-                <ScalarProperty Name="COR_ID" ColumnName="COR_ID" />
-                <ScalarProperty Name="CLU_ID" ColumnName="CLU_ID" />
                 <ScalarProperty Name="PAR_ID" ColumnName="PAR_ID" />
                 <ScalarProperty Name="PAI_ID" ColumnName="PAI_ID" />
               </MappingFragment>
@@ -1079,6 +1116,7 @@
                 <ScalarProperty Name="CLU_EMAIL" ColumnName="CLU_EMAIL" />
                 <ScalarProperty Name="CLU_LICENCE" ColumnName="CLU_LICENCE" />
                 <ScalarProperty Name="CLU_NOM" ColumnName="CLU_NOM" />
+                <ScalarProperty Name="INS_ID" ColumnName="INS_ID" />
                 <ScalarProperty Name="CLU_ID" ColumnName="CLU_ID" />
               </MappingFragment>
             </EntityTypeMapping>

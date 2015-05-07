@@ -15,17 +15,26 @@ namespace Site_Web.App_Data
     
     public partial class INSCRIT
     {
+        public INSCRIT()
+        {
+            this.T_E_COUREUR_COU = new HashSet<COUREUR>();
+            this.T_R_CLUB_CLU = new HashSet<CLUB>();
+        }
+    
         public int INS_ID { get; set; }
 
         [Required]
         [EmailAddress]
-        [StringLength(150)]
+        [StringLength(255)]
         public string INS_LOGIN { get; set; }
 
         [Required]
         [DataType(DataType.Password)]
-        [StringLength(150, MinimumLength = 6)]
+        [StringLength(255, MinimumLength = 6)]
         public string INS_MDP { get; set; }
         public int INS_NIVEAUAUTHENTIFICATION { get; set; }
+    
+        public virtual ICollection<COUREUR> T_E_COUREUR_COU { get; set; }
+        public virtual ICollection<CLUB> T_R_CLUB_CLU { get; set; }
     }
 }

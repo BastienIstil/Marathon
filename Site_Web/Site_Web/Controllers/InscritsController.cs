@@ -53,10 +53,8 @@ namespace Site_Web.Controllers
                     string encrypPass = crypto.Compute(user.INS_MDP, salt);
 
                     INSCRIT newUser = new INSCRIT();
-                    newUser.INS_ID = 50;
                     newUser.INS_LOGIN = user.INS_LOGIN;
-                    //newUser.INS_MDP = encrypPass;
-                    newUser.INS_MDP = user.INS_MDP;
+                    newUser.INS_MDP = encrypPass;
                     newUser.INS_NIVEAUAUTHENTIFICATION = 2;
 
                     db.INSCRITs.Add(newUser);
@@ -97,11 +95,8 @@ namespace Site_Web.Controllers
 
             if (user != null)
             {
-                if (user.INS_MDP == password)
+                if (user.INS_MDP == crypto.Compute(password, salt))
                     IsValid = true;
-
-                //if (user.INS_MDP == crypto.Compute(password, salt))
-                //    IsValid = true;
             }
 
             return IsValid;
