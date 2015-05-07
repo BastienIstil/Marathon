@@ -18,6 +18,25 @@ textarea {
 
 /* Marathon Annecy */
 
+/**************/
+/* Background */
+/**************/
+
+img.bg{
+    min-height:100%;
+    min-width:1024px;
+    width:100%;
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index:-1;
+}
+
+.pageAccueil{
+    background: #fff;
+}
+
 /************/
 /** Header **/
 /************/
@@ -51,6 +70,10 @@ textarea {
             font-size: 14px;
             margin-bottom: 16px;
         }
+        
+        a, a:focus, a:hover, a:active{
+            text-decoration: none;
+        }
     
 
     /* Banniere */
@@ -63,48 +86,96 @@ textarea {
         #headerSite{
             width:100%;
         }
-        a, a:focus, a:hover, a:active{
-            color: white;
-            text-decoration: none;
-        }
         li{
             list-style-type:none;
         }
-        .ssMenu{
-            display:none;
-        }
-        .menu1:hover .ssMenu, .menu2:hover .ssMenu, .menu3:hover .ssMenu{
-            display:block;
-            padding-top: 10px;
-        }
-        .ssMenu>ul li:before{
-            content:'> ';
-        }
 
-        .ssMenu>ul li{
-            text-align: left;
-            color: #fff;
-        }
-        .ssMenu>ul li:hover{
-            font-weight: bold;
-        }
-        .menu1, .menu2, .menu3{
+        .menu{
+            position:relative;
             display:inline-table;
             width: 33%;
             text-align:center;
             padding: 5px 0;
             background: #BCD0F5;
+            vertical-align: middle;
+        }
+        
+        .menu>a{
+            display:block;
+            margin-bottom: 0;
+            color: #fff;
         }
          
-        .menu1, .menu2{
-            border-right:solid 1px #000;
+        #menuSite>ul>li+li{
+            border-left:solid 1px #000;
         }
-        .menu1:hover, .menu2:hover, .menu3:hover{
+        #menuSite>ul>li:first-child{
+            border-top-left-radius: 5px;
+            border-bottom-left-radius: 5px;
+        }
+        #menuSite>ul>li+li+li{
+            border-top-right-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+
+        .menu:hover{
             background: #537CDB;
             border: none;
+        }
+
+        .ssMenu{
+            display:none;
+        }
+        .menu:hover .ssMenu{
+            display:block;
+            position: absolute;
+            background: #537CDB;
+            top:35px;
+            left: 0;
+            right:0;
+            border-radius: 5px;
+            padding-top: 15px;
+        }
+
+        .ssMenu>ul li{
+            text-align: left;
+        }
+        .ssMenu>ul li:before{
+            color: #fff;
+            content:'> ';
+        }
+        .ssMenu>ul li:hover{
+            font-weight: bold;
+            font-size: 15px;
+        }
+        .ssMenu>ul li>a{
+            color: #fff;
         }
 
     /* Bloc Login */
         #blocConnexion{
             display:inline-block;
         }
+    
+    /* Index Post Utilisateur*/
+
+        .pageAccueil{
+            padding: 15px 15px 0;
+            margin-top: 15px;
+            border: ridge 4px #CCC;
+        }
+
+        .post{
+            padding: 15px;
+            margin-bottom:15px;
+            border: solid 1px #000;
+            background: #eee;
+        }
+        .post .titre{
+            padding: 5px 0 0 5px;
+        }
+
+        .post .paragraphe{
+            margin-bottom: 0;
+        }
+
