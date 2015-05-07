@@ -17,8 +17,8 @@ namespace Site_Web.Class_Metier.Web_Common
                 MailMessage mail = new MailMessage();
                 SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
 
-                mail.From = new MailAddress("thonnat.bastien@gmail.com");
-                mail.To.Add("thonnat.bastien@gmail.com");
+                mail.From = new MailAddress("noreplycpinfo02@gmail.com");
+                mail.To.Add("noreplycpinfo02@gmail.com");
                 mail.Subject = "Test Mail - 1";
 
                 mail.IsBodyHtml = true;
@@ -29,7 +29,7 @@ namespace Site_Web.Class_Metier.Web_Common
                 mail.Body = htmlBody;
 
                 SmtpServer.Port = 587;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("thonnat.bastien@gmail.com", "");
+                SmtpServer.Credentials = new System.Net.NetworkCredential("noreplycpinfo02@gmail.com", "Marathon02");
                 SmtpServer.EnableSsl = true;
 
                 SmtpServer.Send(mail);

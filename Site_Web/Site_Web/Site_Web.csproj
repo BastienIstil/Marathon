@@ -322,6 +322,7 @@
     <Content Include="Views\TempsCoureurBorne\Details.cshtml" />
     <Content Include="Views\TempsCoureurBorne\Edit.cshtml" />
     <Content Include="Views\TempsCoureurBorne\Index.cshtml" />
+    <Content Include="Views\Inscrits\ResetPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
