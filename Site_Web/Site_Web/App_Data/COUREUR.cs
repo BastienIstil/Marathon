@@ -16,18 +16,18 @@ namespace Site_Web.App_Data
     {
         public COUREUR()
         {
-            this.T_J_PARTICIPATION_PAR = new HashSet<PARTICIPATION>();
-            this.T_J_GENERATION_GEN = new HashSet<GENERATION>();
+            this.T_E_PARTICIPATION_PAR = new HashSet<PARTICIPATION>();
+            this.T_J_CLASSEMENT_CLA = new HashSet<CLASSEMENT>();
             this.T_J_TEMPSCOUBORNE_TCB = new HashSet<TEMPSCOUBORNE>();
             this.T_R_LOT_LOT = new HashSet<LOT>();
             this.T_R_DEFI_DEF = new HashSet<DEFI>();
         }
     
         public int COU_ID { get; set; }
-        public int CAT_ID { get; set; }
         public Nullable<int> CLU_ID { get; set; }
-        public string COU_PRENOM { get; set; }
+        public int CAT_ID { get; set; }
         public string COU_NOM { get; set; }
+        public string COU_PRENOM { get; set; }
         public System.DateTime COU_DATENAISSANCE { get; set; }
         public string COU_SEXE { get; set; }
         public string COU_NUMEROLICENCE { get; set; }
@@ -39,13 +39,13 @@ namespace Site_Web.App_Data
         public string COU_PAYS { get; set; }
         public string COU_TELEPHONE { get; set; }
         public string COU_FAX { get; set; }
-        public string COU_ENTREPRISEGROUPEASSOCIATION { get; set; }
+        public string COU_ENTREPRISEGROUPEASSOUCIATION { get; set; }
         public string COU_CERTIFICATMEDICAL { get; set; }
     
-        public virtual ICollection<PARTICIPATION> T_J_PARTICIPATION_PAR { get; set; }
         public virtual CLUB T_R_CLUB_CLU { get; set; }
         public virtual CATEGORIE T_R_CATEGORIE_CAT { get; set; }
-        public virtual ICollection<GENERATION> T_J_GENERATION_GEN { get; set; }
+        public virtual ICollection<PARTICIPATION> T_E_PARTICIPATION_PAR { get; set; }
+        public virtual ICollection<CLASSEMENT> T_J_CLASSEMENT_CLA { get; set; }
         public virtual ICollection<TEMPSCOUBORNE> T_J_TEMPSCOUBORNE_TCB { get; set; }
         public virtual ICollection<LOT> T_R_LOT_LOT { get; set; }
         public virtual ICollection<DEFI> T_R_DEFI_DEF { get; set; }

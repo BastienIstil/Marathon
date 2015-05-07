@@ -21,6 +21,7 @@ namespace Site_Web.App_Data
     
         public int CAT_ID { get; set; }
         public string CAT_LIBELLE { get; set; }
+        public string CAT_CODE { get; set; }
     
         public virtual ICollection<COUREUR> T_E_COUREUR_COU { get; set; }
     }

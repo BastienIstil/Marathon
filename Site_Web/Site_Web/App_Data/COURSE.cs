@@ -16,9 +16,8 @@ namespace Site_Web.App_Data
     {
         public COURSE()
         {
-            this.T_J_GENERATION_GEN = new HashSet<GENERATION>();
-            this.T_J_PARTICIPATION_PAR = new HashSet<PARTICIPATION>();
-            this.T_J_PARTICIPATIONENGROUPE_PEG = new HashSet<PARTICIPATIONENGROUPE>();
+            this.T_E_PARTICIPATION_PAR = new HashSet<PARTICIPATION>();
+            this.T_J_CLASSEMENT_CLA = new HashSet<CLASSEMENT>();
             this.T_R_BORNE_BOR = new HashSet<BORNE>();
             this.T_R_DEFI_DEF = new HashSet<DEFI>();
         }
@@ -30,9 +29,8 @@ namespace Site_Web.App_Data
         public Nullable<int> COR_NOMBREMAXPARTICIPANT { get; set; }
         public Nullable<decimal> COR_PRIX { get; set; }
     
-        public virtual ICollection<GENERATION> T_J_GENERATION_GEN { get; set; }
-        public virtual ICollection<PARTICIPATION> T_J_PARTICIPATION_PAR { get; set; }
-        public virtual ICollection<PARTICIPATIONENGROUPE> T_J_PARTICIPATIONENGROUPE_PEG { get; set; }
+        public virtual ICollection<PARTICIPATION> T_E_PARTICIPATION_PAR { get; set; }
+        public virtual ICollection<CLASSEMENT> T_J_CLASSEMENT_CLA { get; set; }
         public virtual ICollection<BORNE> T_R_BORNE_BOR { get; set; }
         public virtual ICollection<DEFI> T_R_DEFI_DEF { get; set; }
     }

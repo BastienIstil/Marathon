@@ -17,15 +17,15 @@ namespace Site_Web.App_Data
         public CLUB()
         {
             this.T_E_COUREUR_COU = new HashSet<COUREUR>();
-            this.T_J_PARTICIPATIONENGROUPE_PEG = new HashSet<PARTICIPATIONENGROUPE>();
+            this.T_E_PARTICIPATION_PAR = new HashSet<PARTICIPATION>();
         }
     
         public int CLU_ID { get; set; }
         public string CLU_NOM { get; set; }
-        public int CLU_LICENCE { get; set; }
+        public string CLU_LICENCE { get; set; }
         public string CLU_EMAIL { get; set; }
     
         public virtual ICollection<COUREUR> T_E_COUREUR_COU { get; set; }
-        public virtual ICollection<PARTICIPATIONENGROUPE> T_J_PARTICIPATIONENGROUPE_PEG { get; set; }
+        public virtual ICollection<PARTICIPATION> T_E_PARTICIPATION_PAR { get; set; }
     }
 }

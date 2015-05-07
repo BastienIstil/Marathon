@@ -177,7 +177,10 @@
     <Compile Include="App_Data\DEFI.cs">
       <DependentUpon>ModelMarathonBDD.tt</DependentUpon>
     </Compile>
-    <Compile Include="App_Data\GENERATION.cs">
+    <Compile Include="App_Data\INFORMATIONPUBLIQUE.cs">
+      <DependentUpon>ModelMarathonBDD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="App_Data\INSCRIT.cs">
       <DependentUpon>ModelMarathonBDD.tt</DependentUpon>
     </Compile>
     <Compile Include="App_Data\LOT.cs">
@@ -189,7 +192,7 @@
     <Compile Include="App_Data\PARTICIPATION.cs">
       <DependentUpon>ModelMarathonBDD.tt</DependentUpon>
     </Compile>
-    <Compile Include="App_Data\PARTICIPATIONENGROUPE.cs">
+    <Compile Include="App_Data\PASTAPARTY.cs">
       <DependentUpon>ModelMarathonBDD.tt</DependentUpon>
     </Compile>
     <Compile Include="App_Data\TEMPSCOUBORNE.cs">
@@ -201,21 +204,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Class_Metier\Web_Common\Telechargement.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\BornesController.cs" />
-    <Compile Include="Controllers\CategoriesController.cs" />
-    <Compile Include="Controllers\ClassementsController.cs" />
-    <Compile Include="Controllers\ClubsController.cs" />
-    <Compile Include="Controllers\CoureursController.cs" />
-    <Compile Include="Controllers\CoursesController.cs" />
-    <Compile Include="Controllers\DefisController.cs" />
-    <Compile Include="Controllers\GenerationsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LotsController.cs" />
-    <Compile Include="Controllers\PaimentsController.cs" />
-    <Compile Include="Controllers\ParticipationsController.cs" />
-    <Compile Include="Controllers\ParticipationsEnGroupeController.cs" />
-    <Compile Include="Controllers\TempsCoureurBorneController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -236,18 +225,6 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
-    <Compile Include="Models\Metadata\P_Classement.cs" />
-    <Compile Include="Models\Metadata\P_Borne.cs" />
-    <Compile Include="Models\Metadata\P_Categorie.cs" />
-    <Compile Include="Models\Metadata\P_Club.cs" />
-    <Compile Include="Models\Metadata\P_Coureur.cs" />
-    <Compile Include="Models\Metadata\P_Course.cs" />
-    <Compile Include="Models\Metadata\P_Defi.cs" />
-    <Compile Include="Models\Metadata\P_Lot.cs" />
-    <Compile Include="Models\Metadata\P_Paiement.cs" />
-    <Compile Include="Models\Metadata\P_Participation.cs" />
-    <Compile Include="Models\Metadata\P_ParticipationEnGroupe.cs" />
-    <Compile Include="Models\Metadata\P_TempsCoureurBorne.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -260,12 +237,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
-    <Compile Include="App_Data\T_E_INFORMATIONPUBLIQUE_INF.cs">
-      <DependentUpon>ModelMarathonBDD.tt</DependentUpon>
-    </Compile>
-    <Compile Include="App_Data\T_E_INSCRIT_INS.cs">
-      <DependentUpon>ModelMarathonBDD.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -326,75 +297,11 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Account\_Login.cshtml" />
-    <Content Include="Views\Classements\Create.cshtml" />
-    <Content Include="Views\Classements\Delete.cshtml" />
-    <Content Include="Views\Classements\Details.cshtml" />
-    <Content Include="Views\Classements\Edit.cshtml" />
-    <Content Include="Views\Classements\Index.cshtml" />
-    <Content Include="Views\Bornes\Create.cshtml" />
-    <Content Include="Views\Bornes\Delete.cshtml" />
-    <Content Include="Views\Bornes\Details.cshtml" />
-    <Content Include="Views\Bornes\Edit.cshtml" />
-    <Content Include="Views\Bornes\Index.cshtml" />
-    <Content Include="Views\Categories\Create.cshtml" />
-    <Content Include="Views\Categories\Delete.cshtml" />
-    <Content Include="Views\Categories\Details.cshtml" />
-    <Content Include="Views\Categories\Edit.cshtml" />
-    <Content Include="Views\Categories\Index.cshtml" />
-    <Content Include="Views\Clubs\Create.cshtml" />
-    <Content Include="Views\Clubs\Delete.cshtml" />
-    <Content Include="Views\Clubs\Details.cshtml" />
-    <Content Include="Views\Clubs\Edit.cshtml" />
-    <Content Include="Views\Clubs\Index.cshtml" />
-    <Content Include="Views\Coureurs\Create.cshtml" />
-    <Content Include="Views\Coureurs\Delete.cshtml" />
-    <Content Include="Views\Coureurs\Details.cshtml" />
-    <Content Include="Views\Coureurs\Edit.cshtml" />
-    <Content Include="Views\Coureurs\Index.cshtml" />
-    <Content Include="Views\Courses\Create.cshtml" />
-    <Content Include="Views\Courses\Delete.cshtml" />
-    <Content Include="Views\Courses\Details.cshtml" />
-    <Content Include="Views\Courses\Edit.cshtml" />
-    <Content Include="Views\Courses\Index.cshtml" />
-    <Content Include="Views\Defis\Create.cshtml" />
-    <Content Include="Views\Defis\Delete.cshtml" />
-    <Content Include="Views\Defis\Details.cshtml" />
-    <Content Include="Views\Defis\Edit.cshtml" />
-    <Content Include="Views\Defis\Index.cshtml" />
-    <Content Include="Views\Generations\Create.cshtml" />
-    <Content Include="Views\Generations\Delete.cshtml" />
-    <Content Include="Views\Generations\Details.cshtml" />
-    <Content Include="Views\Generations\Edit.cshtml" />
-    <Content Include="Views\Generations\Index.cshtml" />
-    <Content Include="Views\Lots\Create.cshtml" />
-    <Content Include="Views\Lots\Delete.cshtml" />
-    <Content Include="Views\Lots\Details.cshtml" />
-    <Content Include="Views\Lots\Edit.cshtml" />
-    <Content Include="Views\Lots\Index.cshtml" />
-    <Content Include="Views\Paiments\Create.cshtml" />
-    <Content Include="Views\Paiments\Delete.cshtml" />
-    <Content Include="Views\Paiments\Details.cshtml" />
-    <Content Include="Views\Paiments\Edit.cshtml" />
-    <Content Include="Views\Paiments\Index.cshtml" />
-    <Content Include="Views\Participations\Create.cshtml" />
-    <Content Include="Views\Participations\Delete.cshtml" />
-    <Content Include="Views\Participations\Details.cshtml" />
-    <Content Include="Views\Participations\Edit.cshtml" />
-    <Content Include="Views\Participations\Index.cshtml" />
-    <Content Include="Views\ParticipationsEnGroupe\Create.cshtml" />
-    <Content Include="Views\ParticipationsEnGroupe\Delete.cshtml" />
-    <Content Include="Views\ParticipationsEnGroupe\Details.cshtml" />
-    <Content Include="Views\ParticipationsEnGroupe\Edit.cshtml" />
-    <Content Include="Views\ParticipationsEnGroupe\Index.cshtml" />
-    <Content Include="Views\TempsCoureurBorne\Create.cshtml" />
-    <Content Include="Views\TempsCoureurBorne\Delete.cshtml" />
-    <Content Include="Views\TempsCoureurBorne\Details.cshtml" />
-    <Content Include="Views\TempsCoureurBorne\Edit.cshtml" />
-    <Content Include="Views\TempsCoureurBorne\Index.cshtml" />
     <Content Include="Views\Home\Index2.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Models\Metadata\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

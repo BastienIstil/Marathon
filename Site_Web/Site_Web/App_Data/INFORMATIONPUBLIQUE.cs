@@ -12,15 +12,12 @@ namespace Site_Web.App_Data
     using System;
     using System.Collections.Generic;
     
-    public partial class GENERATION
+    public partial class INFORMATIONPUBLIQUE
     {
-        public int GEN_ID { get; set; }
-        public int COU_ID { get; set; }
-        public int CLA_ID { get; set; }
-        public int COR_ID { get; set; }
-    
-        public virtual CLASSEMENT T_E_CLASSEMENT_CLA { get; set; }
-        public virtual COUREUR T_E_COUREUR_COU { get; set; }
-        public virtual COURSE T_R_COURSE_COR { get; set; }
+        public int INF_ID { get; set; }
+        public string INF_NOM { get; set; }
+        public string INF_PRENOM { get; set; }
+        public string INF_EMAIL { get; set; }
+        public string INF_CONTENUE { get; set; }
     }
 }
