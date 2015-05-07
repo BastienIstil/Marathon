@@ -7,9 +7,11 @@
     <title>@ViewBag.Title - Mon application ASP.NET</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/Scripts/Site.js")
 
 </head>
 <body>
+    <img src="~/Resources/background.jpg" class="bg"/>
     <section id="headerSite">
         <div id="logoMarathon">
         </div>
@@ -25,7 +27,7 @@
         </div>
         <nav id="menuSite">
             <ul>
-                <li class="menu1">
+                <li class="menu">
                     <a class="titre">Inscription</a>
                     <!-- Sous-Menu1 -->
                     <div class="ssMenu">
@@ -37,9 +39,9 @@
                         </ul>
                     </div>
                     <!-- Fin Sous Menu-->
-                    <!-- le </li> et <li class="menu2"> sont collés pour éviter le problème du white space
+                    <!-- le </li> et <li class="menu"> sont collés pour éviter le problème du white space
                     quand elles sont en display:inline-block -->
-                </li><li class="menu2">
+                </li><li class="menu">
                     <a class="titre">Courses</a>
                     <!-- Sous-Menu2 -->
                     <div class="ssMenu">
@@ -49,10 +51,10 @@
                         </ul>
                     </div>
                     <!-- Fin Sous Menu-->
-                    <!-- le </li> et <li class="menu3"> sont collés pour éviter le problème du white space
+                    <!-- le </li> et <li class="menu"> sont collés pour éviter le problème du white space
                         quand elles sont en display:inline-block -->
-                </li><li class="menu3">
-                    <a class ="titre">Classement</a>
+                </li><li class="menu">
+                    <a class="titre">Classement</a>
                     <!-- Sous-Menu3 -->
                     <div class="ssMenu">
                         <ul class="texte">
