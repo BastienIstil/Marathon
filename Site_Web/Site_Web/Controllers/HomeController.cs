@@ -11,8 +11,10 @@ namespace Site_Web.Controllers
     {
         public ActionResult Index()
         {
-            
-
+            return View();
+        }
+        public ActionResult Index2()
+        {
             return View();
         }
 
