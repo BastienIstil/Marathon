@@ -15,7 +15,7 @@ namespace Site_Web.App_Data
     public partial class LOT
     {
         public int LOT_ID { get; set; }
-        public int COU_ID { get; set; }
+        public Nullable<int> COU_ID { get; set; }
         public string LOT_NOM { get; set; }
     
         public virtual COUREUR T_E_COUREUR_COU { get; set; }

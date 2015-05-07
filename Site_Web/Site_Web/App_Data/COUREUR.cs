@@ -39,7 +39,7 @@ namespace Site_Web.App_Data
         public string COU_PAYS { get; set; }
         public string COU_TELEPHONE { get; set; }
         public string COU_FAX { get; set; }
-        public string COU_ENTREPRISEGROUPEASSOUCIATION { get; set; }
+        public string COU_ENTREPRISEGROUPEASSOCIATION { get; set; }
         public string COU_CERTIFICATMEDICAL { get; set; }
     
         public virtual CLUB T_R_CLUB_CLU { get; set; }
