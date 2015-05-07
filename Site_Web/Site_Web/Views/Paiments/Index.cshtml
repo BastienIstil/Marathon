@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Site_Web.App_Data.PAIEMENT>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Paiments</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PAI_MONTANT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PAI_MOYENDEPAIEMENT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PAI_DATEPAIEMENT)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PAI_MONTANT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PAI_MOYENDEPAIEMENT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PAI_DATEPAIEMENT)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PAI_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PAI_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PAI_ID })
+        </td>
+    </tr>
+}
+
+</table>
