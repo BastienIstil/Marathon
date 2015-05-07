@@ -1,0 +1,14 @@
+@model Site_Web.App_Data.INSCRIT
+
+@{
+    ViewBag.Title = "Logout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Logout</h2>
+
+public ActionResult LogOut()
+{
+    FormsAuthentication.SignOut();
+    return RedirectToAction("Index", "Home");
+}

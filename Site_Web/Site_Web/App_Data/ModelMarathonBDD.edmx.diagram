@@ -4,20 +4,20 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c9113773ece54040b97380ad0b97a34d" Name="Diagram1" ZoomLevel="88">
+      <Diagram DiagramId="c9113773ece54040b97380ad0b97a34d" Name="Diagram1" ZoomLevel="73">
         <EntityTypeShape EntityType="MarathonModel.COUREUR" Width="1.5" PointX="3" PointY="6.375" />
         <EntityTypeShape EntityType="MarathonModel.INFORMATIONPUBLIQUE" Width="1.5" PointX="8.75" PointY="0.75" />
         <EntityTypeShape EntityType="MarathonModel.INSCRIT" Width="1.5" PointX="8.75" PointY="3.75" />
         <EntityTypeShape EntityType="MarathonModel.PAIEMENT" Width="1.5" PointX="10.5" PointY="7.75" />
         <EntityTypeShape EntityType="MarathonModel.PARTICIPATION" Width="1.5" PointX="8.25" PointY="7.125" />
         <EntityTypeShape EntityType="MarathonModel.PASTAPARTY" Width="1.5" PointX="6" PointY="2.5" />
-        <EntityTypeShape EntityType="MarathonModel.CLASSEMENT" Width="1.5" PointX="5.25" PointY="5.25" />
-        <EntityTypeShape EntityType="MarathonModel.TEMPSCOUBORNE" Width="1.5" PointX="5.25" PointY="11.25" />
-        <EntityTypeShape EntityType="MarathonModel.BORNE" Width="1.5" PointX="3" PointY="13.25" />
+        <EntityTypeShape EntityType="MarathonModel.CLASSEMENT" Width="1.5" PointX="5.25" PointY="8.25" />
+        <EntityTypeShape EntityType="MarathonModel.TEMPSCOUBORNE" Width="1.5" PointX="5.25" PointY="5.25" />
+        <EntityTypeShape EntityType="MarathonModel.BORNE" Width="1.5" PointX="3" PointY="1.25" />
         <EntityTypeShape EntityType="MarathonModel.CATEGORIE" Width="1.5" PointX="0.75" PointY="5.375" />
         <EntityTypeShape EntityType="MarathonModel.CLUB" Width="1.5" PointX="0.75" PointY="8.25" />
-        <EntityTypeShape EntityType="MarathonModel.COURSE" Width="1.5" PointX="3" PointY="1.875" />
-        <EntityTypeShape EntityType="MarathonModel.DEFI" Width="1.5" PointX="5.25" PointY="8.25" />
+        <EntityTypeShape EntityType="MarathonModel.COURSE" Width="1.5" PointX="0.75" PointY="0.875" />
+        <EntityTypeShape EntityType="MarathonModel.DEFI" Width="1.5" PointX="5.25" PointY="11.25" />
         <EntityTypeShape EntityType="MarathonModel.LOT" Width="1.5" PointX="5.25" PointY="22" />
         <AssociationConnector Association="MarathonModel.FK_T_E_COUR_EST_AFFIL_T_R_CLUB" />
         <AssociationConnector Association="MarathonModel.FK_T_E_COUR_EST_DEFIN_T_R_CATE" />

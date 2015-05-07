@@ -14,7 +14,15 @@
         <div id="logoMarathon">
         </div>
         <div id="blocConnexion">
-
+            @if (Request.IsAuthenticated) {
+                @Html.Encode(User.Identity.Name)
+                @Html.ActionLink("Sign Out", "Logout", "Inscrits",null, new{@class ="btn btn-default"})
+            }
+            else {
+                    @Html.ActionLink("Register", "Register", "Inscrits")
+                    <span> | </span>
+                    @Html.ActionLink("Sign In", "Login", "Inscrits")
+            }   
         </div>
         <nav id="menuSite">
             <ul>
