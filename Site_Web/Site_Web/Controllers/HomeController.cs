@@ -18,11 +18,6 @@ namespace Site_Web.Controllers
             return View();
         }
 
-        public ActionResult Index2()
-        {
-            return View();
-        }
-
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
