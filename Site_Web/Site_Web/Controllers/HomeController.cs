@@ -31,10 +31,10 @@ namespace Site_Web.Controllers
             return View();
         }
 
-        public ActionResult Telecharge()
+        public ActionResult Telecharge(string Fichier)
         {
             Console.Error.WriteLine(Path.GetFullPath("Resources"));
-            Telechargement.telechargementLocal(Response, "InscriptionIndividu", Server.MapPath("../Resources/InscriptionMarathonAnnecy2015.pdf"));
+            Telechargement.telechargementLocal(Response, "InscriptionIndividu", Server.MapPath("../Resources/"+Fichier));
             return View();
         }
     }

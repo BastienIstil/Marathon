@@ -268,7 +268,8 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Resources\InscriptionMarathonAnnecy2015.pdf" />
+    <None Include="Resources\InscriptionMarathonAnnecyClub2015.pdf" />
+    <None Include="Resources\InscriptionMarathonAnnecyIndividuelle2015.pdf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

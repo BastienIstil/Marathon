@@ -63,9 +63,19 @@ namespace Site_Web.Properties {
         /// <summary>
         ///   Recherche une ressource localisée de type System.Byte[].
         /// </summary>
-        public static byte[] InscriptionMarathonAnnecy2015 {
+        public static byte[] InscriptionMarathonAnnecyClub2015 {
             get {
-                object obj = ResourceManager.GetObject("InscriptionMarathonAnnecy2015", resourceCulture);
+                object obj = ResourceManager.GetObject("InscriptionMarathonAnnecyClub2015", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Recherche une ressource localisée de type System.Byte[].
+        /// </summary>
+        public static byte[] InscriptionMarathonAnnecyIndividuelle2015 {
+            get {
+                object obj = ResourceManager.GetObject("InscriptionMarathonAnnecyIndividuelle2015", resourceCulture);
                 return ((byte[])(obj));
             }
         }
