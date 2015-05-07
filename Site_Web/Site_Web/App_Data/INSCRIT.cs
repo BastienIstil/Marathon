@@ -12,12 +12,11 @@ namespace Site_Web.App_Data
     using System;
     using System.Collections.Generic;
     
-    public partial class T_E_INFORMATIONPUBLIQUE_INF
+    public partial class INSCRIT
     {
-        public int INF_ID { get; set; }
-        public string INF_NOM { get; set; }
-        public string INF_PRENOM { get; set; }
-        public string INF_EMAIL { get; set; }
-        public string INF_CONTENUE { get; set; }
+        public int INS_ID { get; set; }
+        public string INS_LOGIN { get; set; }
+        public string INS_MDP { get; set; }
+        public int INS_NIVEAUAUTHENTIFICATION { get; set; }
     }
 }

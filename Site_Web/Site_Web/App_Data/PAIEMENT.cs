@@ -16,16 +16,20 @@ namespace Site_Web.App_Data
     {
         public PAIEMENT()
         {
-            this.T_J_PARTICIPATION_PAR = new HashSet<PARTICIPATION>();
-            this.T_J_PARTICIPATIONENGROUPE_PEG = new HashSet<PARTICIPATIONENGROUPE>();
+            this.T_E_PARTICIPATION_PAR1 = new HashSet<PARTICIPATION>();
         }
     
         public int PAI_ID { get; set; }
+        public int PAR_ID { get; set; }
+        public int CLU_ID { get; set; }
+        public int COR_ID { get; set; }
+        public int PAS_ID { get; set; }
+        public int COU_ID { get; set; }
         public int PAI_MONTANT { get; set; }
-        public string PAI_MOYENDEPAIEMENT { get; set; }
+        public string PAI_MOYENPAIEMENT { get; set; }
         public System.DateTime PAI_DATEPAIEMENT { get; set; }
     
-        public virtual ICollection<PARTICIPATION> T_J_PARTICIPATION_PAR { get; set; }
-        public virtual ICollection<PARTICIPATIONENGROUPE> T_J_PARTICIPATIONENGROUPE_PEG { get; set; }
+        public virtual PARTICIPATION T_E_PARTICIPATION_PAR { get; set; }
+        public virtual ICollection<PARTICIPATION> T_E_PARTICIPATION_PAR1 { get; set; }
     }
 }

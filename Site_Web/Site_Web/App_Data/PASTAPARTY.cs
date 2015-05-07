@@ -12,11 +12,16 @@ namespace Site_Web.App_Data
     using System;
     using System.Collections.Generic;
     
-    public partial class T_E_INSCRIT_INS
+    public partial class PASTAPARTY
     {
-        public int INS_ID { get; set; }
-        public string INS_LOGIN { get; set; }
-        public string INS_MDP { get; set; }
-        public int INS_NIVEAUATHENTIFICATION { get; set; }
+        public PASTAPARTY()
+        {
+            this.T_E_PARTICIPATION_PAR = new HashSet<PARTICIPATION>();
+        }
+    
+        public int PAS_ID { get; set; }
+        public Nullable<int> PAS_NBMAXPARTICIPANT { get; set; }
+    
+        public virtual ICollection<PARTICIPATION> T_E_PARTICIPATION_PAR { get; set; }
     }
 }

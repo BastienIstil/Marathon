@@ -23,6 +23,7 @@ namespace Site_Web.App_Data
         public int DEF_ID { get; set; }
         public string DEF_NOM { get; set; }
         public int DEF_NOMBREMAXPARTICIPANT { get; set; }
+        public string DEF_EXPLICATION { get; set; }
     
         public virtual ICollection<COURSE> T_R_COURSE_COR { get; set; }
         public virtual ICollection<COUREUR> T_E_COUREUR_COU { get; set; }

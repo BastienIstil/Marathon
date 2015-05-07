@@ -25,14 +25,13 @@ namespace Site_Web.App_Data
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<CLASSEMENT> CLASSEMENTs { get; set; }
         public virtual DbSet<COUREUR> COUREURs { get; set; }
-        public virtual DbSet<T_E_INFORMATIONPUBLIQUE_INF> T_E_INFORMATIONPUBLIQUE_INF { get; set; }
-        public virtual DbSet<T_E_INSCRIT_INS> T_E_INSCRIT_INS { get; set; }
+        public virtual DbSet<INFORMATIONPUBLIQUE> INFORMATIONPUBLIQUEs { get; set; }
+        public virtual DbSet<INSCRIT> INSCRITs { get; set; }
         public virtual DbSet<PAIEMENT> PAIEMENTs { get; set; }
-        public virtual DbSet<GENERATION> GENERATIONs { get; set; }
-        public virtual DbSet<PARTICIPATION> PARTICIPATIONs1 { get; set; }
-        public virtual DbSet<PARTICIPATIONENGROUPE> PARTICIPATIONENGROUPEs { get; set; }
+        public virtual DbSet<PARTICIPATION> PARTICIPATIONs { get; set; }
+        public virtual DbSet<PASTAPARTY> PASTAPARTies { get; set; }
+        public virtual DbSet<CLASSEMENT> CLASSEMENTs { get; set; }
         public virtual DbSet<TEMPSCOUBORNE> TEMPSCOUBORNEs { get; set; }
         public virtual DbSet<BORNE> BORNEs { get; set; }
         public virtual DbSet<CATEGORIE> CATEGORIEs { get; set; }

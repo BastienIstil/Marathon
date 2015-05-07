@@ -14,14 +14,12 @@ namespace Site_Web.App_Data
     
     public partial class CLASSEMENT
     {
-        public CLASSEMENT()
-        {
-            this.T_J_GENERATION_GEN = new HashSet<GENERATION>();
-        }
-    
-        public int CLA_ID { get; set; }
+        public int COR_ID { get; set; }
+        public int COU_ID { get; set; }
         public Nullable<int> CLA_TEMPS { get; set; }
+        public Nullable<int> CLA_RANG { get; set; }
     
-        public virtual ICollection<GENERATION> T_J_GENERATION_GEN { get; set; }
+        public virtual COUREUR T_E_COUREUR_COU { get; set; }
+        public virtual COURSE T_R_COURSE_COR { get; set; }
     }
 }

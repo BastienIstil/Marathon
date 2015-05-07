@@ -14,17 +14,28 @@ namespace Site_Web.App_Data
     
     public partial class PARTICIPATION
     {
+        public PARTICIPATION()
+        {
+            this.T_E_PAIEMENT_PAI = new HashSet<PAIEMENT>();
+        }
+    
         public int PAR_ID { get; set; }
-        public int COU_ID { get; set; }
+        public int CLU_ID { get; set; }
         public int COR_ID { get; set; }
-        public int PAI_ID { get; set; }
-        public Nullable<bool> PAR_PASTAPARTY { get; set; }
-        public Nullable<int> PAR_TEMPSESTIME { get; set; }
-        public Nullable<int> PAR_NOMBREPASTAPARTY { get; set; }
+        public int PAS_ID { get; set; }
+        public int COU_ID { get; set; }
+        public Nullable<int> PAI_ID { get; set; }
         public int PAR_DOSSARD { get; set; }
+        public Nullable<int> PAR_TEMPS_ESTIME { get; set; }
+        public int PAR_NBPARTICIPANTCOURSE { get; set; }
+        public bool PAR_PARTICIPEPASTAPARTY { get; set; }
+        public int PAR_NBPARTICIPANTPASTAPARTY { get; set; }
     
         public virtual COUREUR T_E_COUREUR_COU { get; set; }
-        public virtual PAIEMENT T_E_PAIEMENT_PAI { get; set; }
+        public virtual ICollection<PAIEMENT> T_E_PAIEMENT_PAI { get; set; }
+        public virtual PAIEMENT T_E_PAIEMENT_PAI1 { get; set; }
         public virtual COURSE T_R_COURSE_COR { get; set; }
+        public virtual PASTAPARTY T_E_PASTAPARTY_PAS { get; set; }
+        public virtual CLUB T_R_CLUB_CLU { get; set; }
     }
 }
