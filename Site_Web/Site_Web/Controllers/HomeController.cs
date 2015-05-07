@@ -33,7 +33,7 @@ namespace Site_Web.Controllers
         {
             Console.Error.WriteLine(Path.GetFullPath("Resources"));
             Telechargement.telechargementLocal(Response, "InscriptionIndividu", Server.MapPath("../Resources/InscriptionMarathonAnnecy2015.pdf"));
-            return View();        
+            return View();
         }
     }
 
