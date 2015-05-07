@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Site_Web.App_Data.PARTICIPATION>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Liste des participations</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PAR_DOSSARD)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PAR_TEMPS_ESTIME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PAR_NBPARTICIPANTCOURSE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PAR_PARTICIPEPASTAPARTY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PAR_NBPARTICIPANTPASTAPARTY)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.T_E_COUREUR_COU.COU_NOM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.T_E_PAIEMENT_PAI1.PAI_MOYENPAIEMENT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.T_R_COURSE_COR.COR_NOM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.T_E_PASTAPARTY_PAS.PAS_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.T_R_CLUB_CLU.CLU_NOM)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PAR_DOSSARD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PAR_TEMPS_ESTIME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PAR_NBPARTICIPANTCOURSE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PAR_PARTICIPEPASTAPARTY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PAR_NBPARTICIPANTPASTAPARTY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.T_E_COUREUR_COU.COU_NOM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.T_E_PAIEMENT_PAI1.PAI_MOYENPAIEMENT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.T_R_COURSE_COR.COR_NOM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.T_E_PASTAPARTY_PAS.PAS_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.T_R_CLUB_CLU.CLU_NOM)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PAR_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PAR_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PAR_ID })
+        </td>
+    </tr>
+}
+
+</table>

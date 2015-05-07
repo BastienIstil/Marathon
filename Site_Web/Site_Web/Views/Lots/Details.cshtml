@@ -1,0 +1,34 @@
+﻿@model Site_Web.App_Data.LOT
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LOT</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LOT_NOM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LOT_NOM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.T_E_COUREUR_COU.COU_NOM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.T_E_COUREUR_COU.COU_NOM)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LOT_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

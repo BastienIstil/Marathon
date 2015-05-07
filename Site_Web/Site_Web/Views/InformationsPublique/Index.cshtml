@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Site_Web.App_Data.INFORMATIONPUBLIQUE>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Informations publique</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.INF_NOM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.INF_PRENOM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.INF_EMAIL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.INF_CONTENUE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.INF_NOM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.INF_PRENOM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.INF_EMAIL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.INF_CONTENUE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.INF_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.INF_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.INF_ID })
+        </td>
+    </tr>
+}
+
+</table>

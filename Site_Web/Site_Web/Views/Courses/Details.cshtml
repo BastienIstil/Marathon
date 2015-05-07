@@ -1,0 +1,58 @@
+﻿@model Site_Web.App_Data.COURSE
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>COURSE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.COR_NOM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.COR_NOM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.COR_DISTANCE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.COR_DISTANCE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.COR_DATE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.COR_DATE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.COR_NOMBREMAXPARTICIPANT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.COR_NOMBREMAXPARTICIPANT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.COR_PRIX)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.COR_PRIX)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.COR_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Site_Web.App_Data.COURSE>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Liste des courses</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.COR_NOM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COR_DISTANCE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COR_DATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COR_NOMBREMAXPARTICIPANT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COR_PRIX)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.COR_NOM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COR_DISTANCE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COR_DATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COR_NOMBREMAXPARTICIPANT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COR_PRIX)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.COR_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.COR_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.COR_ID })
+        </td>
+    </tr>
+}
+
+</table>

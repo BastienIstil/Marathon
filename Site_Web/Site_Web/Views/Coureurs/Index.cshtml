@@ -1,0 +1,129 @@
+﻿@model IEnumerable<Site_Web.App_Data.COUREUR>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Liste des coureurs</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.COU_PRENOM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COU_NOM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COU_DATENAISSANCE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COU_SEXE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COU_NUMEROLICENCE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COU_FEDERATION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COU_EMAIL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COU_ADRESSE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COU_CODEPOSTAL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COU_VILLE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COU_PAYS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COU_TELEPHONE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COU_FAX)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COU_ENTREPRISEGROUPEASSOCIATION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.COU_CERTIFICATMEDICAL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.T_R_CLUB_CLU.CLU_NOM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.T_R_CATEGORIE_CAT.CAT_LIBELLE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.COU_PRENOM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COU_NOM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COU_DATENAISSANCE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COU_SEXE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COU_NUMEROLICENCE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COU_FEDERATION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COU_EMAIL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COU_ADRESSE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COU_CODEPOSTAL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COU_VILLE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COU_PAYS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COU_TELEPHONE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COU_FAX)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COU_ENTREPRISEGROUPEASSOCIATION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COU_CERTIFICATMEDICAL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.T_R_CLUB_CLU.CLU_NOM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.T_R_CATEGORIE_CAT.CAT_LIBELLE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.COU_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.COU_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.COU_ID })
+        </td>
+    </tr>
+}
+
+</table>
