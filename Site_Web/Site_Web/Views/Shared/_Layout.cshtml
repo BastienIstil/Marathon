@@ -16,12 +16,11 @@
         <div id="blocConnexion">
             @if (Request.IsAuthenticated) {
                 @Html.Encode(User.Identity.Name)
-                @Html.ActionLink("Sign Out", "Logout", "Inscrits",null, new{@class ="btn btn-default"})
+                @Html.ActionLink("Sign Out", "Logout", "Inscrits", null, new { @class = "btn btn-primary" })
             }
             else {
-                    @Html.ActionLink("Register", "Register", "Inscrits")
-                    <span> | </span>
-                    @Html.ActionLink("Sign In", "Login", "Inscrits")
+                    @Html.ActionLink("Register", "Register", "Inscrits", new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Sign In", "Login", "Inscrits", new { @class = "btn btn-primary" })
             }   
         </div>
         <nav id="menuSite">

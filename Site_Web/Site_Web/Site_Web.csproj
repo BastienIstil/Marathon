@@ -205,6 +205,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Class_Metier\PBKDF2.cs" />
     <Compile Include="Class_Metier\SimpleCrypto.cs" />
+    <Compile Include="Class_Metier\Web_Common\Email.cs" />
     <Compile Include="Class_Metier\Web_Common\Telechargement.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InscritsController.cs" />
