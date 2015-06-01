@@ -11,6 +11,7 @@ namespace Site_Web.Controllers
     {
         public ActionResult Index()
         {
+            Email.SendEmail();
             return View();
         }
         public ActionResult Index2()
