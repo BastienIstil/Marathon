@@ -248,10 +248,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Startup.cs" />
-    <Compile Include="App_Data\T_E_INFORMATIONPUBLIQUE_INF.cs">
-      <DependentUpon>ModelMarathonBDD.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
