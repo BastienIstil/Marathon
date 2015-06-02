@@ -150,8 +150,10 @@ namespace Site_Web.Controllers
 
             COUREUR courreur;
 
-            if (listCourreur.Count() == 0)
+            if (listCourreur.Count() == 0){
                 courreur = new COUREUR();
+                courreur.COU_EMAIL = User.Identity.Name;
+            }
             else
                 courreur = listCourreur.ElementAt(0);
 

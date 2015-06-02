@@ -9,6 +9,8 @@ using System.Web.Mvc;
 using Site_Web.App_Data;
 using System.Web.Security;
 
+using Site_Web.Class_Metier.ViewCustomModels;
+
 namespace Site_Web.Controllers
 {
     public class InscritsController : Controller
@@ -42,7 +44,7 @@ namespace Site_Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Register(INSCRIT user)
+        public ActionResult Register(InscritCustom user)
         {
             try
             {
@@ -55,7 +57,7 @@ namespace Site_Web.Controllers
                     INSCRIT newUser = new INSCRIT();
                     newUser.INS_LOGIN = user.INS_LOGIN;
                     newUser.INS_MDP = encrypPass;
-                    newUser.INS_NIVEAUAUTHENTIFICATION = 2;
+                    newUser.INS_NIVEAUAUTHENTIFICATION = (int)user.INS_NIVEAUAUTHENTIFICATION;
 
                     db.INSCRITs.Add(newUser);
                     db.Entry(newUser).State = EntityState.Added;
@@ -73,6 +75,7 @@ namespace Site_Web.Controllers
             {
                 return new EmptyResult();
             }
+           
 
             return View();
 

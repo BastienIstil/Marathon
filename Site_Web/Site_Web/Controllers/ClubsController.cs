@@ -123,5 +123,59 @@ namespace Site_Web.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult EditProfile()
+        {
+            INSCRIT inscrit = (from u in db.INSCRITs
+                               where u.INS_LOGIN == User.Identity.Name
+                               select u).First();
+
+            int idInscrit = inscrit.INS_ID;
+
+            List<CLUB> listClub = (from c in db.CLUBs
+                                          where c.INS_ID == idInscrit
+                                          select c).ToList();
+
+            CLUB club;
+
+            if (listClub.Count() == 0)
+            {
+                club = new CLUB();
+                club.CLU_EMAIL = User.Identity.Name;
+            }
+            else
+                club = listClub.ElementAt(0);
+
+            club.INS_ID = idInscrit;
+            return View(club);
+        }
+
+        // POST: Coureurs/Profile/5
+        // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
+        // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditProfile([Bind(Include = "CLU_ID,CLU_NOM,CLU_LICENCE,CLU_EMAIL,INS_ID")] CLUB club)
+        {
+            if (ModelState.IsValid)
+            {
+                if (!db.COUREURs.Any(d => d.CLU_ID == club.CLU_ID))
+                {
+                    INSCRIT inscrit = (from u in db.INSCRITs
+                                       where u.INS_LOGIN == User.Identity.Name
+                                       select u).First();
+
+                    club.INS_ID = inscrit.INS_ID;
+                    db.CLUBs.Add(club);
+                }
+                else
+                {
+                    db.Entry(club).State = EntityState.Modified;
+                }
+                db.SaveChanges();
+                return RedirectToAction("Index", "Home");
+            }
+            return View(club);
+        }
     }
 }

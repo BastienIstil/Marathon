@@ -1,6 +1,8 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    @using Site_Web.Class_Metier.ViewCustomModels;
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,14 +19,21 @@
         </div>
         <div id="blocConnexion">
             @if (Request.IsAuthenticated) {
-                @Html.Encode(User.Identity.Name)
-                @Html.ActionLink("Sign Out", "Logout", "Inscrits", null, new { @class = "btn btn-primary" })
-                @Html.ActionLink("Profile", "EditProfile", "Coureurs");
+                @Html.Encode(User.Identity.Name);
+                @Html.ActionLink("Sign Out", "Logout", "Inscrits", null, new { @class = "btn btn-primary" });
+                    
+                if(InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.COUREUR) {
+                    @Html.ActionLink("Profile", "EditProfile", "Coureurs");
+                }
+                else{
+                    @Html.ActionLink("Profile", "EditProfile", "Clubs");  
+                }                  
             }
-            else {
-                    @Html.ActionLink("Register", "Register", "Inscrits", null, new { @class = "btn btn-primary" })
-                    @Html.ActionLink("Sign In", "Login", "Inscrits", null, new { @class = "btn btn-primary" })
-            }   
+             else {
+                @Html.ActionLink("Register", "Register", "Inscrits", null, new { @class = "btn btn-primary" });
+                @Html.ActionLink("Sign In", "Login", "Inscrits", null, new { @class = "btn btn-primary" });
+            }  
+            
         </div>
         <nav id="menuSite">
             <ul>
