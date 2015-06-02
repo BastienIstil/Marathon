@@ -19,6 +19,7 @@
             @if (Request.IsAuthenticated) {
                 @Html.Encode(User.Identity.Name)
                 @Html.ActionLink("Sign Out", "Logout", "Inscrits", null, new { @class = "btn btn-primary" })
+                @Html.ActionLink("Profile", "EditProfile", "Coureurs");
             }
             else {
                     @Html.ActionLink("Register", "Register", "Inscrits", null, new { @class = "btn btn-primary" })

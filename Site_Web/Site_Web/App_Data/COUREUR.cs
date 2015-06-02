@@ -11,7 +11,8 @@ namespace Site_Web.App_Data
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class COUREUR
     {
         public COUREUR()
@@ -29,6 +30,8 @@ namespace Site_Web.App_Data
         public int CAT_ID { get; set; }
         public string COU_NOM { get; set; }
         public string COU_PRENOM { get; set; }
+
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:d}")]
         public System.DateTime COU_DATENAISSANCE { get; set; }
         public string COU_SEXE { get; set; }
         public string COU_NUMEROLICENCE { get; set; }

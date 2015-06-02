@@ -294,6 +294,7 @@
     <Content Include="Views\InformationsPublique\Details.cshtml" />
     <Content Include="Views\InformationsPublique\Edit.cshtml" />
     <Content Include="Views\InformationsPublique\Index.cshtml" />
+    <Content Include="Views\Coureurs\EditProfile.cshtml" />
     <None Include="Views\Inscrits\Logout.cshtml" />
     <None Include="Views\Inscrits\Register.cshtml" />
     <Content Include="Views\Inscrits\Login.cshtml" />
