@@ -203,6 +203,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Class_Metier\ExtensionModels\ExtensionCoureur.cs" />
     <Compile Include="Class_Metier\PBKDF2.cs" />
     <Compile Include="Class_Metier\SimpleCrypto.cs" />
     <Compile Include="Class_Metier\Web_Common\Email.cs" />
@@ -295,6 +296,7 @@
     <Content Include="Views\Classements\Edit.cshtml" />
     <Content Include="Views\Classements\Index.cshtml" />
     <Content Include="Views\Clubs\AddCoureur.cshtml" />
+	<Content Include="Views\Coureurs\EditProfile.cshtml" />
     <None Include="Views\Inscrits\Logout.cshtml" />
     <None Include="Views\Inscrits\Register.cshtml" />
     <Content Include="Views\Inscrits\Login.cshtml" />
@@ -323,7 +325,6 @@
     <Content Include="Views\TempsCoureurBorne\Details.cshtml" />
     <Content Include="Views\TempsCoureurBorne\Edit.cshtml" />
     <Content Include="Views\TempsCoureurBorne\Index.cshtml" />
-    <Content Include="Views\Inscrits\ResetPassword.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -332,6 +333,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <None Include="Resources\background.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <EntityDeploy Include="App_Data\ModelMarathonBDD.edmx">
@@ -368,6 +370,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Site.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -388,6 +391,7 @@
     <Content Include="Views\Home\Index2.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Class_Metier\ViewCustomModels\" />
     <Folder Include="Models\Metadata\" />
   </ItemGroup>
   <ItemGroup>
@@ -402,7 +406,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
+      <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>

@@ -148,6 +148,35 @@
 
     </dl>
 </div>
+
+<table class="table">
+
+    @{var defaultBornes = Model.T_J_TEMPSCOUBORNE_TCB.FirstOrDefault();}
+
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => defaultBornes.BOR_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => defaultBornes.TCB_TEMPS)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.T_J_TEMPSCOUBORNE_TCB)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.BOR_ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TCB_TEMPS)
+            </td>
+        </tr>
+    }
+
+</table>
+
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.COU_ID }) |
     @Html.ActionLink("Back to List", "Index")

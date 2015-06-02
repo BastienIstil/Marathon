@@ -124,6 +124,21 @@ namespace Site_Web.Controllers
             return RedirectToAction("Index");
         }
 
+        // GET: TempsCoureurBorne/VoirTemps/5
+        public ActionResult VoirTemps(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            TEMPSCOUBORNE tEMPSCOUBORNE = db.TEMPSCOUBORNEs.Find(id);
+            if (tEMPSCOUBORNE == null)
+            {
+                return HttpNotFound();
+            }
+            return View(tEMPSCOUBORNE);
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
