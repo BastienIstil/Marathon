@@ -124,6 +124,11 @@
             @Html.ActionLink("Delete", "Delete", new { id=item.COU_ID })
         </td>
     </tr>
+    <tr>
+        <td>
+            @Html.ActionLink("Voir infos coureur et ses temps par borne", "Details", new { id = item.COU_ID }) |
+        </td>
+    </tr>
 }
 
 </table>
