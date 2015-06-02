@@ -123,5 +123,16 @@ namespace Site_Web.Controllers
             }
             base.Dispose(disposing);
         }
+
+        //Ajout d'un coureur au club
+        [HttpPost, ActionName("ajoutCoureur")]
+        [ValidateAntiForgeryToken]
+        public ActionResult ajoutCoureur(int id)
+        {
+            COUREUR coureur = db.COUREURs.Find(id);
+            db.CLUBs.Add(coureur);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
     }
 }

@@ -18,9 +18,33 @@
             @Html.DisplayFor(model => model.CLA_TEMPS)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.CLA_RANG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CLA_RANG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.T_E_COUREUR_COU.COU_NOM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.T_E_COUREUR_COU.COU_NOM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.T_R_COURSE_COR.COR_NOM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.T_R_COURSE_COR.COR_NOM)
+        </dd>
+
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CLA_ID }) |
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
