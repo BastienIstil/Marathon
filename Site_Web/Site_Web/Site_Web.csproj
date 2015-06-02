@@ -203,6 +203,7 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Class_Metier\ExtensionModels\ExtensionCoureur.cs" />
     <Compile Include="Class_Metier\PBKDF2.cs" />
     <Compile Include="Class_Metier\SimpleCrypto.cs" />
     <Compile Include="Class_Metier\Web_Common\Email.cs" />
@@ -389,6 +390,7 @@
     <Content Include="Views\Home\Index2.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Class_Metier\ViewCustomModels\" />
     <Folder Include="Models\Metadata\" />
   </ItemGroup>
   <ItemGroup>

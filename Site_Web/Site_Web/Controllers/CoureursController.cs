@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Site_Web.App_Data;
+using Site_Web.Class_Metier.ExtensionModels;
 
 namespace Site_Web.Controllers
 {
@@ -166,11 +167,11 @@ namespace Site_Web.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditProfile([Bind(Include = "COU_ID,CAT_ID,CLU_ID,COU_PRENOM,COU_NOM,COU_DATENAISSANCE,COU_SEXE,COU_NUMEROLICENCE,COU_FEDERATION,COU_EMAIL,COU_ADRESSE,COU_CODEPOSTAL,COU_VILLE,COU_PAYS,COU_TELEPHONE,COU_FAX,COU_ENTREPRISEGROUPEASSOCIATION,COU_CERTIFICATMEDICAL")] COUREUR cOUREUR)
+        public ActionResult EditProfile([Bind(Include = "COU_ID,CAT_ID,CLU_ID,COU_PRENOM,COU_NOM,COU_DATENAISSANCE,COU_SEXE,COU_NUMEROLICENCE,COU_FEDERATION,COU_EMAIL,COU_ADRESSE,COU_CODEPOSTAL,COU_VILLE,COU_PAYS,COU_TELEPHONE,COU_FAX,COU_ENTREPRISEGROUPEASSOCIATION,COU_CERTIFICATMEDICAL,INS_ID")] COUREUR cOUREUR)
         {
             if (ModelState.IsValid)
             {
-                if (db.COUREURs.Find(cOUREUR.COU_ID) == null)
+                if (!db.COUREURs.Any(d => d.COU_ID == cOUREUR.COU_ID))
                 {
                     INSCRIT inscrit = (from u in db.INSCRITs
                                        where u.INS_LOGIN == User.Identity.Name
@@ -181,10 +182,6 @@ namespace Site_Web.Controllers
                 }
                 else
                 {
-                    
-
-
-
                     db.Entry(cOUREUR).State = EntityState.Modified;
                 }
                 db.SaveChanges();
@@ -192,6 +189,7 @@ namespace Site_Web.Controllers
             }
             ViewBag.CLU_ID = new SelectList(db.CLUBs, "CLU_ID", "CLU_NOM", cOUREUR.CLU_ID);
             ViewBag.CAT_ID = new SelectList(db.CATEGORIEs, "CAT_ID", "CAT_LIBELLE", cOUREUR.CAT_ID);
+            
             return View(cOUREUR);
         }
 

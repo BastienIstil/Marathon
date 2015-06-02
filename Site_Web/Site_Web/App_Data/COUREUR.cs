@@ -25,7 +25,7 @@ namespace Site_Web.App_Data
         }
     
         public int COU_ID { get; set; }
-        public int INS_ID { get; set; }
+        public virtual int INS_ID { get; set; }
         public Nullable<int> CLU_ID { get; set; }
         public int CAT_ID { get; set; }
         public string COU_NOM { get; set; }
