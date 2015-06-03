@@ -17,6 +17,7 @@ namespace Site_Web.Controllers
         // GET: Classements
         public ActionResult Index()
         {
+            var cLASSEMENTs = db.CLASSEMENTs.Include(t => t.T_E_COUREUR_COU).Include(t => t.T_R_COURSE_COR);
             return View(db.CLASSEMENTs.ToList());
         }
 
@@ -38,6 +39,8 @@ namespace Site_Web.Controllers
         // GET: Classements/Create
         public ActionResult Create()
         {
+            ViewBag.COU_ID = new SelectList(db.COUREURs, "COU_ID", "COU_NOM");
+            ViewBag.COR_ID = new SelectList(db.COURSEs, "COR_ID", "COR_NOM");
             return View();
         }
 
@@ -46,7 +49,7 @@ namespace Site_Web.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CLA_ID,CLA_TEMPS")] CLASSEMENT cLASSEMENT)
+        public ActionResult Create([Bind(Include = "COU_ID,COR_ID,CLA_TEMPS")] CLASSEMENT cLASSEMENT)
         {
             if (ModelState.IsValid)
             {
@@ -55,6 +58,8 @@ namespace Site_Web.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.COU_ID = new SelectList(db.COUREURs, "COU_ID", "COU_NOM", cLASSEMENT.COU_ID);
+            ViewBag.COR_ID = new SelectList(db.BORNEs, "COR_ID", "COR_ID", cLASSEMENT.COR_ID);
             return View(cLASSEMENT);
         }
 
@@ -70,6 +75,8 @@ namespace Site_Web.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.COU_ID = new SelectList(db.COUREURs, "COU_ID", "COU_NOM", cLASSEMENT.COU_ID);
+            ViewBag.COR_ID = new SelectList(db.BORNEs, "COR_ID", "COR_ID", cLASSEMENT.COR_ID);
             return View(cLASSEMENT);
         }
 
@@ -86,6 +93,9 @@ namespace Site_Web.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+
+            ViewBag.COU_ID = new SelectList(db.COUREURs, "COU_ID", "COU_NOM", cLASSEMENT.COU_ID);
+            ViewBag.COR_ID = new SelectList(db.BORNEs, "COR_ID", "COR_ID", cLASSEMENT.COR_ID);
             return View(cLASSEMENT);
         }
 

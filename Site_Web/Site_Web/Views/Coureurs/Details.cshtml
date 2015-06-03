@@ -149,16 +149,25 @@
     </dl>
 </div>
 
+<p>
+
+    @Html.ActionLink("Retour liste coureurs", "Index")
+
+</p>
+
+<br />
+
 <table class="table">
 
-    @{var defaultBornes = Model.T_J_TEMPSCOUBORNE_TCB.FirstOrDefault();}
+    @{var defaultTempsBornes = Model.T_J_TEMPSCOUBORNE_TCB.FirstOrDefault();}
 
+    
     <tr>
         <th>
-            @Html.DisplayNameFor(model => defaultBornes.BOR_ID)
+            @Html.DisplayNameFor(model => defaultTempsBornes.BOR_ID)
         </th>
         <th>
-            @Html.DisplayNameFor(model => defaultBornes.TCB_TEMPS)
+            @Html.DisplayNameFor(model => defaultTempsBornes.TCB_TEMPS)
         </th>
         <th></th>
     </tr>
@@ -177,7 +186,3 @@
 
 </table>
 
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.COU_ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
