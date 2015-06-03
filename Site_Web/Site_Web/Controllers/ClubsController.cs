@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Site_Web.App_Data;
+using Site_Web.Class_Metier.ViewCustomModels;
+using System.Net.Mail;
 
 namespace Site_Web.Controllers
 {
@@ -185,6 +187,80 @@ namespace Site_Web.Controllers
                 return RedirectToAction("Index", "Home");
             }
             return View(club);
+        }
+
+        // GET: Clubs/Ajout Coureur
+        public ActionResult AddCoureur(int? id)
+        {
+            CoureurInscriptions coureurInscription = new CoureurInscriptions();
+            coureurInscription.listCoureur = db.COUREURs.ToList();  // TODO UPGRADE VERIFICATION APPARTENANCE A UN CLUB
+            coureurInscription.listEtat = new List<bool>();
+            coureurInscription.club = db.CLUBs.Find(id);
+
+            foreach (COUREUR c in coureurInscription.listCoureur)
+            {
+                coureurInscription.listEtat.Add(false);
+            }
+
+            return View(coureurInscription);
+        }
+
+        //Ajout d'un coureur au club
+        [HttpPost, ActionName("AddCoureur")]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddCoureur([Bind(Include = "listCoureur,listEtat")] CoureurInscriptions coureurInscription)
+        {
+            if (coureurInscription.listCoureur != null)
+            {
+                int i = 0;
+                int count = coureurInscription.listCoureur.Count();
+
+                for (i = 0; i < count; i++)
+                {
+                    if (coureurInscription.listEtat[i] == true)
+                    {
+                        //coureurInscription.listCoureur[i];
+                        String body = "localhost:2409";
+                        SendEmail(body);
+                    }
+                }
+            }
+            else
+            {
+                TempData["Erreur"] = "Veuillez selectionner un coureur à ajouter dans votre club";
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        public static void SendEmail(String body)
+        {
+            try
+            {
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+                mail.From = new MailAddress("dylan.btx.test@gmail.com");
+                mail.To.Add("dylan.btx.test@gmail.com");
+                mail.Subject = "Test Mail - Adhérer au club";
+
+                mail.IsBodyHtml = true;
+                string htmlBody;
+
+                htmlBody = body;
+
+                mail.Body = htmlBody;
+
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("dylan.btx.test@gmail.com", "");
+                SmtpServer.EnableSsl = true;
+
+                SmtpServer.Send(mail);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
     }
 }
