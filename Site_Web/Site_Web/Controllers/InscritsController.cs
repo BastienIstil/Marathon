@@ -18,11 +18,7 @@ namespace Site_Web.Controllers
         private MarathonEntities db = new MarathonEntities();
         private String salt = "100000.m1bP2tTpa/T8BjY/cfuV0kYSiK/Jq6K6Xvzkg+4W3Z3Atw==";
 
-        [HttpGet]
-        public ActionResult Login()
-        {
-            return View();
-        }
+        public static ViewResult homeView;
 
         [HttpPost]
         public ActionResult Login(INSCRIT user)
@@ -30,11 +26,11 @@ namespace Site_Web.Controllers
             if (IsValid(user.INS_LOGIN, user.INS_MDP))
             {
                 FormsAuthentication.SetAuthCookie(user.INS_LOGIN, false);
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Index","Home");
             }
 
             ModelState.AddModelError("", "Login details are wrong.");
-            return View(user);
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
