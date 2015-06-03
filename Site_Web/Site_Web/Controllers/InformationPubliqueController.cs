@@ -10,17 +10,17 @@ using Site_Web.App_Data;
 
 namespace Site_Web.Controllers
 {
-    public class InformationsPubliqueController : Controller
+    public class InformationPubliqueController : Controller
     {
         private MarathonEntities db = new MarathonEntities();
 
-        // GET: InformationsPublique
+        // GET: InformationPubliques
         public ActionResult Index()
         {
             return View(db.INFORMATIONPUBLIQUEs.ToList());
         }
 
-        // GET: InformationsPublique/Details/5
+        // GET: InformationPubliques/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -35,18 +35,18 @@ namespace Site_Web.Controllers
             return View(iNFORMATIONPUBLIQUE);
         }
 
-        // GET: InformationsPublique/Create
+        // GET: InformationPubliques/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: InformationsPublique/Create
+        // POST: InformationPubliques/Create
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "INF_ID,INF_NOM,INF_PRENOM,INF_EMAIL,INF_CONTENUE")] INFORMATIONPUBLIQUE iNFORMATIONPUBLIQUE)
+        public ActionResult Create([Bind(Include = "INF_ID,INF_NOM,INF_PRENOM,INF_EMAIL,INF_CONTENUE,INF_TITRE")] INFORMATIONPUBLIQUE iNFORMATIONPUBLIQUE)
         {
             if (ModelState.IsValid)
             {
@@ -58,7 +58,7 @@ namespace Site_Web.Controllers
             return View(iNFORMATIONPUBLIQUE);
         }
 
-        // GET: InformationsPublique/Edit/5
+        // GET: InformationPubliques/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -73,12 +73,12 @@ namespace Site_Web.Controllers
             return View(iNFORMATIONPUBLIQUE);
         }
 
-        // POST: InformationsPublique/Edit/5
+        // POST: InformationPubliques/Edit/5
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "INF_ID,INF_NOM,INF_PRENOM,INF_EMAIL,INF_CONTENUE")] INFORMATIONPUBLIQUE iNFORMATIONPUBLIQUE)
+        public ActionResult Edit([Bind(Include = "INF_ID,INF_NOM,INF_PRENOM,INF_EMAIL,INF_CONTENUE,INF_TITRE")] INFORMATIONPUBLIQUE iNFORMATIONPUBLIQUE)
         {
             if (ModelState.IsValid)
             {
@@ -89,7 +89,7 @@ namespace Site_Web.Controllers
             return View(iNFORMATIONPUBLIQUE);
         }
 
-        // GET: InformationsPublique/Delete/5
+        // GET: InformationPubliques/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -104,7 +104,7 @@ namespace Site_Web.Controllers
             return View(iNFORMATIONPUBLIQUE);
         }
 
-        // POST: InformationsPublique/Delete/5
+        // POST: InformationPubliques/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

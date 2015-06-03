@@ -21,13 +21,22 @@ namespace Site_Web.App_Data
         }
     
         public int CLU_ID { get; set; }
+        public Nullable<int> FED_ID { get; set; }
         public int INS_ID { get; set; }
         public string CLU_NOM { get; set; }
         public string CLU_LICENCE { get; set; }
         public string CLU_EMAIL { get; set; }
+        public string CLU_ADRESSE { get; set; }
+        public string CLU_CODEPOSTAL { get; set; }
+        public string CLU_VILLE { get; set; }
+        public string CLU_PAYS { get; set; }
+        public string CLU_TELEPHONE { get; set; }
+        public string CLU_FAX { get; set; }
+        public string CLU_NUMERO { get; set; }
     
         public virtual ICollection<COUREUR> T_E_COUREUR_COU { get; set; }
         public virtual INSCRIT T_E_INSCRIT_INS { get; set; }
         public virtual ICollection<PARTICIPATION> T_E_PARTICIPATION_PAR { get; set; }
+        public virtual FEDERATION T_R_FEDERATION_FED { get; set; }
     }
 }

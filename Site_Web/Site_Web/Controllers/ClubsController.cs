@@ -14,13 +14,14 @@ namespace Site_Web.Controllers
     {
         private MarathonEntities db = new MarathonEntities();
 
-        // GET: Clubs
+        // GET: CLUBs
         public ActionResult Index()
         {
-            return View(db.CLUBs.ToList());
+            var cLUBs = db.CLUBs.Include(c => c.T_E_INSCRIT_INS).Include(c => c.T_R_FEDERATION_FED);
+            return View(cLUBs.ToList());
         }
 
-        // GET: Clubs/Details/5
+        // GET: CLUBs/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -35,18 +36,20 @@ namespace Site_Web.Controllers
             return View(cLUB);
         }
 
-        // GET: Clubs/Create
+        // GET: CLUBs/Create
         public ActionResult Create()
         {
+            ViewBag.INS_ID = new SelectList(db.INSCRITs, "INS_ID", "INS_LOGIN");
+            ViewBag.FED_ID = new SelectList(db.FEDERATIONs, "FED_ID", "FED_NOM");
             return View();
         }
 
-        // POST: Clubs/Create
+        // POST: CLUBs/Create
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CLU_ID,CLU_NOM,CLU_LICENCE,CLU_EMAIL")] CLUB cLUB)
+        public ActionResult Create([Bind(Include = "CLU_ID,FED_ID,INS_ID,CLU_NOM,CLU_LICENCE,CLU_EMAIL,CLU_ADRESSE,CLU_CODEPOSTAL,CLU_VILLE,CLU_PAYS,CLU_TELEPHONE,CLU_FAX,CLU_NUMERO")] CLUB cLUB)
         {
             if (ModelState.IsValid)
             {
@@ -55,10 +58,12 @@ namespace Site_Web.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.INS_ID = new SelectList(db.INSCRITs, "INS_ID", "INS_LOGIN", cLUB.INS_ID);
+            ViewBag.FED_ID = new SelectList(db.FEDERATIONs, "FED_ID", "FED_NOM", cLUB.FED_ID);
             return View(cLUB);
         }
 
-        // GET: Clubs/Edit/5
+        // GET: CLUBs/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -70,15 +75,17 @@ namespace Site_Web.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.INS_ID = new SelectList(db.INSCRITs, "INS_ID", "INS_LOGIN", cLUB.INS_ID);
+            ViewBag.FED_ID = new SelectList(db.FEDERATIONs, "FED_ID", "FED_NOM", cLUB.FED_ID);
             return View(cLUB);
         }
 
-        // POST: Clubs/Edit/5
+        // POST: CLUBs/Edit/5
         // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CLU_ID,CLU_NOM,CLU_LICENCE,CLU_EMAIL")] CLUB cLUB)
+        public ActionResult Edit([Bind(Include = "CLU_ID,FED_ID,INS_ID,CLU_NOM,CLU_LICENCE,CLU_EMAIL,CLU_ADRESSE,CLU_CODEPOSTAL,CLU_VILLE,CLU_PAYS,CLU_TELEPHONE,CLU_FAX,CLU_NUMERO")] CLUB cLUB)
         {
             if (ModelState.IsValid)
             {
@@ -86,10 +93,12 @@ namespace Site_Web.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.INS_ID = new SelectList(db.INSCRITs, "INS_ID", "INS_LOGIN", cLUB.INS_ID);
+            ViewBag.FED_ID = new SelectList(db.FEDERATIONs, "FED_ID", "FED_NOM", cLUB.FED_ID);
             return View(cLUB);
         }
 
-        // GET: Clubs/Delete/5
+        // GET: CLUBs/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -104,7 +113,7 @@ namespace Site_Web.Controllers
             return View(cLUB);
         }
 
-        // POST: Clubs/Delete/5
+        // POST: CLUBs/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -133,8 +142,8 @@ namespace Site_Web.Controllers
             int idInscrit = inscrit.INS_ID;
 
             List<CLUB> listClub = (from c in db.CLUBs
-                                          where c.INS_ID == idInscrit
-                                          select c).ToList();
+                                   where c.INS_ID == idInscrit
+                                   select c).ToList();
 
             CLUB club;
 
@@ -155,7 +164,7 @@ namespace Site_Web.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditProfile([Bind(Include = "CLU_ID,CLU_NOM,CLU_LICENCE,CLU_EMAIL,INS_ID")] CLUB club)
+        public ActionResult EditProfile([Bind(Include = "CLU_ID,FED_ID,INS_ID,CLU_NOM,CLU_LICENCE,CLU_EMAIL,CLU_ADRESSE,CLU_CODEPOSTAL,CLU_VILLE,CLU_PAYS,CLU_TELEPHONE,CLU_FAX,CLU_NUMERO")] CLUB club)
         {
             if (ModelState.IsValid)
             {

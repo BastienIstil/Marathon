@@ -12,13 +12,18 @@ namespace Site_Web.App_Data
     using System;
     using System.Collections.Generic;
     
-    public partial class INFORMATIONPUBLIQUE
+    public partial class FEDERATION
     {
-        public int INF_ID { get; set; }
-        public string INF_NOM { get; set; }
-        public string INF_PRENOM { get; set; }
-        public string INF_EMAIL { get; set; }
-        public string INF_CONTENUE { get; set; }
-        public string INF_TITRE { get; set; }
+        public FEDERATION()
+        {
+            this.T_E_COUREUR_COU = new HashSet<COUREUR>();
+            this.T_R_CLUB_CLU = new HashSet<CLUB>();
+        }
+    
+        public int FED_ID { get; set; }
+        public string FED_NOM { get; set; }
+    
+        public virtual ICollection<COUREUR> T_E_COUREUR_COU { get; set; }
+        public virtual ICollection<CLUB> T_R_CLUB_CLU { get; set; }
     }
 }

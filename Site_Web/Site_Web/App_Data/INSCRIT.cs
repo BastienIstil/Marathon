@@ -11,7 +11,6 @@ namespace Site_Web.App_Data
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class INSCRIT
     {
@@ -22,15 +21,7 @@ namespace Site_Web.App_Data
         }
     
         public int INS_ID { get; set; }
-
-        [Required]
-        [EmailAddress]
-        [StringLength(255)]
         public string INS_LOGIN { get; set; }
-
-        [Required]
-        [DataType(DataType.Password)]
-        [StringLength(255, MinimumLength = 6)]
         public string INS_MDP { get; set; }
         public int INS_NIVEAUAUTHENTIFICATION { get; set; }
     

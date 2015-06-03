@@ -2,9 +2,10 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Liste des clubs</h2>
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -20,6 +21,33 @@
         <th>
             @Html.DisplayNameFor(model => model.CLU_EMAIL)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CLU_ADRESSE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CLU_CODEPOSTAL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CLU_VILLE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CLU_PAYS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CLU_TELEPHONE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CLU_FAX)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CLU_NUMERO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.T_E_INSCRIT_INS.INS_LOGIN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.T_R_FEDERATION_FED.FED_NOM)
+        </th>
         <th></th>
     </tr>
 
@@ -33,6 +61,33 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.CLU_EMAIL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CLU_ADRESSE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CLU_CODEPOSTAL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CLU_VILLE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CLU_PAYS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CLU_TELEPHONE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CLU_FAX)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CLU_NUMERO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.T_E_INSCRIT_INS.INS_LOGIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.T_R_FEDERATION_FED.FED_NOM)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.CLU_ID }) |

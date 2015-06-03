@@ -12,7 +12,7 @@ namespace Site_Web.App_Data
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
-
+    
     public partial class COUREUR
     {
         public COUREUR()
@@ -25,13 +25,14 @@ namespace Site_Web.App_Data
         }
     
         public int COU_ID { get; set; }
-        public virtual int INS_ID { get; set; }
+        public int INS_ID { get; set; }
+        public Nullable<int> FED_ID { get; set; }
         public Nullable<int> CLU_ID { get; set; }
         public int CAT_ID { get; set; }
         public string COU_NOM { get; set; }
         public string COU_PRENOM { get; set; }
 
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:d}")]
+        [DisplayFormat(ApplyFormatInEditMode= true, DataFormatString="{0:d}" )]
         public System.DateTime COU_DATENAISSANCE { get; set; }
         public string COU_SEXE { get; set; }
         public string COU_NUMEROLICENCE { get; set; }
@@ -46,6 +47,7 @@ namespace Site_Web.App_Data
         public string COU_ENTREPRISEGROUPEASSOCIATION { get; set; }
         public string COU_CERTIFICATMEDICAL { get; set; }
     
+        public virtual FEDERATION T_R_FEDERATION_FED { get; set; }
         public virtual CLUB T_R_CLUB_CLU { get; set; }
         public virtual CATEGORIE T_R_CATEGORIE_CAT { get; set; }
         public virtual INSCRIT T_E_INSCRIT_INS { get; set; }

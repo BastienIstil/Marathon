@@ -38,6 +38,7 @@ namespace Site_Web.App_Data
         public virtual DbSet<CLUB> CLUBs { get; set; }
         public virtual DbSet<COURSE> COURSEs { get; set; }
         public virtual DbSet<DEFI> DEFIs { get; set; }
+        public virtual DbSet<FEDERATION> FEDERATIONs { get; set; }
         public virtual DbSet<LOT> LOTs { get; set; }
     }
 }

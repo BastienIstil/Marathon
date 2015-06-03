@@ -2,9 +2,10 @@
 
 @{
     ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Informations publique</h2>
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -23,6 +24,9 @@
         <th>
             @Html.DisplayNameFor(model => model.INF_CONTENUE)
         </th>
+        <th>
+            @Html.DisplayNameFor(model => model.INF_TITRE)
+        </th>
         <th></th>
     </tr>
 
@@ -39,6 +43,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.INF_CONTENUE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.INF_TITRE)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.INF_ID }) |

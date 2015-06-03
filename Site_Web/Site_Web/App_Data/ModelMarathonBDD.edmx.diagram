@@ -4,21 +4,23 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c9113773ece54040b97380ad0b97a34d" Name="Diagram1" ZoomLevel="83">
-        <EntityTypeShape EntityType="MarathonModel.COUREUR" Width="1.5" PointX="5.25" PointY="11.625" />
-        <EntityTypeShape EntityType="MarathonModel.INFORMATIONPUBLIQUE" Width="1.5" PointX="0.75" PointY="0.75" />
-        <EntityTypeShape EntityType="MarathonModel.INSCRIT" Width="1.5" PointX="0.75" PointY="10" />
-        <EntityTypeShape EntityType="MarathonModel.PAIEMENT" Width="1.5" PointX="12.75" PointY="14.25" />
-        <EntityTypeShape EntityType="MarathonModel.PARTICIPATION" Width="1.5" PointX="10.5" PointY="13.375" />
-        <EntityTypeShape EntityType="MarathonModel.PASTAPARTY" Width="1.5" PointX="8.25" PointY="19.625" />
-        <EntityTypeShape EntityType="MarathonModel.CLASSEMENT" Width="1.5" PointX="7.5" PointY="10.625" />
-        <EntityTypeShape EntityType="MarathonModel.TEMPSCOUBORNE" Width="1.5" PointX="7.5" PointY="16.75" />
-        <EntityTypeShape EntityType="MarathonModel.BORNE" Width="1.5" PointX="5.25" PointY="18.75" />
-        <EntityTypeShape EntityType="MarathonModel.CATEGORIE" Width="1.5" PointX="3" PointY="13.75" />
-        <EntityTypeShape EntityType="MarathonModel.CLUB" Width="1.5" PointX="3" PointY="16.75" />
-        <EntityTypeShape EntityType="MarathonModel.COURSE" Width="1.5" PointX="5.25" PointY="7.25" />
-        <EntityTypeShape EntityType="MarathonModel.DEFI" Width="1.5" PointX="7.5" PointY="13.625" />
-        <EntityTypeShape EntityType="MarathonModel.LOT" Width="1.5" PointX="7.5" PointY="27.375" />
+      <Diagram DiagramId="c9113773ece54040b97380ad0b97a34d" Name="Diagram1" ZoomLevel="76">
+        <EntityTypeShape EntityType="MarathonModel.COUREUR" Width="1.5" PointX="5.25" PointY="8.75" />
+        <EntityTypeShape EntityType="MarathonModel.INFORMATIONPUBLIQUE" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MarathonModel.INSCRIT" Width="1.5" PointX="0.75" PointY="11" />
+        <EntityTypeShape EntityType="MarathonModel.PAIEMENT" Width="1.5" PointX="12.75" PointY="10.875" />
+        <EntityTypeShape EntityType="MarathonModel.PARTICIPATION" Width="1.5" PointX="10.5" PointY="9.875" />
+        <EntityTypeShape EntityType="MarathonModel.PASTAPARTY" Width="1.5" PointX="8.25" PointY="5.25" />
+        <EntityTypeShape EntityType="MarathonModel.CLASSEMENT" Width="1.5" PointX="7.5" PointY="14" />
+        <EntityTypeShape EntityType="MarathonModel.TEMPSCOUBORNE" Width="1.5" PointX="7.5" PointY="8.125" />
+        <EntityTypeShape EntityType="MarathonModel.BORNE" Width="1.5" PointX="5.25" PointY="3.125" />
+        <EntityTypeShape EntityType="MarathonModel.CATEGORIE" Width="1.5" PointX="3" PointY="15.5" />
+        <EntityTypeShape EntityType="MarathonModel.CLUB" Width="1.5" PointX="3" PointY="9.875" />
+        <EntityTypeShape EntityType="MarathonModel.COURSE" Width="1.5" PointX="3" PointY="2.625" />
+        <EntityTypeShape EntityType="MarathonModel.DEFI" Width="1.5" PointX="7.5" PointY="11" />
+        <EntityTypeShape EntityType="MarathonModel.FEDERATION" Width="1.5" PointX="3" PointY="6.875" />
+        <EntityTypeShape EntityType="MarathonModel.LOT" Width="1.5" PointX="7.25" PointY="17.5" />
+        <AssociationConnector Association="MarathonModel.FK_T_E_COUR_A_T_R_FEDE" />
         <AssociationConnector Association="MarathonModel.FK_T_E_COUR_EST_AFFIL_T_R_CLUB" />
         <AssociationConnector Association="MarathonModel.FK_T_E_COUR_EST_DEFIN_T_R_CATE" />
         <AssociationConnector Association="MarathonModel.FK_T_E_COUR_EST_INSCR_T_E_INSC" />
@@ -35,6 +37,7 @@
         <AssociationConnector Association="MarathonModel.FK_T_J_CLAS_T_J_CLASS_T_R_COUR" />
         <AssociationConnector Association="MarathonModel.FK_T_J_TEMP_T_J_TEMPS_T_R_BORN" />
         <AssociationConnector Association="MarathonModel.FK_T_R_BORN_EST_COMPO_T_R_COUR" />
+        <AssociationConnector Association="MarathonModel.FK_T_R_CLUB_A1_T_R_FEDE" />
         <AssociationConnector Association="MarathonModel.T_J_DEFICOURSE_DEC" />
         <AssociationConnector Association="MarathonModel.T_J_PARTICIPATIONDEFI_PAD" />
       </Diagram>
