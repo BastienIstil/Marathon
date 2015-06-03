@@ -254,6 +254,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Content Include="Resources\LogoMarathon.png" />
     <Content Include="Views\Bornes\Create.cshtml" />
     <Content Include="Views\Bornes\Delete.cshtml" />
     <Content Include="Views\Bornes\Details.cshtml" />
@@ -389,6 +390,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\Metadata\" />
+    <Folder Include="Views\Layout\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
