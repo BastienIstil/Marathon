@@ -308,7 +308,6 @@
     <Content Include="Views\InformationPublique\Details.cshtml" />
     <Content Include="Views\InformationPublique\Edit.cshtml" />
     <Content Include="Views\InformationPublique\Index.cshtml" />
-    <Content Include="Views\Inscrits\Login.cshtml" />
     <Content Include="Views\Clubs\AddCoureur.cshtml" />
     <None Include="Views\Inscrits\Logout.cshtml" />
     <None Include="Views\Inscrits\Register.cshtml" />
