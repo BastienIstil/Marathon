@@ -1,4 +1,6 @@
-@model Site_Web.App_Data.INSCRIT
+@model Site_Web.Class_Metier.ViewCustomModels.InscritCustom
+@using Site_Web.Controllers;
+
 
 @{
     ViewBag.Title = "Register";
@@ -18,12 +20,16 @@
                 @Html.TextBoxFor(u => u.INS_LOGIN)
                 @Html.ValidationMessageFor(u => u.INS_LOGIN)
             </div>
+
+            <div class="form-group"/> @Html.LabelFor(model => model.INS_NIVEAUAUTHENTIFICATION, "INS_NIVEAUAUTHENTIFICATION")
+            <div/> @Html.EnumDropDownListFor(model => model.INS_NIVEAUAUTHENTIFICATION)
+
             <div class="editor-label">@Html.LabelFor(u => u.INS_MDP)</div>
             <div class="editor-field">
                 @Html.PasswordFor(u => u.INS_MDP)
                 @Html.ValidationMessageFor(u => u.INS_MDP)
             </div>
-            <input type="submit" value="Register" />
         </fieldset>
+        <input type="submit" value="Register" />
     </div>
 }
