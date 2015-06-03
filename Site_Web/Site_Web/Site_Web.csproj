@@ -261,6 +261,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Content Include="Scripts\login.js" />
     <Content Include="Views\Bornes\Create.cshtml" />
     <Content Include="Views\Bornes\Delete.cshtml" />
     <Content Include="Views\Bornes\Details.cshtml" />
@@ -309,9 +310,7 @@
     <Content Include="Views\InformationPublique\Edit.cshtml" />
     <Content Include="Views\InformationPublique\Index.cshtml" />
     <Content Include="Views\Clubs\AddCoureur.cshtml" />
-    <None Include="Views\Inscrits\Logout.cshtml" />
     <None Include="Views\Inscrits\Register.cshtml" />
-    <Content Include="Views\Shared\_Login.cshtml" />
     <Content Include="Views\Lots\Create.cshtml" />
     <Content Include="Views\Lots\Delete.cshtml" />
     <Content Include="Views\Lots\Details.cshtml" />
@@ -337,6 +336,7 @@
     <Content Include="Views\TempsCoureurBorne\Details.cshtml" />
     <Content Include="Views\TempsCoureurBorne\Edit.cshtml" />
     <Content Include="Views\TempsCoureurBorne\Index.cshtml" />
+    <Content Include="Views\Inscrits\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
