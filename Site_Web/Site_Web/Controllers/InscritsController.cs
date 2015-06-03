@@ -20,6 +20,12 @@ namespace Site_Web.Controllers
 
         public static ViewResult homeView;
 
+        [HttpGet]
+        public ActionResult Login()
+        {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult Login(INSCRIT user)
         {
@@ -30,7 +36,7 @@ namespace Site_Web.Controllers
             }
 
             ModelState.AddModelError("", "Login details are wrong.");
-            return RedirectToAction("Index", "Home");
+            return View(user);
         }
 
         [HttpGet]
@@ -109,5 +115,6 @@ namespace Site_Web.Controllers
             }
             base.Dispose(disposing);
         }
+
     }
 }

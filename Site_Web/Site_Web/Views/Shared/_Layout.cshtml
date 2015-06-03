@@ -17,8 +17,8 @@
     <section id="headerSite">
         <div id="logoMarathon">
         </div>
-        <div id="blocConnexion">
-            @Html.Partial("_Login")            
+        <div id="blocConnexion">   
+            @Html.Label(User.Identity.Name)      
         </div>
         <nav id="menuSite">
             <ul>
@@ -60,7 +60,16 @@
                     </div>
                     <!-- Fin Sous Menu-->
                 </li>
-            </ul>
+                @if (Request.IsAuthenticated)
+                {
+                    <li>@Html.ActionLink("Sign Out", "Logout", "Inscrits", null, new { @class = "btn btn-primary" })</li>
+                }
+                else
+                {
+                    <li> @Html.ActionLink("login", "Login", "Inscrits", null, new { @class = "btn btn-primary" })</li>
+                    <li>@Html.ActionLink("register", "Register", "Inscrits", null, new { @class = "btn btn-primary" })</li>
+                }
+</ul>
         </nav>
 
     </section>
