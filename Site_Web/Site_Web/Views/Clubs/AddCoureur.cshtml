@@ -1,5 +1,7 @@
 ﻿@using Site_Web.App_Data;
-@model Site_Web.App_Data.CLUB
+@using Site_Web.Class_Metier.ViewCustomModels;
+
+@model CoureurInscription
 @{
     ViewBag.Title = "AddCoureur";    
 }
@@ -13,39 +15,34 @@
         <table class="tableCoureur">
             <tr>
                 <th>
-                    @Html.DisplayNameFor(model => model.COU_PRENOM)
+                    @Html.DisplayNameFor(model => model.listCoureur.FirstOrDefault().COU_PRENOM)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.COU_NOM)
+                    @Html.DisplayNameFor(model => model.listCoureur.FirstOrDefault().COU_NOM)
                 </th>
                 <th>
-                    @Html.DisplayNameFor(model => model.COU_EMAIL)
+                    @Html.DisplayNameFor(model => model.listCoureur.FirstOrDefault().COU_EMAIL)
                 </th>
                 <th></th>
             </tr>
-
-            @foreach (var item in Model)
+            @for (int i = 0; i < Model.listCoureur.Count; i ++ )
             {
                 <tr>
                     <td>
-                        @Html.DisplayFor(modelItem => item.COU_PRENOM)
+                        @Html.DisplayFor(modelItem => Model.listCoureur[i].COU_PRENOM)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.COU_NOM)
+                        @Html.DisplayFor(modelItem => Model.listCoureur[i].COU_NOM)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.COU_EMAIL)
+                        @Html.DisplayFor(modelItem => Model.listCoureur[i].COU_EMAIL)
                     </td>
                   
                     <td>
-                       <!-- checkbox add-->
+                       @Html.CheckBox("AddCoureur", Model.listEtat[i])
                     </td>
                 </tr>
             }
-
         </table>
-    }
-
-
-
+    <input type="submit" value="Ajouter" />
 }

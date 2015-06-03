@@ -7,6 +7,9 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Site_Web.App_Data;
+using System.Net.Mail;
+
+using Site_Web.Class_Metier.ViewCustomModels;
 
 namespace Site_Web.Controllers
 {
@@ -124,15 +127,78 @@ namespace Site_Web.Controllers
             base.Dispose(disposing);
         }
 
-        //Ajout d'un coureur au club
-        [HttpPost, ActionName("ajoutCoureur")]
-        [ValidateAntiForgeryToken]
-        public ActionResult ajoutCoureur(int id)
+
+        // GET: Clubs/Ajout Coureur
+        public ActionResult AddCoureur(int? id)
         {
-            COUREUR coureur = db.COUREURs.Find(id);
-            db.CLUBs.Add(coureur);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            CoureurInscription coureurInscription = new CoureurInscription();
+            coureurInscription.listCoureur = db.COUREURs.ToList();  // TODO UPGRADE VERIFICATION APPARTENANCE A UN CLUB
+            coureurInscription.listEtat = new List<bool>();
+            coureurInscription.club = db.CLUBs.Find(id);
+
+            foreach (COUREUR c in coureurInscription.listCoureur)
+            {
+                coureurInscription.listEtat.Add(false);
+            }
+
+            return View(coureurInscription);
+        }
+
+        //Ajout d'un coureur au club
+        [HttpPost, ActionName("AddCoureur")]
+        [ValidateAntiForgeryToken]
+        public ActionResult AddCoureur([Bind(Include = "listCoureur,listEtat")] CoureurInscription coureurInscription)
+        {
+            if (coureurInscription.listCoureur != null)
+            {
+                int i = 0;
+                int count = coureurInscription.listCoureur.Count();
+
+                for (i = 0; i < count; i++)
+                {
+                    if (coureurInscription.listEtat[i] == true)
+                    {
+                        //coureurInscription.listCoureur[i];
+                        SendEmail();
+                    }
+                }
+            }
+            else
+            {
+                TempData["Erreur"] = "Veuillez selectionner un coureur à ajouter dans votre club";
+            }
+            
+            return RedirectToAction("Index"); 
+        }
+
+        public static void SendEmail()
+        {
+            try
+            {
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+                mail.From = new MailAddress("dylan.btx.test@gmail.com ");
+                mail.To.Add("dylan.btx.test@gmail.com ");
+                mail.Subject = "Test Mail - 1";
+
+                mail.IsBodyHtml = true;
+                string htmlBody;
+
+                htmlBody = "Write some HTML code here";
+
+                mail.Body = htmlBody;
+
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential("dylan.btx.test@gmail.com ", "marathon@02");
+                SmtpServer.EnableSsl = true;
+
+                SmtpServer.Send(mail);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
         }
     }
 }

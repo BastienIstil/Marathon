@@ -34,8 +34,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.CLU_EMAIL)
         </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CLU_ID }) |
+        <td>            
+            @Html.ActionLink("Edit", "Edit", new { id = item.CLU_ID }) |           
+            @Html.ActionLink("AddCoureur", "AddCoureur", new { id = item.CLU_ID }) |
             @Html.ActionLink("Details", "Details", new { id=item.CLU_ID }) |
             @Html.ActionLink("Delete", "Delete", new { id=item.CLU_ID })
         </td>
