@@ -18,22 +18,7 @@
         <div id="logoMarathon">
         </div>
         <div id="blocConnexion">
-            @if (Request.IsAuthenticated) {
-                @Html.Encode(User.Identity.Name);
-                @Html.ActionLink("Sign Out", "Logout", "Inscrits", null, new { @class = "btn btn-primary" });
-                    
-                if(InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.COUREUR) {
-                    @Html.ActionLink("Profile", "EditProfile", "Coureurs");
-                }
-                else{
-                    @Html.ActionLink("Profile", "EditProfile", "Clubs");  
-                }                  
-            }
-             else {
-                @Html.ActionLink("Register", "Register", "Inscrits", null, new { @class = "btn btn-primary" });
-                @Html.ActionLink("Sign In", "Login", "Inscrits", null, new { @class = "btn btn-primary" });
-            }  
-            
+            @Html.Partial("_Login")            
         </div>
         <nav id="menuSite">
             <ul>
