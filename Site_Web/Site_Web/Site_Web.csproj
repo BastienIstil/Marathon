@@ -307,6 +307,8 @@
     <Content Include="Views\InformationPublique\Details.cshtml" />
     <Content Include="Views\InformationPublique\Edit.cshtml" />
     <Content Include="Views\InformationPublique\Index.cshtml" />
+    <Content Include="Views\Federations\CreateFed.cshtml" />
+    <Content Include="Views\Federations\Modif.cshtml" />
     <None Include="Views\Inscrits\Logout.cshtml" />
     <None Include="Views\Inscrits\Register.cshtml" />
     <Content Include="Views\Inscrits\Login.cshtml" />
@@ -433,7 +435,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>2409</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

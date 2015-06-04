@@ -123,5 +123,9 @@ namespace Site_Web.Controllers
             }
             base.Dispose(disposing);
         }
+        public ActionResult Modif(int? id)
+        {
+            return View(db.FEDERATIONs.ToList());
+        }
     }
 }
