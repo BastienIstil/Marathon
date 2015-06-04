@@ -39,5 +39,36 @@ namespace Site_Web.Class_Metier.Web_Common
                 Console.WriteLine(ex.ToString());
             }
         }
+
+
+        public static void SendEmail(string sender,string mdp, string receiver,string subject, string body)
+        {
+            try
+            {
+                MailMessage mail = new MailMessage();
+                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+
+                mail.From = new MailAddress(sender);
+                mail.To.Add(receiver);
+                mail.Subject = subject;
+
+                mail.IsBodyHtml = true;
+                string htmlBody;
+
+                htmlBody = body;
+
+                mail.Body = htmlBody;
+
+                SmtpServer.Port = 587;
+                SmtpServer.Credentials = new System.Net.NetworkCredential(sender, mdp);
+                SmtpServer.EnableSsl = true;
+
+                SmtpServer.Send(mail);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+        }
     }
 }

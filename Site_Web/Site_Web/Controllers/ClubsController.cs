@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using Site_Web.App_Data;
 using Site_Web.Class_Metier.ViewCustomModels;
 using System.Net.Mail;
+using Site_Web.Class_Metier.Web_Common;
 
 namespace Site_Web.Controllers
 {
@@ -19,6 +20,7 @@ namespace Site_Web.Controllers
         // GET: CLUBs
         public ActionResult Index()
         {
+
             var cLUBs = db.CLUBs.Include(c => c.T_E_INSCRIT_INS).Include(c => c.T_R_FEDERATION_FED);
             return View(cLUBs.ToList());
         }
@@ -157,7 +159,9 @@ namespace Site_Web.Controllers
             else
                 club = listClub.ElementAt(0);
 
-            club.INS_ID = idInscrit;
+            club.INS_ID = idInscrit; 
+            ViewBag.INS_ID = new SelectList(db.INSCRITs, "INS_ID", "INS_LOGIN", club.INS_ID);
+            ViewBag.FED_ID = new SelectList(db.FEDERATIONs, "FED_ID", "FED_NOM", club.FED_ID);
             return View(club);
         }
 
@@ -186,16 +190,26 @@ namespace Site_Web.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index", "Home");
             }
+
+            ViewBag.INS_ID = new SelectList(db.INSCRITs, "INS_ID", "INS_LOGIN", club.INS_ID);
+            ViewBag.FED_ID = new SelectList(db.FEDERATIONs, "FED_ID", "FED_NOM", club.FED_ID);
             return View(club);
         }
 
         // GET: Clubs/Ajout Coureur
-        public ActionResult AddCoureur(int? id)
+        public ActionResult AddCoureur()
         {
             CoureurInscriptions coureurInscription = new CoureurInscriptions();
             coureurInscription.listCoureur = db.COUREURs.ToList();  // TODO UPGRADE VERIFICATION APPARTENANCE A UN CLUB
             coureurInscription.listEtat = new List<bool>();
-            coureurInscription.club = db.CLUBs.Find(id);
+
+            if (InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.CLUB)
+            {
+                INSCRIT inscrit = db.INSCRITs.FirstOrDefault(i => i.INS_LOGIN == User.Identity.Name);
+                CLUB clu = db.CLUBs.FirstOrDefault(c => c.INS_ID == inscrit.INS_ID);
+
+                coureurInscription.club = clu;
+            }
 
             foreach (COUREUR c in coureurInscription.listCoureur)
             {
@@ -207,60 +221,45 @@ namespace Site_Web.Controllers
 
         //Ajout d'un coureur au club
         [HttpPost, ActionName("AddCoureur")]
-        [ValidateAntiForgeryToken]
-        public ActionResult AddCoureur([Bind(Include = "listCoureur,listEtat")] CoureurInscriptions coureurInscription)
+        public ActionResult AddCoureur(FormCollection ListJoueurViewModel, CoureurInscriptions coureurInscription)
         {
-            if (coureurInscription.listCoureur != null)
-            {
-                int i = 0;
-                int count = coureurInscription.listCoureur.Count();
+            int i;
+            int count = coureurInscription.listCoureur.Count();
 
-                for (i = 0; i < count; i++)
-                {
-                    if (coureurInscription.listEtat[i] == true)
-                    {
-                        //coureurInscription.listCoureur[i];
-                        String body = "localhost:2409";
-                        SendEmail(body);
-                    }
-                }
-            }
-            else
+            string sender = "dylan.btx.test@gmail.com";
+            string mdp = "marathon@02";
+            string receiver = "dylan.btx.test@gmail.com";
+            string subject = "Test Mail - Adhérer au club";
+
+            for (i = 0; i < count; i++)
             {
-                TempData["Erreur"] = "Veuillez selectionner un coureur à ajouter dans votre club";
+                if (coureurInscription.listEtat[i] == true)
+                {
+                    int id = coureurInscription.listCoureur[i].COU_ID;
+                    
+                    string body = "<a href=\"http://localhost:2409/Clubs/ValidCoureurToClub?idClub="+
+                        coureurInscription.club.CLU_ID.ToString() + "&idCoureur=" +
+                        coureurInscription.listCoureur[i].COU_ID.ToString() + "\">Visit our HTML tutorial</a>";
+
+                    // receiver = coureurInscription.listCoureur[i].COU_EMAIL;
+                    Email.SendEmail(sender, mdp, receiver, subject, body);   
+                }
             }
 
             return RedirectToAction("Index");
         }
 
-        public static void SendEmail(String body)
+
+        [HttpGet, ActionName("ValidCoureurToClub")]
+        public ActionResult ValidCoureurToClub(int? idClub, int? idCoureur)
         {
-            try
-            {
-                MailMessage mail = new MailMessage();
-                SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+            CLUB club = db.CLUBs.Find(idClub);
+            COUREUR coureur = db.COUREURs.Find(idCoureur);
+            coureur.CLU_ID = club.CLU_ID;
 
-                mail.From = new MailAddress("dylan.btx.test@gmail.com");
-                mail.To.Add("dylan.btx.test@gmail.com");
-                mail.Subject = "Test Mail - Adhérer au club";
-
-                mail.IsBodyHtml = true;
-                string htmlBody;
-
-                htmlBody = body;
-
-                mail.Body = htmlBody;
-
-                SmtpServer.Port = 587;
-                SmtpServer.Credentials = new System.Net.NetworkCredential("dylan.btx.test@gmail.com", "");
-                SmtpServer.EnableSsl = true;
-
-                SmtpServer.Send(mail);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
-            }
+            db.Entry(coureur).State = EntityState.Modified;
+            db.SaveChanges();
+            return RedirectToAction("Index", "Home");
         }
     }
 }
