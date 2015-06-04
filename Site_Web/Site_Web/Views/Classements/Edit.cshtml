@@ -14,7 +14,9 @@
         <h4>CLASSEMENT</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.CLA_ID)
+        @Html.HiddenFor(model => model.COR_ID)
+
+        @Html.HiddenFor(model => model.COU_ID)
 
         <div class="form-group">
             @Html.LabelFor(model => model.CLA_TEMPS, htmlAttributes: new { @class = "control-label col-md-2" })

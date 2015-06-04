@@ -17,27 +17,8 @@
     <section id="headerSite">
         <div id="logoMarathon">
         </div>
-        <div id="blocConnexion">
-            @if (Request.IsAuthenticated) {
-                @Html.Encode(User.Identity.Name);
-                @Html.ActionLink("Sign Out", "Logout", "Inscrits", null, new { @class = "btn btn-primary" });
-                    
-  
-                    if(InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.SECRETAIRE ||
-                        InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.ADMIN)
-                    {
-                    @Html.ActionLink("Profile", "EditProfile", "Coureurs");
-                    @Html.ActionLink("Créer fédération", "Modif", "Federations");
-                    }
-                    else{
-                        @Html.ActionLink("Profile", "EditProfile", "Clubs");  
-                   }                  
-              }
-             else {
-                @Html.ActionLink("Register", "Register", "Inscrits", null, new { @class = "btn btn-primary" });
-                @Html.ActionLink("Sign In", "Login", "Inscrits", null, new { @class = "btn btn-primary" });
-            }  
-            
+        <div id="blocConnexion">   
+            @Html.Label(User.Identity.Name)      
         </div>
         <nav id="menuSite">
             <ul>
@@ -60,7 +41,7 @@
                     <!-- Sous-Menu2 -->
                     <div class="ssMenu">
                         <ul class="texte">
-                            <li><a href="http://www.totofaitduvelo.com">Liste des courses</a></li>
+                            <li>@Html.ActionLink("Liste des courses", "Index", "Courses")</li>
                             <li>@Html.ActionLink("Liens vers Index 2", "Index2", "Home")</li>
                             <li>@Html.ActionLink("Lien vers Temps par borne", "Index", "TempsCoureurBorne")</li>
                         </ul>
@@ -73,13 +54,22 @@
                     <!-- Sous-Menu3 -->
                     <div class="ssMenu">
                         <ul class="texte">
-                            <li><a href="http://www.totofaitduvelo.com">Général</a></li>
+                            <li>@Html.ActionLink("General", "Index", "Classements")</li>
                             <li><a href="http://www.totofaitduvelo.com">Par course</a></li>
                         </ul>
                     </div>
                     <!-- Fin Sous Menu-->
                 </li>
-            </ul>
+                @if (Request.IsAuthenticated)
+                {
+                    <li>@Html.ActionLink("Sign Out", "Logout", "Inscrits", null, new { @class = "btn btn-primary" })</li>
+                }
+                else
+                {
+                    <li> @Html.ActionLink("login", "Login", "Inscrits", null, new { @class = "btn btn-primary" })</li>
+                    <li>@Html.ActionLink("register", "Register", "Inscrits", null, new { @class = "btn btn-primary" })</li>
+                }
+</ul>
         </nav>
 
     </section>

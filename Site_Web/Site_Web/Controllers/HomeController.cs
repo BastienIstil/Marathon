@@ -11,6 +11,7 @@ namespace Site_Web.Controllers
     {
         public ActionResult Index()
         {
+            InscritsController.homeView = this.View();
             return View();
         }
         public ActionResult Index2()
