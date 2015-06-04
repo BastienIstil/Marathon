@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Site_Web.App_Data.FEDERATION>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FED_NOM)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FED_NOM)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.FED_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.FED_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.FED_ID })
+        </td>
+    </tr>
+}
+
+</table>
