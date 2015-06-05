@@ -261,6 +261,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Content Include="Resources\LogoMarathon.png" />
+    <Content Include="Scripts\login.js" />
     <Content Include="Views\Bornes\Create.cshtml" />
     <Content Include="Views\Bornes\Delete.cshtml" />
     <Content Include="Views\Bornes\Details.cshtml" />

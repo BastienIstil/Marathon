@@ -16,9 +16,19 @@
     <img src="~/Resources/background.jpg" class="bg"/>
     <section id="headerSite">
         <div id="logoMarathon">
+            <img src="~/Resources/LogoMarathon.png"/>
         </div>
         <div id="blocConnexion">   
-            @Html.Label(User.Identity.Name)      
+            @Html.Label(User.Identity.Name)
+            @if (Request.IsAuthenticated)
+            {
+                @Html.ActionLink("Sign Out", "Logout", "Inscrits", null, new { @class = "btn btn-primary" })
+            }
+            else
+            {
+                @Html.ActionLink("Se connecter", "Login", "Inscrits", null, new { @class = "btn btn-primary" })
+                @Html.ActionLink("S'inscrire", "Register", "Inscrits", null, new { @class = "btn btn-primary" })
+            }   
         </div>
         <nav id="menuSite">
             <ul>
@@ -60,16 +70,7 @@
                     </div>
                     <!-- Fin Sous Menu-->
                 </li>
-                @if (Request.IsAuthenticated)
-                {
-                    <li>@Html.ActionLink("Sign Out", "Logout", "Inscrits", null, new { @class = "btn btn-primary" })</li>
-                }
-                else
-                {
-                    <li> @Html.ActionLink("login", "Login", "Inscrits", null, new { @class = "btn btn-primary" })</li>
-                    <li>@Html.ActionLink("register", "Register", "Inscrits", null, new { @class = "btn btn-primary" })</li>
-                }
-</ul>
+            </ul>
         </nav>
 
     </section>
