@@ -56,5 +56,12 @@ namespace Site_Web.Class_Metier.ViewCustomModels
             db.Dispose();
             return (NiveauAuthentification)ins.INS_NIVEAUAUTHENTIFICATION;
         }
+        public static NiveauAuthentificationInscription getStatus(string userMail)
+        {
+            MarathonEntities db = new MarathonEntities();
+            INSCRIT ins = db.INSCRITs.FirstOrDefault(u => u.INS_LOGIN == userMail);
+            db.Dispose();
+            return (NiveauAuthentificationInscription)ins.INS_NIVEAUAUTHENTIFICATION;
+        }
     }
 }

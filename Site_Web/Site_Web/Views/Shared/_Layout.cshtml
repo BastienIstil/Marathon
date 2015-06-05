@@ -29,12 +29,21 @@
                 if (InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.SECRETAIRE ||
                     InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.ADMIN)
                 {
-                    @Html.ActionLink("Profile", "EditProfile", "Coureurs");
-                @Html.ActionLink("Créer fédération", "Modif", "Federations");
+                    
+                    @Html.ActionLink("Créer fédération", "Modif", "Federations");
                 }
                 else
                 {
-                    @Html.ActionLink("Profile", "EditProfile", "Clubs");
+                    if (InscritCustom.getStatus(User.Identity.Name) == NiveauAuthentificationInscription.COUREUR)
+                    {
+                        @Html.ActionLink("Profile", "EditProfile", "Coureurs");
+                     
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Profile Club", "EditProfile", "Clubs");
+                      
+                    }
                 }
             }
             else
