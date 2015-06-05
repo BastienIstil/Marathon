@@ -22,13 +22,26 @@
             @Html.Label(User.Identity.Name)
             @if (Request.IsAuthenticated)
             {
-                @Html.ActionLink("Sign Out", "Logout", "Inscrits", null, new { @class = "btn btn-primary" })
+                @Html.Encode(User.Identity.Name);
+                @Html.ActionLink("Sign Out", "Logout", "Inscrits", null, new { @class = "btn btn-primary" });
+
+
+                if (InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.SECRETAIRE ||
+                    InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.ADMIN)
+                {
+                    @Html.ActionLink("Profile", "EditProfile", "Coureurs");
+                @Html.ActionLink("Créer fédération", "Modif", "Federations");
+                }
+                else
+                {
+                    @Html.ActionLink("Profile", "EditProfile", "Clubs");
+                }
             }
             else
             {
-                @Html.ActionLink("Se connecter", "Login", "Inscrits", null, new { @class = "btn btn-primary" })
-                @Html.ActionLink("S'inscrire", "Register", "Inscrits", null, new { @class = "btn btn-primary" })
-            }   
+                @Html.ActionLink("Register", "Register", "Inscrits", null, new { @class = "btn btn-primary" });
+                @Html.ActionLink("Sign In", "Login", "Inscrits", null, new { @class = "btn btn-primary" });
+            }  
         </div>
         <nav id="menuSite">
             <ul>
