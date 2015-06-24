@@ -16,7 +16,6 @@ namespace Site_Web.Class_Metier.ViewCustomModels
         
         public List<COUREUR> listCoureur {get; set;}
         public List<bool> listEtat {get; set;}
-
-        public CLUB club { get; set; }
+        public Nullable<int> CLU_ID { get; set; }
     }
 }

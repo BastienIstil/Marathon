@@ -38,6 +38,17 @@ namespace Site_Web.Controllers
             Telechargement.telechargementLocal(Response, "InscriptionIndividu", Server.MapPath("../Resources/"+Fichier));
             return View();
         }
+
+
+        public ActionResult InscriptionClubFail()
+        {
+            return View();
+        }
+
+        public ActionResult InscriptionClubOK()
+        {
+            return View();
+        }
     }
 
 }
