@@ -54,7 +54,7 @@ namespace Site_Web.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CLU_ID,FED_ID,INS_ID,CLU_NOM,CLU_LICENCE,CLU_EMAIL,CLU_ADRESSE,CLU_CODEPOSTAL,CLU_VILLE,CLU_PAYS,CLU_TELEPHONE,CLU_FAX,CLU_NUMERO")] CLUB cLUB)
+        public ActionResult Create(CLUB cLUB)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace Site_Web.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CLU_ID,FED_ID,INS_ID,CLU_NOM,CLU_LICENCE,CLU_EMAIL,CLU_ADRESSE,CLU_CODEPOSTAL,CLU_VILLE,CLU_PAYS,CLU_TELEPHONE,CLU_FAX,CLU_NUMERO")] CLUB cLUB)
+        public ActionResult Edit(CLUB cLUB)
         {
             if (ModelState.IsValid)
             {
@@ -171,7 +171,7 @@ namespace Site_Web.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditProfile([Bind(Include = "CLU_ID,FED_ID,INS_ID,CLU_NOM,CLU_LICENCE,CLU_EMAIL,CLU_ADRESSE,CLU_CODEPOSTAL,CLU_VILLE,CLU_PAYS,CLU_TELEPHONE,CLU_FAX,CLU_NUMERO")] CLUB club)
+        public ActionResult EditProfile(CLUB club)
         {
             if (ModelState.IsValid)
             {
@@ -247,14 +247,21 @@ namespace Site_Web.Controllers
                 if (coureurInscription.listEtat[i] == true)
                 {
                     int id = coureurInscription.listCoureur[i].COU_ID;
-
+                    string body;
 
                     string link = "<a href=\"http://localhost:2409/Clubs/ValidCoureurToClub?idClub=" +
                         coureurInscription.CLU_ID.ToString() + "&idCoureur=" +
-                        coureurInscription.listCoureur[i].COU_ID.ToString() + "\">nom du lien</a>";
+                        coureurInscription.listCoureur[i].COU_ID.ToString() + "\">cliquer pour validation</a>";
 
-                    string body = link;
 
+                    try
+                    {
+                        body = "Le club " + db.CLUBs.Find(coureurInscription.CLU_ID).CLU_NOM + " souhaite vous inscrire en tant que participant " + link;
+                    }
+                    catch (Exception)
+                    {
+                        body = link;
+                    }
                     // receiver = coureurInscription.listCoureur[i].COU_EMAIL;
                     Email.SendEmail(sender, mdp, receiver, subject, body);   
                 }
@@ -267,23 +274,23 @@ namespace Site_Web.Controllers
         [HttpGet, ActionName("ValidCoureurToClub")]
         public ActionResult ValidCoureurToClub(int? idClub, int? idCoureur)
         {
-            CLUB club = db.CLUBs.Find(idClub);
-           // COUREUR coureur = db.COUREURs.Find(idCoureur);
-            List<COUREUR> coureurs = db.COUREURs.ToList();
-
-            COUREUR cou = (from c in db.COUREURs
-                           where c.COU_ID == idCoureur
-                           select c).First();
-
-            cou.CLU_ID = club.CLU_ID;
-
-            db.Entry(cou).State = EntityState.Modified;
-
             try
             {
+                CLUB club = db.CLUBs.Find(idClub);
+               // COUREUR coureur = db.COUREURs.Find(idCoureur);
+                List<COUREUR> coureurs = db.COUREURs.ToList();
+
+                COUREUR cou = (from c in db.COUREURs
+                               where c.COU_ID == idCoureur
+                               select c).First();
+
+                cou.CLU_ID = club.CLU_ID;
+
+                db.Entry(cou).State = EntityState.Modified;
+
                 db.SaveChanges();
             }
-            catch (DbEntityValidationException)
+            catch (Exception)
             {
                 return RedirectToAction("InscriptionClubFail","Home");
             }
@@ -309,8 +316,13 @@ namespace Site_Web.Controllers
                 coureurInscription.listCoureur = (from c in db.COUREURs
                                                   where c.CLU_ID == club.CLU_ID
                                                   select c).ToList();  // TODO UPGRADE VERIFICATION APPARTENANCE A UN CLUB
+
+                
                 coureurInscription.listEtat = new List<bool>();
             }
+
+            if (coureurInscription.listCoureur == null)
+                coureurInscription.listCoureur = new List<COUREUR>();
 
             foreach (COUREUR c in coureurInscription.listCoureur)
             {
@@ -341,14 +353,23 @@ namespace Site_Web.Controllers
                 {
                     int id = coureurInscription.listCoureur[i].COU_ID;
 
+                    string body;
 
                     string link = "<a href=\"http://localhost:2409/Clubs/ValidAddInscritDefi?idCoureur=" +
                         coureurInscription.listCoureur[i].COU_ID.ToString() +
                         "&idDefi=" +
                         coureurInscription.defi.DEF_ID.ToString() +
-                        "\">nom du lien</a>";
+                        "\">cliquer pour validation</a>";
 
-                    string body = link;
+
+                    try
+                    {
+                        body = "Votre club souhaite vous inscrire au défi " +  coureurInscription.defi.DEF_NOM + " " + link;
+                    }
+                    catch (Exception)
+                    {
+                        body = link;
+                    }
 
                     // receiver = coureurInscription.listCoureur[i].COU_EMAIL;
                     Email.SendEmail(sender, mdp, receiver, subject, body);

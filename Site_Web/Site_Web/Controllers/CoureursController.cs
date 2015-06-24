@@ -51,7 +51,7 @@ namespace Site_Web.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "COU_ID,INS_ID,FED_ID,CLU_ID,CAT_ID,COU_NOM,COU_PRENOM,COU_DATENAISSANCE,COU_SEXE,COU_NUMEROLICENCE,COU_FEDERATION,COU_EMAIL,COU_ADRESSE,COU_CODEPOSTAL,COU_VILLE,COU_PAYS,COU_TELEPHONE,COU_FAX,COU_ENTREPRISEGROUPEASSOCIATION,COU_CERTIFICATMEDICAL")] COUREUR cOUREUR)
+        public ActionResult Create(COUREUR cOUREUR)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace Site_Web.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "COU_ID,INS_ID,FED_ID,CLU_ID,CAT_ID,COU_NOM,COU_PRENOM,COU_DATENAISSANCE,COU_SEXE,COU_NUMEROLICENCE,COU_FEDERATION,COU_EMAIL,COU_ADRESSE,COU_CODEPOSTAL,COU_VILLE,COU_PAYS,COU_TELEPHONE,COU_FAX,COU_ENTREPRISEGROUPEASSOCIATION,COU_CERTIFICATMEDICAL")] COUREUR cOUREUR)
+        public ActionResult Edit(COUREUR cOUREUR)
         {
             if (ModelState.IsValid)
             {
@@ -179,7 +179,7 @@ namespace Site_Web.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditProfile([Bind(Include = "COU_ID,INS_ID,FED_ID,CLU_ID,CAT_ID,COU_NOM,COU_PRENOM,COU_DATENAISSANCE,COU_SEXE,COU_NUMEROLICENCE,COU_FEDERATION,COU_EMAIL,COU_ADRESSE,COU_CODEPOSTAL,COU_VILLE,COU_PAYS,COU_TELEPHONE,COU_FAX,COU_ENTREPRISEGROUPEASSOCIATION,COU_CERTIFICATMEDICAL")] COUREUR cOUREUR)
+        public ActionResult EditProfile(COUREUR cOUREUR)
         {
             if (ModelState.IsValid)
             {
