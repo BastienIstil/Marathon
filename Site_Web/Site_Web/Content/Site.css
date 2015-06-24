@@ -33,8 +33,20 @@ img.bg{
     z-index:-1;
 }
 
-.pageAccueil{
-    background: #fff;
+.bg-fiche{
+    background: rgba(255, 255, 255, 0.5);
+    border: ridge 4px #ccc;
+    padding: 15px 15px 0;
+}
+
+.bg-fiche-unique{
+    background: rgba(255, 255, 255, 0.7);
+    border: ridge 4px #ccc;
+    padding: 15px 15px 0;
+}
+
+.table, .table tr, .table th, .table td{
+    border: 1px solid #000 !important;
 }
 
 /************/
@@ -184,9 +196,7 @@ img.bg{
     /* Index Post Utilisateur*/
 
         .pageAccueil{
-            padding: 15px 15px 0;
             margin-top: 15px;
-            border: ridge 4px #CCC;
             width:70%;
         }
 
@@ -194,7 +204,7 @@ img.bg{
             padding: 15px;
             margin-bottom:15px;
             border: solid 1px #000;
-            background: #eee;
+            background: rgba(255,255,255,.8);
         }
         .post .titre{
             padding: 5px 0 0 5px;

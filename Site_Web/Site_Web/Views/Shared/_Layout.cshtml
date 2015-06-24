@@ -16,7 +16,8 @@
     <img src="~/Resources/background.jpg" class="bg"/>
     <section id="headerSite">
         <div id="logoMarathon">
-            <img src="~/Resources/LogoMarathon.png"/>
+
+            <a href="~/Home/Index"><img src="~/Resources/LogoMarathon.png" /></a>
         </div>
         <div id="blocConnexion">   
             @Html.Label(User.Identity.Name)
@@ -48,8 +49,8 @@
             }
             else
             {
-                @Html.ActionLink("Register", "Register", "Inscrits", null, new { @class = "btn btn-primary" });
-                @Html.ActionLink("Sign In", "Login", "Inscrits", null, new { @class = "btn btn-primary" });
+                @Html.ActionLink("S'inscrire", "Register", "Inscrits", null, new { @class = "btn btn-primary" });
+                @Html.ActionLink("Se connecter", "Login", "Inscrits", null, new { @class = "btn btn-primary" });
             }  
         </div>
         <nav id="menuSite">
