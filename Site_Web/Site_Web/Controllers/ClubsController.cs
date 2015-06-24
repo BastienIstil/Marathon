@@ -10,6 +10,7 @@ using Site_Web.App_Data;
 using Site_Web.Class_Metier.ViewCustomModels;
 using System.Net.Mail;
 using Site_Web.Class_Metier.Web_Common;
+using System.Data.Entity.Validation;
 
 namespace Site_Web.Controllers
 {
@@ -200,15 +201,16 @@ namespace Site_Web.Controllers
         public ActionResult AddCoureur()
         {
             CoureurInscriptions coureurInscription = new CoureurInscriptions();
-            coureurInscription.listCoureur = db.COUREURs.ToList();  // TODO UPGRADE VERIFICATION APPARTENANCE A UN CLUB
+            coureurInscription.listCoureur = (from c in db.COUREURs
+                                              where c.CLU_ID == null
+                                              select c).ToList();  // TODO UPGRADE VERIFICATION APPARTENANCE A UN CLUB
             coureurInscription.listEtat = new List<bool>();
 
             if (InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.CLUB)
             {
                 INSCRIT inscrit = db.INSCRITs.FirstOrDefault(i => i.INS_LOGIN == User.Identity.Name);
-                CLUB clu = db.CLUBs.FirstOrDefault(c => c.INS_ID == inscrit.INS_ID);
-
-                coureurInscription.club = clu;
+                CLUB club = db.CLUBs.FirstOrDefault(c => c.INS_ID == inscrit.INS_ID);
+                coureurInscription.CLU_ID = club.CLU_ID;
             }
 
             foreach (COUREUR c in coureurInscription.listCoureur)
@@ -216,6 +218,7 @@ namespace Site_Web.Controllers
                 coureurInscription.listEtat.Add(false);
             }
 
+            ViewBag.CLU_ID = new SelectList(db.CLUBs, "CLU_ID", "CLU_ID", coureurInscription.CLU_ID);
             return View(coureurInscription);
         }
 
@@ -236,10 +239,13 @@ namespace Site_Web.Controllers
                 if (coureurInscription.listEtat[i] == true)
                 {
                     int id = coureurInscription.listCoureur[i].COU_ID;
-                    
-                    string body = "<a href=\"http://localhost:2409/Clubs/ValidCoureurToClub?idClub="+
-                        coureurInscription.club.CLU_ID.ToString() + "&idCoureur=" +
-                        coureurInscription.listCoureur[i].COU_ID.ToString() + "\">Visit our HTML tutorial</a>";
+
+
+                    string link = "<a href=\"http://localhost:2409/Clubs/ValidCoureurToClub?idClub=" +
+                        coureurInscription.CLU_ID.ToString() + "&idCoureur=" +
+                        coureurInscription.listCoureur[i].COU_ID.ToString() + "\">nom du lien</a>";
+
+                    string body = link;
 
                     // receiver = coureurInscription.listCoureur[i].COU_EMAIL;
                     Email.SendEmail(sender, mdp, receiver, subject, body);   
@@ -254,12 +260,27 @@ namespace Site_Web.Controllers
         public ActionResult ValidCoureurToClub(int? idClub, int? idCoureur)
         {
             CLUB club = db.CLUBs.Find(idClub);
-            COUREUR coureur = db.COUREURs.Find(idCoureur);
-            coureur.CLU_ID = club.CLU_ID;
+           // COUREUR coureur = db.COUREURs.Find(idCoureur);
+            List<COUREUR> coureurs = db.COUREURs.ToList();
 
-            db.Entry(coureur).State = EntityState.Modified;
-            db.SaveChanges();
-            return RedirectToAction("Index", "Home");
+            COUREUR cou = (from c in db.COUREURs
+                           where c.COU_ID == idCoureur
+                           select c).First();
+
+            cou.CLU_ID = club.CLU_ID;
+
+            db.Entry(cou).State = EntityState.Modified;
+
+            try
+            {
+                db.SaveChanges();
+            }
+            catch (DbEntityValidationException)
+            {
+                return RedirectToAction("InscriptionClubFail","Home");
+            }
+
+            return RedirectToAction("InscriptionClubOK", "Home");
         }
     }
 }

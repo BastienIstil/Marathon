@@ -10,8 +10,8 @@
 
 @using (Html.BeginForm(new { ListJoueurViewModel = Model }))
 {    
-    <div class="form-horizontal">
-        @Html.HiddenFor(model => model.club)
+    <div class="form-horizontal">          
+    @Html.HiddenFor(model => model.CLU_ID)
 
         <table class="tableCoureur">
             <tr>
@@ -28,6 +28,7 @@
             </tr>
             @for (int i = 0; i < Model.listCoureur.Count; i++)
             {
+                @Html.HiddenFor(model => Model.listCoureur[i].COU_ID)
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => Model.listCoureur[i].COU_PRENOM)

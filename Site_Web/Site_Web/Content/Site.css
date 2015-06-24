@@ -79,12 +79,36 @@ img.bg{
     /* Banniere */
         #logoMarathon{
             display:inline-block;
+            position: absolute;
+            width: 38%;
+            top:0;
+            left: 31%;
+            right: 31%;
+        }
+        #blocConnexion{
+            position:absolute;
+            top: 20%;
+            right: 10%;
         }
 
+        #blocConnexion a {
+            display: block;
+        }
+        #blocConnexion a:first-child{
+            margin-bottom: 18px;
+        }
     
     /* Menu */
         #headerSite{
             width:100%;
+            position: relative;
+            height: 210px;
+        }
+        #menuSite{
+            position:absolute;
+            bottom: 0;
+            left:0;
+            right:0;
         }
         li{
             list-style-type:none;
@@ -163,6 +187,7 @@ img.bg{
             padding: 15px 15px 0;
             margin-top: 15px;
             border: ridge 4px #CCC;
+            width:70%;
         }
 
         .post{
