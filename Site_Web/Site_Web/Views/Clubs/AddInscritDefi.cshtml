@@ -1,7 +1,7 @@
 ﻿@using Site_Web.App_Data;
 @using Site_Web.Class_Metier.ViewCustomModels;
 
-@model CoureurInscriptions
+@model InscriptionClubCourreurDefie
 @{
     ViewBag.Title = "AddCoureur";
 }
@@ -9,9 +9,21 @@
 <h2>Ajouter un coureur</h2>
 
 @using (Html.BeginForm(new { ListJoueurViewModel = Model }))
-{    
-    <div class="form-horizontal">          
-    @Html.HiddenFor(model => model.CLU_ID)
+{
+    <div class="form-horizontal">                  
+        @Html.HiddenFor(model => model.defi.DEF_ID)
+        @Html.HiddenFor(model => model.defi.DEF_NOM)
+        @Html.HiddenFor(model => model.defi.DEF_NOMBREMAXPARTICIPANT)
+        @Html.HiddenFor(model => model.defi.DEF_EXPLICATION)
+
+        <div class="form-group">
+             @Html.LabelFor(model => model.defi.DEF_ID, "DEF_ID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                 @Html.DropDownList("DEF_ID", null, htmlAttributes: new { @class = "form-control" })
+                 @Html.ValidationMessageFor(model => model.defi.DEF_ID, "", new { @class = "text-danger" })
+            </div>
+            
+        </div>
 
         <table class="tableCoureur">
             <tr>

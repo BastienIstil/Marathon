@@ -210,6 +210,7 @@
     <Compile Include="Class_Metier\PBKDF2.cs" />
     <Compile Include="Class_Metier\SimpleCrypto.cs" />
     <Compile Include="Class_Metier\ViewCustomModels\CoureurInscriptions.cs" />
+    <Compile Include="Class_Metier\ViewCustomModels\InscriptionClubCourreurDefie.cs" />
     <Compile Include="Class_Metier\ViewCustomModels\InscritCustom.cs" />
     <Compile Include="Class_Metier\Web_Common\Email.cs" />
     <Compile Include="Class_Metier\Web_Common\Telechargement.cs" />
@@ -250,6 +251,21 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Class_Metier\ViewCustomModels\ClassementViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Metadata\_Borne.cs" />
+    <Compile Include="Models\Metadata\_Categorie.cs" />
+    <Compile Include="Models\Metadata\_Classement.cs" />
+    <Compile Include="Models\Metadata\_Club.cs" />
+    <Compile Include="Models\Metadata\_Coureur.cs" />
+    <Compile Include="Models\Metadata\_Course.cs" />
+    <Compile Include="Models\Metadata\_Defi.cs" />
+    <Compile Include="Models\Metadata\_Federation.cs" />
+    <Compile Include="Models\Metadata\_InformationPublique.cs" />
+    <Compile Include="Models\Metadata\_Inscrit.cs" />
+    <Compile Include="Models\Metadata\_Lot.cs" />
+    <Compile Include="Models\Metadata\_Paiement.cs" />
+    <Compile Include="Models\Metadata\_Participation.cs" />
+    <Compile Include="Models\Metadata\_PastaParty.cs" />
+    <Compile Include="Models\Metadata\_TempsCoureurBorne.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -313,6 +329,12 @@
     <Content Include="Views\InformationPublique\Index.cshtml" />
     <Content Include="Views\Federations\CreateFed.cshtml" />
     <Content Include="Views\Federations\Modif.cshtml" />
+    <Content Include="Views\Clubs\AddCoureur.cshtml" />
+    <Content Include="Views\Home\inscriptionClubOK.cshtml" />
+    <Content Include="Views\Home\InscriptionClubFail.cshtml" />
+    <Content Include="Views\Clubs\AddInscritDefi.cshtml" />
+    <Content Include="Views\Home\InscriptionDefiFail.cshtml" />
+    <Content Include="Views\Home\InscriptionDefiOK.cshtml" />
     <None Include="Views\Inscrits\Logout.cshtml" />
     <None Include="Views\Inscrits\Register.cshtml" />
     <Content Include="Views\Inscrits\Login.cshtml" />
@@ -403,12 +425,9 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Home\Index2.cshtml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\Metadata\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />

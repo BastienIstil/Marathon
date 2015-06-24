@@ -16,7 +16,8 @@
     <img src="~/Resources/background.jpg" class="bg"/>
     <section id="headerSite">
         <div id="logoMarathon">
-            <img src="~/Resources/LogoMarathon.png"/>
+
+            <a href="~/Home/Index"><img src="~/Resources/LogoMarathon.png" /></a>
         </div>
         <div id="blocConnexion">   
             @Html.Label(User.Identity.Name)
@@ -48,8 +49,8 @@
             }
             else
             {
-                @Html.ActionLink("Register", "Register", "Inscrits", null, new { @class = "btn btn-primary" });
-                @Html.ActionLink("Sign In", "Login", "Inscrits", null, new { @class = "btn btn-primary" });
+                @Html.ActionLink("S'inscrire", "Register", "Inscrits", null, new { @class = "btn btn-primary" });
+                @Html.ActionLink("Se connecter", "Login", "Inscrits", null, new { @class = "btn btn-primary" });
             }  
         </div>
         <nav id="menuSite">
@@ -62,7 +63,7 @@
                             
                             <li>@Html.ActionLink("Telecharger le formulaire d'inscription individuelle", "Telecharge", "Home", new { Fichier = "InscriptionMarathonAnnecyIndividuelle2015.pdf" }, null)</li>
                             <li>@Html.ActionLink("Telecharger le formulaire d'inscription d'un Club", "Telecharge", "Home", new { Fichier = "InscriptionMarathonAnnecyClub2015.pdf" }, null)</li>
-                            <li><a href="http://www.totofaitduvelo.com">Inscription en ligne</a></li>
+                            <li>@Html.ActionLink("Inscription en ligne",null, "Home")</li>
                         </ul>
                     </div>
                     <!-- Fin Sous Menu-->

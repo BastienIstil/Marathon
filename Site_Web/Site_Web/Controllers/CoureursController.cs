@@ -51,7 +51,7 @@ namespace Site_Web.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "COU_ID,INS_ID,FED_ID,CLU_ID,CAT_ID,COU_NOM,COU_PRENOM,COU_DATENAISSANCE,COU_SEXE,COU_NUMEROLICENCE,COU_FEDERATION,COU_EMAIL,COU_ADRESSE,COU_CODEPOSTAL,COU_VILLE,COU_PAYS,COU_TELEPHONE,COU_FAX,COU_ENTREPRISEGROUPEASSOCIATION,COU_CERTIFICATMEDICAL")] COUREUR cOUREUR)
+        public ActionResult Create(COUREUR cOUREUR)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +91,7 @@ namespace Site_Web.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "COU_ID,INS_ID,FED_ID,CLU_ID,CAT_ID,COU_NOM,COU_PRENOM,COU_DATENAISSANCE,COU_SEXE,COU_NUMEROLICENCE,COU_FEDERATION,COU_EMAIL,COU_ADRESSE,COU_CODEPOSTAL,COU_VILLE,COU_PAYS,COU_TELEPHONE,COU_FAX,COU_ENTREPRISEGROUPEASSOCIATION,COU_CERTIFICATMEDICAL")] COUREUR cOUREUR)
+        public ActionResult Edit(COUREUR cOUREUR)
         {
             if (ModelState.IsValid)
             {
@@ -168,7 +168,6 @@ namespace Site_Web.Controllers
             courreur.INS_ID = idInscrit;
 
             ViewBag.FED_ID = new SelectList(db.FEDERATIONs, "FED_ID", "FED_NOM", courreur.FED_ID);
-            ViewBag.CLU_ID = new SelectList(db.CLUBs, "CLU_ID", "CLU_NOM", courreur.CLU_ID);
             ViewBag.CAT_ID = new SelectList(db.CATEGORIEs, "CAT_ID", "CAT_LIBELLE", courreur.CAT_ID);
             ViewBag.INS_ID = new SelectList(db.INSCRITs, "INS_ID", "INS_LOGIN", courreur.INS_ID);
             return View(courreur);
@@ -179,7 +178,7 @@ namespace Site_Web.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditProfile([Bind(Include = "COU_ID,INS_ID,FED_ID,CLU_ID,CAT_ID,COU_NOM,COU_PRENOM,COU_DATENAISSANCE,COU_SEXE,COU_NUMEROLICENCE,COU_FEDERATION,COU_EMAIL,COU_ADRESSE,COU_CODEPOSTAL,COU_VILLE,COU_PAYS,COU_TELEPHONE,COU_FAX,COU_ENTREPRISEGROUPEASSOCIATION,COU_CERTIFICATMEDICAL")] COUREUR cOUREUR)
+        public ActionResult EditProfile(COUREUR cOUREUR)
         {
             if (ModelState.IsValid)
             {
@@ -201,7 +200,6 @@ namespace Site_Web.Controllers
             } 
 
             ViewBag.FED_ID = new SelectList(db.FEDERATIONs, "FED_ID", "FED_NOM", cOUREUR.FED_ID);
-            ViewBag.CLU_ID = new SelectList(db.CLUBs, "CLU_ID", "CLU_NOM", cOUREUR.CLU_ID);
             ViewBag.CAT_ID = new SelectList(db.CATEGORIEs, "CAT_ID", "CAT_LIBELLE", cOUREUR.CAT_ID);
             ViewBag.INS_ID = new SelectList(db.INSCRITs, "INS_ID", "INS_LOGIN", cOUREUR.INS_ID);
 
