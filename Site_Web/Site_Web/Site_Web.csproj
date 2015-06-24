@@ -209,6 +209,7 @@
     <Compile Include="Class_Metier\ExtensionModels\ExtensionCoureur.cs" />
     <Compile Include="Class_Metier\PBKDF2.cs" />
     <Compile Include="Class_Metier\SimpleCrypto.cs" />
+    <Compile Include="Class_Metier\ViewCustomModels\CoureurInscriptions.cs" />
     <Compile Include="Class_Metier\ViewCustomModels\InscritCustom.cs" />
     <Compile Include="Class_Metier\Web_Common\Email.cs" />
     <Compile Include="Class_Metier\Web_Common\Telechargement.cs" />
