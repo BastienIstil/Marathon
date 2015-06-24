@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Site_Web.App_Data;
+using Site_Web.Models;
 
 namespace Site_Web.Controllers
 {
@@ -18,6 +19,7 @@ namespace Site_Web.Controllers
         public ActionResult Index()
         {
             var cLASSEMENTs = db.CLASSEMENTs.Include(t => t.T_E_COUREUR_COU).Include(t => t.T_R_COURSE_COR);
+
             return View(db.CLASSEMENTs.ToList());
         }
 
@@ -62,6 +64,7 @@ namespace Site_Web.Controllers
             ViewBag.COR_ID = new SelectList(db.BORNEs, "COR_ID", "COR_ID", cLASSEMENT.COR_ID);
             return View(cLASSEMENT);
         }
+
 
         // GET: Classements/Edit/5
         public ActionResult Edit(int? id)

@@ -1,4 +1,5 @@
-﻿@model IEnumerable<Site_Web.App_Data.CLASSEMENT>
+﻿@using Site_Web.Models 
+@model ClassementViewModel
 
 @{
     ViewBag.Title = "Index";
@@ -7,24 +8,42 @@
 <h2>Les classements</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create nouveau temps", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.CLA_TEMPS)
+            @Html.DisplayNameFor(model => model.classement.CLA_TEMPS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.listeCoureurs.FirstOrDefault().COU_NOM)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.listeCoureurs.FirstOrDefault().COU_PRENOM)
         </th>
         
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Course.COR_NOM)
+        </th>
+        
+        
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model.listeCoureurs) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.CLA_TEMPS)
+            @Html.DisplayFor(modelItem => item.T_J_CLASSEMENT_CLA)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.DisplayFor(modelItem => item.COU_NOM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.COU_PRENOM)
+        </td>
+        <td>
+            <th></th>
+        </td>
+        <td>
             @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
             @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
         </td>
