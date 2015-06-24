@@ -40,15 +40,11 @@ namespace Site_Web.Controllers
         }
 
 
-        public ActionResult InscriptionClubFail()
-        {
-            return View();
-        }
+        public ActionResult InscriptionClubFail() { return View(); }
+        public ActionResult InscriptionClubOK() { return View(); }
+        public ActionResult InscriptioDefiFail() { return View(); }
+        public ActionResult InscriptionDefiOK() { return View(); }
 
-        public ActionResult InscriptionClubOK()
-        {
-            return View();
-        }
     }
 
 }
