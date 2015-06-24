@@ -201,7 +201,9 @@ namespace Site_Web.Controllers
         public ActionResult AddCoureur()
         {
             CoureurInscriptions coureurInscription = new CoureurInscriptions();
-            coureurInscription.listCoureur = db.COUREURs.ToList();  // TODO UPGRADE VERIFICATION APPARTENANCE A UN CLUB
+            coureurInscription.listCoureur = (from c in db.COUREURs
+                                              where c.CLU_ID == null
+                                              select c).ToList();  // TODO UPGRADE VERIFICATION APPARTENANCE A UN CLUB
             coureurInscription.listEtat = new List<bool>();
 
             if (InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.CLUB)
@@ -273,19 +275,9 @@ namespace Site_Web.Controllers
             {
                 db.SaveChanges();
             }
-            catch (DbEntityValidationException e)
+            catch (DbEntityValidationException)
             {
                 return RedirectToAction("InscriptionClubFail","Home");
-                /*            
-                          string toto = "";
-                          foreach (var eve in e.EntityValidationErrors)
-                          {
-                                toto += "Entity of type \"" + eve.Entry.Entity.GetType().Name + "\" in state \"" + eve.Entry.State + "\" has the following validation errors:";
-                                foreach (var ve in eve.ValidationErrors)
-                                {
-                                    toto += "- Property: \"" + ve.PropertyName + "\", Error: \"" + ve.ErrorMessage + "\"";
-                                }
-                          }*/
             }
 
             return RedirectToAction("InscriptionClubOK", "Home");
