@@ -6,13 +6,16 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Site_Web.App_Data
 {
-    [MetadataType(typeof(COURREURMetadata))]
+    [MetadataType(typeof(COUREURMetadata))]
     public partial class COUREUR
     {
-        public class COURREURMetadata
+        public class COUREURMetadata
         {
-            [Display(Name="Nom")]
+            [Display(Name = "Nom du coureur")]
             public string COU_NOM { get; set; }
+
+            [Display(Name = "Prénom")]
+            public string COU_PRENOM { get; set; }
         }
     }
 }
