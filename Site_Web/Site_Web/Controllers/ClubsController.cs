@@ -240,7 +240,7 @@ namespace Site_Web.Controllers
             string sender = "dylan.btx.test@gmail.com";
             string mdp = "marathon@02";
             string receiver = "dylan.btx.test@gmail.com";
-            string subject = "Test Mail - Adhérer au club";
+            string subject = "Adhérer au club Marathon 2015";
 
             for (i = 0; i < count; i++)
             {
@@ -345,7 +345,7 @@ namespace Site_Web.Controllers
             string sender = "dylan.btx.test@gmail.com";
             string mdp = "marathon@02";
             string receiver = "dylan.btx.test@gmail.com";
-            string subject = "Test Mail - Adhérer au club";
+            string subject = "Inscription épreuve au club Marathon 2015";
 
             for (i = 0; i < count; i++)
             {
