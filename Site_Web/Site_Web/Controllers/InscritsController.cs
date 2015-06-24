@@ -73,7 +73,7 @@ namespace Site_Web.Controllers
                 }
 
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return new EmptyResult();
             }
