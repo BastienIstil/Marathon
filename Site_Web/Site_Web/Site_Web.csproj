@@ -210,6 +210,7 @@
     <Compile Include="Class_Metier\PBKDF2.cs" />
     <Compile Include="Class_Metier\SimpleCrypto.cs" />
     <Compile Include="Class_Metier\ViewCustomModels\CoureurInscriptions.cs" />
+    <Compile Include="Class_Metier\ViewCustomModels\InscriptionClubCourreurDefie.cs" />
     <Compile Include="Class_Metier\ViewCustomModels\InscritCustom.cs" />
     <Compile Include="Class_Metier\Web_Common\Email.cs" />
     <Compile Include="Class_Metier\Web_Common\Telechargement.cs" />
@@ -330,6 +331,9 @@
     <Content Include="Views\Clubs\AddCoureur.cshtml" />
     <Content Include="Views\Home\inscriptionClubOK.cshtml" />
     <Content Include="Views\Home\InscriptionClubFail.cshtml" />
+    <Content Include="Views\Clubs\AddInscritDefi.cshtml" />
+    <Content Include="Views\Home\InscriptionDefiFail.cshtml" />
+    <Content Include="Views\Home\InscriptionDefiOK.cshtml" />
     <None Include="Views\Inscrits\Logout.cshtml" />
     <None Include="Views\Inscrits\Register.cshtml" />
     <Content Include="Views\Inscrits\Login.cshtml" />
