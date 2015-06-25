@@ -20,7 +20,6 @@ namespace Site_Web.App_Data
             [Display(Name = "Email")]
             public string COU_EMAIL { get; set; }
 
-            [StringLength(10)]
             [Display(Name = "Date de naissance")]
             public string COU_DATENAISSANCE { get; set; }
 
@@ -46,7 +45,6 @@ namespace Site_Web.App_Data
             [Display(Name = "Pays")]
             public string COU_PAYS { get; set; }
 
-            [StringLength(10)]
             [Display(Name = "Téléphone")]
             public string COU_TELEPHONE { get; set; }
 
