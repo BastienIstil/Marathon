@@ -1,36 +1,61 @@
-﻿@model IEnumerable<Site_Web.App_Data.CLASSEMENT>
+﻿@using Site_Web.Models 
+@model ClassementViewModel
 
 @{
     ViewBag.Title = "Index";
 }
 <section class="bg-fiche-unique">
-    <h2>Les classements</h2>
+<h2>Les classements</h2>
 
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.CLA_TEMPS)
-            </th>
+<p>
+    @Html.ActionLink("Creer nouveau classement", "Create")
+</p>
 
-            <th></th>
-        </tr>
+<p>
+    @Html.ActionLink("Afficher classement marathon", "Index", "Classements" , new { choixcourse = 1 }, null)
+</p>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CLA_TEMPS)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                </td>
-            </tr>
-        }
+<p>
+    @Html.ActionLink("Afficher classement du semi-marathon", "Index", "Classements", new { choixcourse = 2 }, null)
+</p>
 
-    </table>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.lignes.FirstOrDefault().prenomCoureur)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lignes.FirstOrDefault().nomCoureur)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lignes.FirstOrDefault().nomCourse)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.lignes.FirstOrDefault().temps)
+        </th>
+        
+        
+        
+    </tr>
+
+@foreach (var item in Model.lignes) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nomCoureur)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.prenomCoureur)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nomCourse)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.temps)
+        </td>
+        
+    </tr>
+}
+
+</table>
 </section>
