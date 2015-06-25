@@ -4,174 +4,175 @@
     ViewBag.Title = "Delete";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<section class="bg-fiche-unique">
+    <h2>Supprimer</h2>
 
-<h2>Delete</h2>
+    <h3>Etes-vous sûr(e) de vouloir le supprimer ?</h3>
+    <div>
+        <h4>COUREUR</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.COU_NOM)
+            </dt>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>COUREUR</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.COU_NOM)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.COU_NOM)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.COU_NOM)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.COU_PRENOM)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.COU_PRENOM)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.COU_PRENOM)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.COU_PRENOM)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.COU_DATENAISSANCE)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.COU_DATENAISSANCE)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.COU_DATENAISSANCE)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.COU_DATENAISSANCE)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.COU_SEXE)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.COU_SEXE)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.COU_SEXE)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.COU_SEXE)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.COU_NUMEROLICENCE)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.COU_NUMEROLICENCE)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.COU_NUMEROLICENCE)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.COU_NUMEROLICENCE)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.COU_FEDERATION)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.COU_FEDERATION)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.COU_FEDERATION)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.COU_FEDERATION)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.COU_EMAIL)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.COU_EMAIL)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.COU_EMAIL)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.COU_EMAIL)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.COU_ADRESSE)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.COU_ADRESSE)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.COU_ADRESSE)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.COU_ADRESSE)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.COU_CODEPOSTAL)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.COU_CODEPOSTAL)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.COU_CODEPOSTAL)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.COU_CODEPOSTAL)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.COU_VILLE)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.COU_VILLE)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.COU_VILLE)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.COU_VILLE)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.COU_PAYS)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.COU_PAYS)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.COU_PAYS)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.COU_PAYS)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.COU_TELEPHONE)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.COU_TELEPHONE)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.COU_TELEPHONE)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.COU_TELEPHONE)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.COU_FAX)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.COU_FAX)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.COU_FAX)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.COU_FAX)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.COU_ENTREPRISEGROUPEASSOCIATION)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.COU_ENTREPRISEGROUPEASSOCIATION)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.COU_ENTREPRISEGROUPEASSOCIATION)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.COU_ENTREPRISEGROUPEASSOCIATION)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.COU_CERTIFICATMEDICAL)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.COU_CERTIFICATMEDICAL)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.COU_CERTIFICATMEDICAL)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.COU_CERTIFICATMEDICAL)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.T_R_FEDERATION_FED.FED_NOM)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.T_R_FEDERATION_FED.FED_NOM)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.T_R_FEDERATION_FED.FED_NOM)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.T_R_FEDERATION_FED.FED_NOM)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.T_R_CLUB_CLU.CLU_NOM)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.T_R_CLUB_CLU.CLU_NOM)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.T_R_CLUB_CLU.CLU_NOM)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.T_R_CLUB_CLU.CLU_NOM)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.T_R_CATEGORIE_CAT.CAT_LIBELLE)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.T_R_CATEGORIE_CAT.CAT_LIBELLE)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.T_R_CATEGORIE_CAT.CAT_LIBELLE)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.T_R_CATEGORIE_CAT.CAT_LIBELLE)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.T_E_INSCRIT_INS.INS_LOGIN)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.T_E_INSCRIT_INS.INS_LOGIN)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.T_E_INSCRIT_INS.INS_LOGIN)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.T_E_INSCRIT_INS.INS_LOGIN)
-        </dd>
+        </dl>
 
-    </dl>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
-</div>
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>

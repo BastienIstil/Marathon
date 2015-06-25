@@ -5,49 +5,50 @@
 @{
     ViewBag.Title = "AddCoureur";
 }
+<section class="bg-fiche-unique">
+    <h2>Ajouter un coureur</h2>
 
-<h2>Ajouter un coureur</h2>
+    @using (Html.BeginForm(new { ListJoueurViewModel = Model }))
+    {
+        <div class="form-horizontal">
+            @Html.HiddenFor(model => model.CLU_ID)
 
-@using (Html.BeginForm(new { ListJoueurViewModel = Model }))
-{    
-    <div class="form-horizontal">          
-    @Html.HiddenFor(model => model.CLU_ID)
-
-        <table class="tableCoureur">
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.listCoureur.FirstOrDefault().COU_PRENOM)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.listCoureur.FirstOrDefault().COU_NOM)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.listCoureur.FirstOrDefault().COU_EMAIL)
-                </th>
-                <th></th>
-            </tr>
-            @for (int i = 0; i < Model.listCoureur.Count; i++)
-            {
-                @Html.HiddenFor(model => Model.listCoureur[i].COU_ID)
+            <table class="tableCoureur">
                 <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => Model.listCoureur[i].COU_PRENOM)
-                        @Html.HiddenFor(modelItem => Model.listCoureur[i].COU_PRENOM)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => Model.listCoureur[i].COU_NOM)
-                        @Html.HiddenFor(modelItem => Model.listCoureur[i].COU_NOM)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => Model.listCoureur[i].COU_EMAIL)
-                        @Html.HiddenFor(modelItem => Model.listCoureur[i].COU_EMAIL)
-                    </td>
-                    <td>
-                        @Html.CheckBoxFor(modelItem => modelItem.listEtat[i])
-                    </td>
+                    <th>
+                        @Html.DisplayNameFor(model => model.listCoureur.FirstOrDefault().COU_PRENOM)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.listCoureur.FirstOrDefault().COU_NOM)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.listCoureur.FirstOrDefault().COU_EMAIL)
+                    </th>
+                    <th></th>
                 </tr>
-            }
-        </table>
-        <input type="submit" value="Ajouter" />
-    </div>
-}
+                @for (int i = 0; i < Model.listCoureur.Count; i++)
+                {
+                    @Html.HiddenFor(model => Model.listCoureur[i].COU_ID)
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.listCoureur[i].COU_PRENOM)
+                            @Html.HiddenFor(modelItem => Model.listCoureur[i].COU_PRENOM)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.listCoureur[i].COU_NOM)
+                            @Html.HiddenFor(modelItem => Model.listCoureur[i].COU_NOM)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.listCoureur[i].COU_EMAIL)
+                            @Html.HiddenFor(modelItem => Model.listCoureur[i].COU_EMAIL)
+                        </td>
+                        <td>
+                            @Html.CheckBoxFor(modelItem => modelItem.listEtat[i])
+                        </td>
+                    </tr>
+                }
+            </table>
+            <input type="submit" value="Ajouter" />
+        </div>
+    }
+</section>

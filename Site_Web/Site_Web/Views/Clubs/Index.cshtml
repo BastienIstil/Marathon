@@ -4,97 +4,99 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<section class="bg-fiche-unique">
+    <h2>Index</h2>
 
-<h2>Index</h2>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CLU_NOM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CLU_LICENCE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CLU_EMAIL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CLU_ADRESSE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CLU_CODEPOSTAL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CLU_VILLE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CLU_PAYS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CLU_TELEPHONE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CLU_FAX)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CLU_NUMERO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.T_E_INSCRIT_INS.INS_LOGIN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.T_R_FEDERATION_FED.FED_NOM)
+            </th>
+            <th></th>
+        </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CLU_NOM)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CLU_LICENCE)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CLU_EMAIL)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CLU_ADRESSE)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CLU_CODEPOSTAL)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CLU_VILLE)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CLU_PAYS)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CLU_TELEPHONE)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CLU_FAX)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CLU_NUMERO)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.T_E_INSCRIT_INS.INS_LOGIN)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.T_R_FEDERATION_FED.FED_NOM)
-        </th>
-        <th></th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CLU_NOM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CLU_LICENCE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CLU_EMAIL)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CLU_ADRESSE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CLU_CODEPOSTAL)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CLU_VILLE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CLU_PAYS)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CLU_TELEPHONE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CLU_FAX)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CLU_NUMERO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.T_E_INSCRIT_INS.INS_LOGIN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.T_R_FEDERATION_FED.FED_NOM)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.CLU_ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.CLU_ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.CLU_ID })
+                </td>
+            </tr>
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.CLU_NOM)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CLU_LICENCE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CLU_EMAIL)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CLU_ADRESSE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CLU_CODEPOSTAL)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CLU_VILLE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CLU_PAYS)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CLU_TELEPHONE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CLU_FAX)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CLU_NUMERO)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.T_E_INSCRIT_INS.INS_LOGIN)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.T_R_FEDERATION_FED.FED_NOM)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.CLU_ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.CLU_ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.CLU_ID })
-        </td>
-    </tr>
-}
-
-</table>
+    </table>
+</section>

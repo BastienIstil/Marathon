@@ -4,55 +4,57 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<section class="bg-fiche-unique">
+    <h2>Index</h2>
 
-<h2>Index</h2>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.INF_NOM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.INF_PRENOM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.INF_EMAIL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.INF_CONTENUE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.INF_TITRE)
+            </th>
+            <th></th>
+        </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.INF_NOM)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.INF_PRENOM)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.INF_EMAIL)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.INF_CONTENUE)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.INF_TITRE)
-        </th>
-        <th></th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.INF_NOM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.INF_PRENOM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.INF_EMAIL)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.INF_CONTENUE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.INF_TITRE)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.INF_ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.INF_ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.INF_ID })
+                </td>
+            </tr>
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.INF_NOM)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.INF_PRENOM)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.INF_EMAIL)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.INF_CONTENUE)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.INF_TITRE)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.INF_ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.INF_ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.INF_ID })
-        </td>
-    </tr>
-}
-
-</table>
+    </table>
+</section>

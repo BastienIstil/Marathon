@@ -3,49 +3,51 @@
 @{
     ViewBag.Title = "Index";
 }
+<section class="bg-fiche-unique">
+    <h2>Liste des paiements</h2>
 
-<h2>Liste des paiements</h2>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PAI_MONTANT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PAI_MOYENPAIEMENT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PAI_DATEPAIEMENT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.T_E_PARTICIPATION_PAR.PAR_ID)
+            </th>
+            <th></th>
+        </tr>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.PAI_MONTANT)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PAI_MOYENPAIEMENT)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PAI_DATEPAIEMENT)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.T_E_PARTICIPATION_PAR.PAR_ID)
-        </th>
-        <th></th>
-    </tr>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PAI_MONTANT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PAI_MOYENPAIEMENT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PAI_DATEPAIEMENT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.T_E_PARTICIPATION_PAR.PAR_ID)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.PAI_ID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.PAI_ID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.PAI_ID })
+                </td>
+            </tr>
+        }
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.PAI_MONTANT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PAI_MOYENPAIEMENT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PAI_DATEPAIEMENT)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.T_E_PARTICIPATION_PAR.PAR_ID)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.PAI_ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.PAI_ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.PAI_ID })
-        </td>
-    </tr>
-}
-
-</table>
+    </table>
+</section>

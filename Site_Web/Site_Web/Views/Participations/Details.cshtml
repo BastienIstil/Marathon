@@ -3,96 +3,97 @@
 @{
     ViewBag.Title = "Details";
 }
+<section class="bg-fiche-unique">
+    <h2>Details</h2>
 
-<h2>Details</h2>
+    <div>
+        <h4>PARTICIPATION</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.PAR_DOSSARD)
+            </dt>
 
-<div>
-    <h4>PARTICIPATION</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.PAR_DOSSARD)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PAR_DOSSARD)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.PAR_DOSSARD)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PAR_TEMPS_ESTIME)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PAR_TEMPS_ESTIME)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PAR_TEMPS_ESTIME)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.PAR_TEMPS_ESTIME)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PAR_NBPARTICIPANTCOURSE)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PAR_NBPARTICIPANTCOURSE)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PAR_NBPARTICIPANTCOURSE)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.PAR_NBPARTICIPANTCOURSE)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PAR_PARTICIPEPASTAPARTY)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PAR_PARTICIPEPASTAPARTY)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PAR_PARTICIPEPASTAPARTY)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.PAR_PARTICIPEPASTAPARTY)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PAR_NBPARTICIPANTPASTAPARTY)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PAR_NBPARTICIPANTPASTAPARTY)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PAR_NBPARTICIPANTPASTAPARTY)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.PAR_NBPARTICIPANTPASTAPARTY)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.T_E_COUREUR_COU.COU_NOM)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.T_E_COUREUR_COU.COU_NOM)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.T_E_COUREUR_COU.COU_NOM)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.T_E_COUREUR_COU.COU_NOM)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.T_E_PAIEMENT_PAI1.PAI_MOYENPAIEMENT)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.T_E_PAIEMENT_PAI1.PAI_MOYENPAIEMENT)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.T_E_PAIEMENT_PAI1.PAI_MOYENPAIEMENT)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.T_E_PAIEMENT_PAI1.PAI_MOYENPAIEMENT)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.T_R_COURSE_COR.COR_NOM)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.T_R_COURSE_COR.COR_NOM)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.T_R_COURSE_COR.COR_NOM)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.T_R_COURSE_COR.COR_NOM)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.T_E_PASTAPARTY_PAS.PAS_ID)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.T_E_PASTAPARTY_PAS.PAS_ID)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.T_E_PASTAPARTY_PAS.PAS_ID)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.T_E_PASTAPARTY_PAS.PAS_ID)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.T_R_CLUB_CLU.CLU_NOM)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.T_R_CLUB_CLU.CLU_NOM)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.T_R_CLUB_CLU.CLU_NOM)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.T_R_CLUB_CLU.CLU_NOM)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.PAR_ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.PAR_ID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</section>
