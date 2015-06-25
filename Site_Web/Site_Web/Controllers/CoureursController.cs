@@ -196,7 +196,7 @@ namespace Site_Web.Controllers
                     db.Entry(cOUREUR).State = EntityState.Modified;
                 }
                 db.SaveChanges();
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("EditProfile", "Coureurs");
             } 
 
             ViewBag.FED_ID = new SelectList(db.FEDERATIONs, "FED_ID", "FED_NOM", cOUREUR.FED_ID);
