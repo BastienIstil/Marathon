@@ -20,13 +20,15 @@ namespace Site_Web.App_Data
             [Display(Name = "Email")]
             public string COU_EMAIL { get; set; }
 
+            [StringLength(10)]
             [Display(Name = "Date de naissance")]
             public string COU_DATENAISSANCE { get; set; }
 
-            [Display(Name = "Sexe")]
+            [StringLength(1)]
+            [Display(Name = "Sexe (H/F)")]
             public string COU_SEXE { get; set; }
 
-            [Display(Name = "numéro de licence")]
+            [Display(Name = "Numéro de licence")]
             public string COU_NUMEROLICENCE { get; set; }
 
             [Display(Name = "Fédération du coureur")]
@@ -35,7 +37,7 @@ namespace Site_Web.App_Data
             [Display(Name = "Adresse")]
             public string COU_ADRESSE { get; set; }
 
-            [Display(Name = "Code postalr")]
+            [Display(Name = "Code postale")]
             public string COU_CODEPOSTAL { get; set; }
 
             [Display(Name = "Ville")]
@@ -44,6 +46,7 @@ namespace Site_Web.App_Data
             [Display(Name = "Pays")]
             public string COU_PAYS { get; set; }
 
+            [StringLength(10)]
             [Display(Name = "Téléphone")]
             public string COU_TELEPHONE { get; set; }
 
