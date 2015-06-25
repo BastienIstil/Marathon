@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Site_Web.App_Data;
+using Site_Web.Models;
+using Site_Web.Class_Metier;
 
 namespace Site_Web.Controllers
 {
@@ -15,10 +17,66 @@ namespace Site_Web.Controllers
         private MarathonEntities db = new MarathonEntities();
 
         // GET: Classements
-        public ActionResult Index()
+        public ActionResult Index(int choixcourse = 0)
         {
-            var cLASSEMENTs = db.CLASSEMENTs.Include(t => t.T_E_COUREUR_COU).Include(t => t.T_R_COURSE_COR);
-            return View(db.CLASSEMENTs.ToList());
+
+            ClassementViewModel classementRows = new ClassementViewModel();
+            List<CLASSEMENT> classement;
+
+            if (choixcourse == 0)
+            {
+                classement = db.CLASSEMENTs.ToList();
+
+            }
+            else
+            {
+                classement = (from course in db.CLASSEMENTs
+                                               where course.COR_ID == choixcourse
+                                               select course).ToList();
+            }
+            List<COURSE> Course = db.COURSEs.ToList();
+            List<COUREUR> listeCoureurs = db.COUREURs.ToList();
+
+            classementRows.lignes = new List<ClassementRow>();
+
+            if (Course == null) Course = new List<COURSE>();
+            if (listeCoureurs == null) listeCoureurs = new List<COUREUR>();
+
+            int tps = 0;
+            string nomcoureur = "";
+            string prenomcoureur = "";
+            string nomcourse = "";
+
+            foreach (CLASSEMENT clas in classement)
+            {
+                ClassementRow row = new ClassementRow();
+
+                tps = clas.CLA_TEMPS.Value;
+
+                COUREUR cour = (from coureur in db.COUREURs
+                                where coureur.COU_ID == clas.COU_ID
+                                select coureur).First();
+
+                nomcoureur = cour.COU_NOM;
+                prenomcoureur = cour.COU_PRENOM;
+
+                COURSE course = (from cours in db.COURSEs
+                                 where cours.COR_ID == clas.COR_ID
+                                 select cours).First();
+
+                nomcourse = course.COR_NOM;
+
+                row.nomCoureur = nomcoureur;
+                row.prenomCoureur = prenomcoureur;
+                row.nomCourse = nomcourse;
+                row.temps = tps;
+
+                classementRows.lignes.Add(row);
+
+            }
+            
+
+            return View(classementRows);
         }
 
         // GET: Classements/Details/5
@@ -62,6 +120,7 @@ namespace Site_Web.Controllers
             ViewBag.COR_ID = new SelectList(db.BORNEs, "COR_ID", "COR_ID", cLASSEMENT.COR_ID);
             return View(cLASSEMENT);
         }
+
 
         // GET: Classements/Edit/5
         public ActionResult Edit(int? id)
@@ -123,6 +182,60 @@ namespace Site_Web.Controllers
             db.CLASSEMENTs.Remove(cLASSEMENT);
             db.SaveChanges();
             return RedirectToAction("Index");
+        }
+
+        public ActionResult Marathon(int choixcourse)
+        {
+
+            ClassementViewModel classementRows = new ClassementViewModel();
+
+            List<CLASSEMENT> classement = (from course in db.CLASSEMENTs
+                                           where course.COR_ID == choixcourse
+                                           select course).ToList();
+            List<COURSE> Course = db.COURSEs.ToList();
+            List<COUREUR> listeCoureurs = db.COUREURs.ToList();
+
+            classementRows.lignes = new List<ClassementRow>();
+
+            if (classement == null) classement = new List<CLASSEMENT>();
+            if (Course == null) Course = new List<COURSE>();
+            if (listeCoureurs == null) listeCoureurs = new List<COUREUR>();
+
+            int tps = 0;
+            string nomcoureur = "";
+            string prenomcoureur = "";
+            string nomcourse = "";
+
+            foreach (CLASSEMENT clas in classement)
+            {
+                ClassementRow row = new ClassementRow();
+
+                tps = clas.CLA_TEMPS.Value;
+
+                COUREUR cour = (from coureur in db.COUREURs
+                                where coureur.COU_ID == clas.COU_ID
+                                select coureur).First();
+
+                nomcoureur = cour.COU_NOM;
+                prenomcoureur = cour.COU_PRENOM;
+
+                COURSE course = (from cours in db.COURSEs
+                                 where cours.COR_ID == clas.COR_ID
+                                 select cours).First();
+
+                nomcourse = course.COR_NOM;
+
+                row.nomCoureur = nomcoureur;
+                row.prenomCoureur = prenomcoureur;
+                row.nomCourse = nomcourse;
+                row.temps = tps;
+
+                classementRows.lignes.Add(row);
+
+            }
+
+
+            return View(classementRows);
         }
 
         protected override void Dispose(bool disposing)
