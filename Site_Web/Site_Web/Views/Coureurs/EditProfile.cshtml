@@ -19,22 +19,8 @@
             @Html.HiddenFor(model => model.CLU_ID)
             @Html.HiddenFor(model => model.INS_ID)
             @Html.HiddenFor(model => model.COU_EMAIL)
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.FED_ID, "FED_ID", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("FED_ID", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.FED_ID, "", new { @class = "text-danger" })
-                </div>
-            </div>
-
-            <div class="form-group">
-                @Html.LabelFor(model => model.CAT_ID, "CAT_ID", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("CAT_ID", null, htmlAttributes: new { @class = "form-control" })
-                    @Html.ValidationMessageFor(model => model.CAT_ID, "", new { @class = "text-danger" })
-                </div>
-            </div>
+            @Html.HiddenFor(model => model.FED_ID)
+            @Html.HiddenFor(model => model.CAT_ID)
 
             <div class="form-group">
                 @Html.LabelFor(model => model.COU_NOM, htmlAttributes: new { @class = "control-label col-md-2" })
