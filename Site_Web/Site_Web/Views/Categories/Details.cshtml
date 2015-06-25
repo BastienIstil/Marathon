@@ -3,24 +3,25 @@
 @{
     ViewBag.Title = "Details";
 }
+<section class="bg-fiche-unique">
+    <h2>Details</h2>
 
-<h2>Details</h2>
+    <div>
+        <h4>CATEGORIE</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.CAT_LIBELLE)
+            </dt>
 
-<div>
-    <h4>CATEGORIE</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.CAT_LIBELLE)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CAT_LIBELLE)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CAT_LIBELLE)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CAT_ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.CAT_ID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</section>

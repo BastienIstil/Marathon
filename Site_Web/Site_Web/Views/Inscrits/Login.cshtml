@@ -1,25 +1,26 @@
 ﻿@model Site_Web.App_Data.INSCRIT
+<section class="bg-fiche-unique">
+    <h2>Se connecter</h2>
+    @using (Html.BeginForm("Login", "Inscrits", FormMethod.Post))
+    {
+        @Html.ValidationSummary(true, "Login Failed, check details");
+        <div>
+            <fieldset>
+                <legend>Login Form</legend>
+                <div class="editor-label">@Html.LabelFor(u => u.INS_LOGIN)</div>
+                <div class="editor-field">
+                    @Html.TextBoxFor(u => u.INS_LOGIN)
+                    @Html.ValidationMessageFor(u => u.INS_LOGIN)
+                </div>
+                <div class="editor-label">@Html.LabelFor(u => u.INS_MDP)</div>
 
-<h2>Login</h2>
-@using (Html.BeginForm("Login", "Inscrits", FormMethod.Post))
-{
-    @Html.ValidationSummary(true, "Login Failed, check details");
-    <div>
-        <fieldset>
-            <legend>Login Form</legend>
-            <div class="editor-label">@Html.LabelFor(u => u.INS_LOGIN)</div>
-            <div class="editor-field">
-                @Html.TextBoxFor(u => u.INS_LOGIN)
-                @Html.ValidationMessageFor(u => u.INS_LOGIN)
-            </div>
-            <div class="editor-label">@Html.LabelFor(u => u.INS_MDP)</div>
+                <div class="editor-field">
+                    @Html.PasswordFor(u => u.INS_MDP)
 
-            <div class="editor-field">
-                @Html.PasswordFor(u => u.INS_MDP)
-
-                @Html.ValidationMessageFor(u => u.INS_MDP)
-            </div>
-            <input type="submit" value="Log In" />
-        </fieldset>
-    </div>
-}
+                    @Html.ValidationMessageFor(u => u.INS_MDP)
+                </div>
+                <input type="submit" value="Log In" />
+            </fieldset>
+        </div>
+    }
+</section>

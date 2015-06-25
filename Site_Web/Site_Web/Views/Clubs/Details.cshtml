@@ -4,112 +4,113 @@
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<section class="bg-fiche-unique">
+    <h2>Details</h2>
 
-<h2>Details</h2>
+    <div>
+        <h4>CLUB</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.CLU_NOM)
+            </dt>
 
-<div>
-    <h4>CLUB</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.CLU_NOM)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CLU_NOM)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CLU_NOM)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.CLU_LICENCE)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CLU_LICENCE)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CLU_LICENCE)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CLU_LICENCE)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.CLU_EMAIL)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CLU_EMAIL)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CLU_EMAIL)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CLU_EMAIL)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.CLU_ADRESSE)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CLU_ADRESSE)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CLU_ADRESSE)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CLU_ADRESSE)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.CLU_CODEPOSTAL)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CLU_CODEPOSTAL)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CLU_CODEPOSTAL)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CLU_CODEPOSTAL)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.CLU_VILLE)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CLU_VILLE)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CLU_VILLE)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CLU_VILLE)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.CLU_PAYS)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CLU_PAYS)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CLU_PAYS)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CLU_PAYS)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.CLU_TELEPHONE)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CLU_TELEPHONE)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CLU_TELEPHONE)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CLU_TELEPHONE)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.CLU_FAX)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CLU_FAX)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CLU_FAX)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CLU_FAX)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.CLU_NUMERO)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.CLU_NUMERO)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.CLU_NUMERO)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.CLU_NUMERO)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.T_E_INSCRIT_INS.INS_LOGIN)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.T_E_INSCRIT_INS.INS_LOGIN)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.T_E_INSCRIT_INS.INS_LOGIN)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.T_E_INSCRIT_INS.INS_LOGIN)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.T_R_FEDERATION_FED.FED_NOM)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.T_R_FEDERATION_FED.FED_NOM)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.T_R_FEDERATION_FED.FED_NOM)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.T_R_FEDERATION_FED.FED_NOM)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.CLU_ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.CLU_ID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</section>

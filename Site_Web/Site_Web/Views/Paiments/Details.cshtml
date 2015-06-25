@@ -3,48 +3,49 @@
 @{
     ViewBag.Title = "Details";
 }
+<section class="bg-fiche-unique">
+    <h2>Details</h2>
 
-<h2>Details</h2>
+    <div>
+        <h4>PAIEMENT</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.PAI_MONTANT)
+            </dt>
 
-<div>
-    <h4>PAIEMENT</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.PAI_MONTANT)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PAI_MONTANT)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.PAI_MONTANT)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PAI_MOYENPAIEMENT)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PAI_MOYENPAIEMENT)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PAI_MOYENPAIEMENT)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.PAI_MOYENPAIEMENT)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.PAI_DATEPAIEMENT)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.PAI_DATEPAIEMENT)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.PAI_DATEPAIEMENT)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.PAI_DATEPAIEMENT)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.T_E_PARTICIPATION_PAR.PAR_ID)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.T_E_PARTICIPATION_PAR.PAR_ID)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.T_E_PARTICIPATION_PAR.PAR_ID)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.T_E_PARTICIPATION_PAR.PAR_ID)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.PAI_ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.PAI_ID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</section>

@@ -4,45 +4,47 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<section class="bg-fiche-unique">
+    <h2>Index</h2>
 
-<h2>Index</h2>
+    <p>
+        @Html.ActionLink("Créer coureur", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.COU_NOM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.COU_PRENOM)
+            </th>
 
-<p>
-    @Html.ActionLink("Créer coureur", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.COU_NOM)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.COU_PRENOM)
-        </th>
-       
-        <th>
-            @Html.DisplayNameFor(model => model.T_E_INSCRIT_INS.INS_LOGIN)
-        </th>
-        <th></th>
-    </tr>
+            <th>
+                @Html.DisplayNameFor(model => model.T_E_INSCRIT_INS.INS_LOGIN)
+            </th>
+            <th></th>
+        </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.COU_NOM)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.COU_PRENOM)
-        </td>
-        
-        <td>
-            @Html.DisplayFor(modelItem => item.T_E_INSCRIT_INS.INS_LOGIN)
-        </td>
-        <td>
-            @Html.ActionLink("Editer", "Edit", new { id=item.COU_ID }) |
-            @Html.ActionLink("Details et Temps par bornes", "Details", new { id=item.COU_ID }) |
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.COU_NOM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.COU_PRENOM)
+                </td>
 
-        </td>
-    </tr>
-}
+                <td>
+                    @Html.DisplayFor(modelItem => item.T_E_INSCRIT_INS.INS_LOGIN)
+                </td>
+                <td>
+                    @Html.ActionLink("Editer", "Edit", new { id = item.COU_ID }) |
+                    @Html.ActionLink("Details et Temps par bornes", "Details", new { id = item.COU_ID }) |
 
-</table>
+                </td>
+            </tr>
+        }
+
+    </table>
+</section>

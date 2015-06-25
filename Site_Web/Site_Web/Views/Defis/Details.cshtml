@@ -3,32 +3,33 @@
 @{
     ViewBag.Title = "Details";
 }
+<section class="bg-fiche-unique">
+    <h2>Details</h2>
 
-<h2>Details</h2>
+    <div>
+        <h4>DEFI</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.DEF_NOM)
+            </dt>
 
-<div>
-    <h4>DEFI</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.DEF_NOM)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DEF_NOM)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.DEF_NOM)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DEF_NOMBREMAXPARTICIPANT)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DEF_NOMBREMAXPARTICIPANT)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DEF_NOMBREMAXPARTICIPANT)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.DEF_NOMBREMAXPARTICIPANT)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.DEF_ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.DEF_ID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</section>
