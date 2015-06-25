@@ -8,45 +8,52 @@
 <h2>Les classements</h2>
 
 <p>
-    @Html.ActionLink("Create nouveau temps", "Create")
+    @Html.ActionLink("Creer nouveau classement", "Create")
 </p>
+
+<p>
+    @Html.ActionLink("Afficher classement marathon", "Index", "Classements" , new { choixcourse = 1 }, null)
+</p>
+
+<p>
+    @Html.ActionLink("Afficher classement du semi-marathon", "Index", "Classements", new { choixcourse = 2 }, null)
+</p>
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.classement.CLA_TEMPS)
+            @Html.DisplayNameFor(model => model.lignes.FirstOrDefault().prenomCoureur)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.listeCoureurs.FirstOrDefault().COU_NOM)
+            @Html.DisplayNameFor(model => model.lignes.FirstOrDefault().nomCoureur)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.listeCoureurs.FirstOrDefault().COU_PRENOM)
+            @Html.DisplayNameFor(model => model.lignes.FirstOrDefault().nomCourse)
         </th>
         
         <th>
-            @Html.DisplayNameFor(model => model.Course.COR_NOM)
+            @Html.DisplayNameFor(model => model.lignes.FirstOrDefault().temps)
         </th>
+
         
         
     </tr>
 
-@foreach (var item in Model.listeCoureurs) {
+@foreach (var item in Model.lignes) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.T_J_CLASSEMENT_CLA)
+            @Html.DisplayFor(modelItem => item.nomCoureur)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.COU_NOM)
+            @Html.DisplayFor(modelItem => item.prenomCoureur)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.COU_PRENOM)
+            @Html.DisplayFor(modelItem => item.nomCourse)
         </td>
         <td>
-            <th></th>
+            @Html.DisplayFor(modelItem => item.temps)
         </td>
-        <td>
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
+        
     </tr>
 }
 

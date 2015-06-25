@@ -1,5 +1,6 @@
 ﻿using Site_Web.App_Data;
 using System.Collections.Generic;
+using Site_Web.Class_Metier;
 
 namespace Site_Web.Models
 {
@@ -11,11 +12,6 @@ namespace Site_Web.Models
 
         }
 
-        public CLASSEMENT classement;
-        public List<COUREUR> listeCoureurs;
-        public COURSE Course;
-        public List<bool> Active;
-
-
+        public List<ClassementRow> lignes;
     }
 }
