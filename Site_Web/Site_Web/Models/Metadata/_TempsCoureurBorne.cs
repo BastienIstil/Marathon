@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Site_Web.App_Data
 {
     [MetadataType(typeof(TEMPSCOUREURBORNEMetadata))]
-    public partial class TEMPSCOUREURBORNE
+    public partial class TEMPSCOUBORNE
     {
         public class TEMPSCOUREURBORNEMetadata
         {

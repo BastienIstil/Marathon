@@ -6,10 +6,10 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Site_Web.App_Data
 {
-    [MetadataType(typeof(INFORMATIONSPUBLIQUEMetadata))]
-    public partial class INFORMATIONSPUBLIQUE
+    [MetadataType(typeof(INFORMATIONPUBLIQUEMetadata))]
+    public partial class INFORMATIONPUBLIQUE
     {
-        public class INFORMATIONSPUBLIQUEMetadata
+        public class INFORMATIONPUBLIQUEMetadata
         {
             [Display(Name = "Nom de l'information publique")]
             public string INF_NOM { get; set; }

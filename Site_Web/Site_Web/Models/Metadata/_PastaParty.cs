@@ -11,6 +11,9 @@ namespace Site_Web.App_Data
     {
         public class PASTAPARTYMetadata
         {
+            [Display(Name = "ID Pasta Party")]
+            public string PAS_ID { get; set; }
+
             [Display(Name = "Nombre maximum de participant")]
             public string PAS_NBMAXPARTICIPANT { get; set; }
         }

@@ -11,6 +11,9 @@ namespace Site_Web.App_Data
     {
         public class PARTICIPATIONMetadata
         {
+            [Display(Name = "ID Participant")]
+            public string PAR_ID { get; set; }
+
             [Display(Name = "Dossard")]
             public string PAR_DOSSARD { get; set; }
 

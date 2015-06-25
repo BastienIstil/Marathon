@@ -11,6 +11,9 @@ namespace Site_Web.App_Data
     {
         public class BORNEMetadata
         {
+            [Display(Name = "ID Borne")]
+            public string BOR_ID { get; set; }
+
             [Display(Name = "Emplacement")]
             public string BOR_EMPLACEMENT { get; set; }
         }
