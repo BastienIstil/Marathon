@@ -69,7 +69,15 @@ namespace Site_Web.Controllers
                 row.nomCoureur = nomcoureur;
                 row.prenomCoureur = prenomcoureur;
                 row.nomCourse = nomcourse;
-                row.temps = tps;
+
+                ///
+
+                int sec = tps % 60;
+                int min = (tps - sec) / 60;
+                int heure = min / 60;
+                min = min % 60;
+ 
+                row.temps = heure+"H:"+min+"min:"+sec+"s";
 
                 classementRows.lignes.Add(row);
 
@@ -228,7 +236,12 @@ namespace Site_Web.Controllers
                 row.nomCoureur = nomcoureur;
                 row.prenomCoureur = prenomcoureur;
                 row.nomCourse = nomcourse;
-                row.temps = tps;
+                int sec = tps % 60;
+                int min = (tps - sec) / 60;
+                int heure = min / 60;
+                min = min % 60;
+
+                row.temps = heure + "H:" + min + "min:" + sec + "s";
 
                 classementRows.lignes.Add(row);
 

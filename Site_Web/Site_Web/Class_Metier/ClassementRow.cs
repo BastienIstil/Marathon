@@ -9,7 +9,7 @@ namespace Site_Web.Class_Metier
     public partial class ClassementRow
     {
         [Display(Name = "Temps final")]
-        public int temps;
+        public string temps;
 
         [Display(Name = "Nom du coureur")]
         public string nomCoureur;

@@ -88,7 +88,8 @@
                     <div class="ssMenu">
                         <ul class="texte">
                             <li>@Html.ActionLink("General", "Index", "Classements")</li>
-                            <li><a href="http://www.totofaitduvelo.com">Par course</a></li>
+                            <li>@Html.ActionLink("Marathon", "Index", "Classements", new { choixcourse = 1 }, null)</li>
+                            <li>@Html.ActionLink("Semi-marathon", "Index", "Classements", new { choixcourse = 2 }, null)</li>
                         </ul>
                     </div>
                     <!-- Fin Sous Menu-->
