@@ -1,4 +1,5 @@
 ﻿@using Site_Web.Models 
+@using Site_Web.Class_Metier.ViewCustomModels;
 @model ClassementViewModel
 
 @{
@@ -6,11 +7,13 @@
 }
 <section class="bg-fiche-unique">
 <h2>Les classements</h2>
-
-<p>
-    @Html.ActionLink("Creer nouveau classement", "Create")
-</p>
-
+@if (InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.SECRETAIRE ||
+    InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.ADMIN)
+    {
+        <p>
+            @Html.ActionLink("Creer nouveau classement", "Create")
+        </p>
+    }
 <p>
     @Html.ActionLink("Afficher classement marathon", "Index", "Classements" , new { choixcourse = 1 }, null)
 </p>
