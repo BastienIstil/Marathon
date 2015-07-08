@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Site_Web.App_Data;
+using Site_Web.Models;
+using Site_Web.Class_Metier;
 
 namespace Site_Web.Controllers
 {
@@ -17,8 +19,44 @@ namespace Site_Web.Controllers
         // GET: TempsCoureurBorne
         public ActionResult Index()
         {
-            var tEMPSCOUBORNEs = db.TEMPSCOUBORNEs.Include(t => t.T_E_COUREUR_COU).Include(t => t.T_R_BORNE_BOR);
-            return View(tEMPSCOUBORNEs.ToList());
+            TempsBorneViewModel tempsBorneRows = new TempsBorneViewModel();
+
+            List<TEMPSCOUBORNE> TempsCoureurBorne = db.TEMPSCOUBORNEs.ToList();
+
+            List<COUREUR> listeCoureurs = db.COUREURs.ToList();
+
+            tempsBorneRows.lignes = new List<TempsBorneRow>();
+
+
+            foreach (COUREUR cour in listeCoureurs)
+            {
+
+                TempsBorneRow row = new TempsBorneRow();
+                row.TempsBorne = new Dictionary<int, String>();
+
+                foreach (TEMPSCOUBORNE temps in TempsCoureurBorne)
+                {
+                    if (temps.COU_ID == cour.COU_ID)
+                    {
+                        int tps = Convert.ToInt32(temps.TCB_TEMPS) ;
+                        int sec = tps % 60;
+                        int min = (tps - sec) / 60;
+                        int heure = min / 60;
+                        min = min % 60;
+
+                        row.TempsBorne.Add(temps.BOR_ID, heure + "H:" + min + "min:" + sec + "s");
+
+                    }
+                }
+
+                row.prenomCoureur = cour.COU_PRENOM;
+                row.nomCoureur = cour.COU_NOM;
+
+                tempsBorneRows.lignes.Add(row);
+
+            }
+
+            return View(tempsBorneRows);
         }
 
         // GET: TempsCoureurBorne/Details/5

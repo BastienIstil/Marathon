@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<Site_Web.App_Data.TEMPSCOUBORNE>
+@using Site_Web.Class_Metier.ViewCustomModels;
 
 @{
     ViewBag.Title = "Index";
@@ -12,10 +13,10 @@
     <table class="table">
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.TCB_TEMPS)
+                Nom
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.T_E_COUREUR_COU.COU_NOM)
+                Prenom
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.T_R_BORNE_BOR.BOR_ID)
@@ -35,11 +36,16 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.T_R_BORNE_BOR.BOR_ID)
                 </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                </td>
+                @if (InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.SECRETAIRE ||
+                        InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.ADMIN)
+                {
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    </td>
+                }
+                
             </tr>
         }
 

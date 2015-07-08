@@ -206,10 +206,12 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Class_Metier\TempsBorneRow.cs" />
     <Compile Include="Class_Metier\ClassementRow.cs" />
     <Compile Include="Class_Metier\ExtensionModels\ExtensionCoureur.cs" />
     <Compile Include="Class_Metier\PBKDF2.cs" />
     <Compile Include="Class_Metier\SimpleCrypto.cs" />
+    <Compile Include="Class_Metier\ViewCustomModels\TempsBorneViewModel.cs" />
     <Compile Include="Class_Metier\ViewCustomModels\CoureurInscriptions.cs" />
     <Compile Include="Class_Metier\ViewCustomModels\InscriptionClubCourreurDefie.cs" />
     <Compile Include="Class_Metier\ViewCustomModels\InscritCustom.cs" />
