@@ -218,6 +218,10 @@ namespace Site_Web.Controllers
             {
                 INSCRIT inscrit = db.INSCRITs.FirstOrDefault(i => i.INS_LOGIN == User.Identity.Name);
                 CLUB club = db.CLUBs.FirstOrDefault(c => c.INS_ID == inscrit.INS_ID);
+
+                if (club == null)
+                    return RedirectToAction("EditProfile");
+
                 coureurInscription.CLU_ID = club.CLU_ID;
             }
 
@@ -312,6 +316,9 @@ namespace Site_Web.Controllers
             {
                 INSCRIT inscrit = db.INSCRITs.FirstOrDefault(i => i.INS_LOGIN == User.Identity.Name);
                 CLUB club = db.CLUBs.FirstOrDefault(c => c.INS_ID == inscrit.INS_ID);
+
+                if (club == null)
+                    return RedirectToAction("EditProfile");
 
                 coureurInscription.listCoureur = (from c in db.COUREURs
                                                   where c.CLU_ID == club.CLU_ID

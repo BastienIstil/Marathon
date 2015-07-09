@@ -43,14 +43,14 @@
 
             <table class="tableCoureur">
                 <tr>
-                    <th @Html.DisplayNameFor(model => model.listCourse.FirstOrDefault().COR_NOM)/>
-                    <th @Html.DisplayNameFor(model => model.listCourse.FirstOrDefault().COR_DISTANCE) />
-                    <th @Html.DisplayNameFor(model => model.listCourse.FirstOrDefault().COR_DATE) />
-                    <th @Html.DisplayNameFor(model => model.listCourse.FirstOrDefault().COR_NOMBREMAXPARTICIPANT) />
-                    <th @Html.DisplayNameFor(model => model.listCourse.FirstOrDefault().COR_PRIX) />
-                    <th @Html.Display("Inscription") />
-                    <th @Html.Display("Pasta Party") />
-                    <th @Html.Display("Temps estimé") />
+                    <th> @Html.DisplayNameFor(model => model.listCourse.FirstOrDefault().COR_NOM)</th>
+                    <th> @Html.DisplayNameFor(model => model.listCourse.FirstOrDefault().COR_DISTANCE)</th>
+                    <th> @Html.DisplayNameFor(model => model.listCourse.FirstOrDefault().COR_DATE)</th>
+                    <th> @Html.DisplayNameFor(model => model.listCourse.FirstOrDefault().COR_NOMBREMAXPARTICIPANT)</th>
+                    <th> @Html.DisplayNameFor(model => model.listCourse.FirstOrDefault().COR_PRIX)</th>
+                    <th> @Html.DisplayNameFor(model => model.InscriptionCourse)</th>
+                    <th> @Html.DisplayNameFor(model => model.InscriptionPastaparty)</th>
+                    <th> @Html.DisplayNameFor(model => model.TempsEstimé)</th>
                 </tr>
 
                 @for (int i = 0; i < Model.listCourse.Count; i++)
