@@ -46,7 +46,7 @@ namespace Site_Web.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "COR_ID,COR_NOM,COR_DISTANCE,COR_DATE,COR_NOMBREMAXPARTICIPANT,COR_PRIX")] COURSE cOURSE)
+        public ActionResult Create([Bind(Include = "COR_NOM,COR_DISTANCE,COR_DATE,COR_NOMBREMAXPARTICIPANT,COR_PRIX")] COURSE cOURSE)
         {
             if (ModelState.IsValid)
             {
