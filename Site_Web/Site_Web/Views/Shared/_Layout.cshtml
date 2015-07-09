@@ -19,12 +19,12 @@
 
             <a href="~/Home/Index"><img src="~/Resources/LogoMarathon.png" /></a>
         </div>
-        <div id="blocConnexion">   
+        <div id="blocConnexion" class="bg-fiche-unique">   
             @Html.Label(User.Identity.Name)
             @if (Request.IsAuthenticated)
             {
                 @Html.Encode(User.Identity.Name);
-                @Html.ActionLink("Sign Out", "Logout", "Inscrits", null, new { @class = "btn btn-primary" });
+                @Html.ActionLink("Se déconnecter", "Logout", "Inscrits", null, new { @class = "btn btn-primary" });
 
 
                 if (InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.SECRETAIRE ||
@@ -37,13 +37,13 @@
                 {
                     if (InscritCustom.getStatus(User.Identity.Name) == NiveauAuthentificationInscription.COUREUR)
                     {
-                        @Html.ActionLink("Profil", "EditProfile", "Coureurs");
-                     
+                        <p class="lienProfil">@Html.ActionLink("Profil", "EditProfile", "Coureurs")</p>
+
                     }
                     else
                     {
-                        @Html.ActionLink("Profil Club", "EditProfile", "Clubs");
-                      
+                        <p class="lienProfil">@Html.ActionLink("Profil Club", "EditProfile", "Clubs")</p>
+
                     }
                 }
             }
@@ -115,8 +115,25 @@
 
     </section>
     <div class="container body-content">
+        <section class="bg-fiche-unique" id="pubSite">
+            <div>
+                <img src="http://www.proveqtus.fr/ext/jpg-982/logo-sncf.jpg" />
+            </div>
+            <div>
+                <img src="http://www.proveqtus.fr/ext/jpg-982/logo-sncf.jpg" />
+            </div>
+            <div>
+                <img src="http://www.proveqtus.fr/ext/jpg-982/logo-sncf.jpg" />
+            </div>
+            <div>
+                <img src="http://www.proveqtus.fr/ext/jpg-982/logo-sncf.jpg" />
+            </div>
+            <div>
+                <img src="http://www.proveqtus.fr/ext/jpg-982/logo-sncf.jpg" />
+            </div>
+        </section>
         @RenderBody()
-        <hr />
+        <hr style="width:100%"/>
         <footer>
             <p class="lienFooter">Marathon Annecy 2015</p>
         </footer>

@@ -20,7 +20,7 @@
 
     @foreach (var course in Model.courses)
     {
-        <p>
+        <p class="lienClassement">
             @Html.ActionLink("Afficher classement de : "+course.COR_NOM, "Index", "Classements", new { choixcourse = course.COR_ID }, null)
         </p>
     }
@@ -28,17 +28,17 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.lignes.FirstOrDefault().prenomCoureur)
+            Prénom du Coureur
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.lignes.FirstOrDefault().nomCoureur)
+            Nom du Coureur
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.lignes.FirstOrDefault().nomCourse)
+            Course
         </th>
         
         <th>
-            @Html.DisplayNameFor(model => model.lignes.FirstOrDefault().temps)
+            Temps
         </th>
         
         
