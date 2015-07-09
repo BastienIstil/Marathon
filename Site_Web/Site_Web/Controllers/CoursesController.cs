@@ -149,6 +149,15 @@ namespace Site_Web.Controllers
             List<COURSE> courses = db.COURSEs.ToList();
 
             // On élimine les courses déjà pleine
+            foreach (COURSE course in courses)
+            {
+                int count = (from p in db.PARTICIPATIONs.ToList()
+                             where p.COR_ID == course.COR_ID
+                             select p).ToList().Count();
+
+                if (course.COR_NOMBREMAXPARTICIPANT <= count)
+                    courses.Remove(course);
+            }
 
             // On élimine les courses dont il fait déjà parti
             List<PARTICIPATION> listPariticipation = new List<PARTICIPATION>();
@@ -214,6 +223,11 @@ namespace Site_Web.Controllers
                     par.COR_ID = inscription.listCourse[i].COR_ID;
                     par.PAS_ID = inscription.listCourse[i].COR_ID;
 
+                    int count = (from p in db.PARTICIPATIONs.ToList()
+                                 where p.COR_ID == inscription.listCourse[i].COR_ID
+                                 select p).ToList().Count();
+
+                    par.PAR_DOSSARD = count + 1;
 
                     if (inscription.listEtatPastaParty[i]) // Participation Pasta Party
                         par.PAR_PARTICIPEPASTAPARTY = true;

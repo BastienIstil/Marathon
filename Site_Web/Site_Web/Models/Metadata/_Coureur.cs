@@ -24,7 +24,7 @@ namespace Site_Web.App_Data
             public string COU_DATENAISSANCE { get; set; }
 
             [StringLength(1)]
-            [Display(Name = "Sexe (H/F)")]
+            [Display(Name = "Sexe (M/F)")]
             public string COU_SEXE { get; set; }
 
             [Display(Name = "Numéro de licence")]

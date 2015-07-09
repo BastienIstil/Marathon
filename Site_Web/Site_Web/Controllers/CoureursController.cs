@@ -189,11 +189,12 @@ namespace Site_Web.Controllers
                                        select u).First();
 
                     cOUREUR.INS_ID = inscrit.INS_ID;
-                    cOUREUR.CAT_ID = 1;
+                    cOUREUR.CAT_ID = Site_Web.Class_Metier.UpdateCat.getCat(cOUREUR.COU_DATENAISSANCE);
                     db.COUREURs.Add(cOUREUR);
                 }
                 else
                 {
+                    cOUREUR.CAT_ID = Site_Web.Class_Metier.UpdateCat.getCat(cOUREUR.COU_DATENAISSANCE);
                     db.Entry(cOUREUR).State = EntityState.Modified;
                 }
                 db.SaveChanges();
