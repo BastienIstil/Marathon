@@ -34,15 +34,21 @@ namespace Site_Web.Class_Metier.ViewCustomModels
     
         public int INS_ID { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Le champ est obligatoire")]
         [EmailAddress]
-        [StringLength(255)]
+        [StringLength(255, ErrorMessage = "Le champ est obligatoire")]
         public string INS_LOGIN { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Le champ est obligatoire")]
         [DataType(DataType.Password)]
-        [StringLength(255, MinimumLength = 6)]
+        [StringLength(255, MinimumLength = 6, ErrorMessage ="Veuillez remplir au moins 6 caractères")]
         public string INS_MDP { get; set; }
+
+        [Required(ErrorMessage = "Le champ est obligatoire")]
+        [DataType(DataType.Password)]
+        [Display(Name = "Confirmation mot de passe")]
+        [System.Web.Mvc.Compare("INS_MDP", ErrorMessage = "Les mots de passe ne correspondent pas")]
+        public string Confirm_INS_MDP { get; set; }
         public NiveauAuthentificationInscription INS_NIVEAUAUTHENTIFICATION { get; set; }
     
         public virtual ICollection<COUREUR> T_E_COUREUR_COU { get; set; }
