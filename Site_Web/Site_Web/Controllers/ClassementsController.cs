@@ -17,7 +17,7 @@ namespace Site_Web.Controllers
         private MarathonEntities db = new MarathonEntities();
 
         // GET: Classements
-        public ActionResult Index(int choixcourse = 0)
+        public ActionResult Index(int choixcourse = 0, int choixcategorie = 0)
         {
 
             ClassementViewModel classementRows = new ClassementViewModel();
@@ -34,18 +34,36 @@ namespace Site_Web.Controllers
                                                where course.COR_ID == choixcourse
                                                select course).ToList();
             }
+            
+
+            List<CATEGORIE> categories = db.CATEGORIEs.ToList();
+
             List<COURSE> Course = db.COURSEs.ToList();
 
 
-
-            List<COUREUR> listeCoureurs = db.COUREURs.ToList();
+            if (choixcategorie == 0)
+            {
+                List<COUREUR> listeCoureurs = db.COUREURs.ToList();
+            }
+            else
+            {
+                List<COUREUR> listeCoureurs = (from coureur in db.COUREURs
+                              where coureur.CAT_ID == choixcategorie
+                              select coureur).ToList();
+            }
 
             classementRows.lignes = new List<ClassementRow>();
 
-            classementRows.courses = Course;
+
+
 
             if (Course == null) Course = new List<COURSE>();
-            if (listeCoureurs == null) listeCoureurs = new List<COUREUR>();
+
+
+            classementRows.courses = Course;
+
+            classementRows.categories = categories;
+
 
             int tps = 0;
             string nomcoureur = "";
@@ -69,11 +87,20 @@ namespace Site_Web.Controllers
                                  where cours.COR_ID == clas.COR_ID
                                  select cours).First();
 
+                CATEGORIE cat = (from categorie in db.CATEGORIEs
+                                 where cour.CAT_ID == categorie.CAT_ID
+                                 select categorie).First();
+
+
+
                 nomcourse = course.COR_NOM;
+
+
 
                 row.nomCoureur = nomcoureur;
                 row.prenomCoureur = prenomcoureur;
                 row.nomCourse = nomcourse;
+                row.categorieCoureur = cat.CAT_LIBELLE;
 
                 ///
 
