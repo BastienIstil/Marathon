@@ -22,8 +22,6 @@ namespace Site_Web.Class_Metier.ViewCustomModels
         public string InscriptionPastaparty;
         public string TempsEstimé;
 
-        public int nbParticipant;
-
         public List<bool> listEtatInscription { get; set; }
         public List<bool> listEtatPastaParty { get; set; }
         public List<int?> tempsEstime { get; set; }
