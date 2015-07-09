@@ -25,20 +25,42 @@
         </p>
     }
 
+    @using (Html.BeginForm("Index", "Classements"))
+    {
+
+        <fieldset>
+            Categorie <select id="choixcategorie" name="choixcategorie">
+
+                <option value=""></option>
+
+                @foreach (var cat in Model.categories)
+                {
+                    <option value=@cat.CAT_ID>@Html.ActionLink(cat.CAT_LIBELLE, "Index", "Classements", new { choixcategorie = cat.CAT_ID }, null)</option>
+                }
+
+            </select>
+       
+        </fieldset>
+    }
+    
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.lignes.FirstOrDefault().prenomCoureur)
+            Prenom
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.lignes.FirstOrDefault().nomCoureur)
+            Nom
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.lignes.FirstOrDefault().nomCourse)
+            Categorie
+        </th>
+        <th>
+            Nom de la course
         </th>
         
         <th>
-            @Html.DisplayNameFor(model => model.lignes.FirstOrDefault().temps)
+            Temps
         </th>
         
         
@@ -53,6 +75,9 @@
         
         <td>
             @Html.DisplayFor(modelItem => item.prenomCoureur)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.categorieCoureur)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.nomCourse)

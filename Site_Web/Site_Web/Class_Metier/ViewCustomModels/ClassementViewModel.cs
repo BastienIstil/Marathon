@@ -15,5 +15,7 @@ namespace Site_Web.Models
         public List<ClassementRow> lignes;
 
         public List<COURSE> courses;
+
+        public List<CATEGORIE> categories;
     }
 }
