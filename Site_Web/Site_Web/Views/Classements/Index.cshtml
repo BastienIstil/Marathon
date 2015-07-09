@@ -16,13 +16,14 @@
             </p>
         }
 }
-<p>
-    @Html.ActionLink("Afficher classement marathon", "Index", "Classements" , new { choixcourse = 1 }, null)
-</p>
 
-<p>
-    @Html.ActionLink("Afficher classement du semi-marathon", "Index", "Classements", new { choixcourse = 2 }, null)
-</p>
+
+    @foreach (var course in Model.courses)
+    {
+        <p>
+            @Html.ActionLink("Afficher classement de : "+course.COR_NOM, "Index", "Classements", new { choixcourse = course.COR_ID }, null)
+        </p>
+    }
 
 <table class="table">
     <tr>
@@ -49,6 +50,7 @@
         <td>
             @Html.DisplayFor(modelItem => item.nomCoureur)
         </td>
+        
         <td>
             @Html.DisplayFor(modelItem => item.prenomCoureur)
         </td>

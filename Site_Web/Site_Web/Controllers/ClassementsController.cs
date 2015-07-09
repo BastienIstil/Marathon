@@ -35,9 +35,14 @@ namespace Site_Web.Controllers
                                                select course).ToList();
             }
             List<COURSE> Course = db.COURSEs.ToList();
+
+
+
             List<COUREUR> listeCoureurs = db.COUREURs.ToList();
 
             classementRows.lignes = new List<ClassementRow>();
+
+            classementRows.courses = Course;
 
             if (Course == null) Course = new List<COURSE>();
             if (listeCoureurs == null) listeCoureurs = new List<COUREUR>();
@@ -78,6 +83,7 @@ namespace Site_Web.Controllers
                 min = min % 60;
  
                 row.temps = heure+"H:"+min+"min:"+sec+"s";
+
 
                 classementRows.lignes.Add(row);
 

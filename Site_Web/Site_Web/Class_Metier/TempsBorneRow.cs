@@ -18,7 +18,7 @@ namespace Site_Web.Class_Metier
 
         public Dictionary<int, String> TempsBorne;
 
-        public List<int> nbBornes;
+        
         public TempsBorneRow()
         {
 

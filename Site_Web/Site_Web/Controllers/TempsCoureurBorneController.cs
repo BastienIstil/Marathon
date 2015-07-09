@@ -27,6 +27,9 @@ namespace Site_Web.Controllers
 
             tempsBorneRows.lignes = new List<TempsBorneRow>();
 
+            tempsBorneRows.nbBornes = (from borne in db.BORNEs
+                                       select borne.BOR_ID).ToList();
+
 
             foreach (COUREUR cour in listeCoureurs)
             {
@@ -49,8 +52,7 @@ namespace Site_Web.Controllers
                     }
                 }
 
-                row.nbBornes = (from borne in db.BORNEs
-                                select borne.BOR_ID).ToList();
+                
 
                 row.prenomCoureur = cour.COU_PRENOM;
                 row.nomCoureur = cour.COU_NOM;

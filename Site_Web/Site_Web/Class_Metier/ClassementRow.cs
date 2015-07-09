@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Site_Web.App_Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace Site_Web.Class_Metier
 
         [Display(Name = "Course")]
         public string nomCourse;
+
 
         public ClassementRow()
         {

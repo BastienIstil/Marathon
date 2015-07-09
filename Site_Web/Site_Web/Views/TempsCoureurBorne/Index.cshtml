@@ -26,16 +26,11 @@
             <th>
                 Prenom
             </th>
-            @foreach (var test in Model.lignes)
+            @foreach (var test in Model.nbBornes)
             {
-                foreach (var nb in test.nbBornes)
-                {
-                    <th>
-                        @Html.DisplayFor(modelItem => nb) 
-                    </th>
-                }
-
-                break;
+                <th>
+                    @Html.DisplayFor(modelItem => test) 
+                </th>
             }
             
         </tr>
@@ -49,7 +44,7 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.prenomCoureur)
                 </td>
-                @foreach (var nb in item.nbBornes)
+                @foreach (var nb in Model.nbBornes)
                 {
                     
                     String result = "" ;

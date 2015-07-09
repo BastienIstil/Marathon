@@ -13,5 +13,7 @@ namespace Site_Web.Models
         }
 
         public List<TempsBorneRow> lignes;
+
+        public List<int> nbBornes;
     }
 }
