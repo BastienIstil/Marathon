@@ -178,10 +178,18 @@ namespace Site_Web.Controllers
         // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditProfile(COUREUR cOUREUR)
+        public ActionResult EditProfile(COUREUR cOUREUR,HttpPostedFileBase file)
         {
             if (ModelState.IsValid)
             {
+                string certif = "";
+                string fileRepository = ""; 
+                string path = "";
+                // file is uploaded
+
+                if(file != null)
+                    certif = System.IO.Path.GetFileName(file.FileName);
+
                 if (!db.COUREURs.Any(d => d.COU_ID == cOUREUR.COU_ID))
                 {
                     INSCRIT inscrit = (from u in db.INSCRITs
@@ -190,14 +198,44 @@ namespace Site_Web.Controllers
 
                     cOUREUR.INS_ID = inscrit.INS_ID;
                     cOUREUR.CAT_ID = Site_Web.Class_Metier.UpdateCat.getCat(cOUREUR.COU_DATENAISSANCE);
+
+
+                    if (file != null)
+                    {
+                        fileRepository = System.IO.Path.Combine(User.Identity.Name, certif);
+                        path = System.IO.Path.Combine(Server.MapPath("~/document/coureur"), fileRepository);
+                        cOUREUR.COU_CERTIFICATMEDICAL = path;
+                    }
+
                     db.COUREURs.Add(cOUREUR);
                 }
                 else
                 {
                     cOUREUR.CAT_ID = Site_Web.Class_Metier.UpdateCat.getCat(cOUREUR.COU_DATENAISSANCE);
+
+                    if (file != null)
+                    {
+                        fileRepository = System.IO.Path.Combine(User.Identity.Name, certif);
+                        path = System.IO.Path.Combine(Server.MapPath("~/document/coureur"), fileRepository);
+                        cOUREUR.COU_CERTIFICATMEDICAL = path;
+                    }
                     db.Entry(cOUREUR).State = EntityState.Modified;
                 }
+
+
                 db.SaveChanges();
+
+                if (file != null)
+                {
+                    if (System.IO.Directory.Exists(Server.MapPath("~/document")) == false)
+                        System.IO.Directory.CreateDirectory(Server.MapPath("~/document"));
+                    if (System.IO.Directory.Exists(Server.MapPath("~/document/coureur")) == false)
+                        System.IO.Directory.CreateDirectory(Server.MapPath("~/document/coureur"));
+                    if (System.IO.Directory.Exists(Server.MapPath("~/document/coureur/" + User.Identity.Name)) == false)
+                        System.IO.Directory.CreateDirectory(Server.MapPath("~/document/coureur/" + User.Identity.Name));
+                    file.SaveAs(path);
+                }
+
                 return RedirectToAction("EditProfile", "Coureurs");
             } 
 
