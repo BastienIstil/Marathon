@@ -7,13 +7,15 @@
 }
 <section class="bg-fiche-unique">
 <h2>Les classements</h2>
-@if (InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.SECRETAIRE ||
-    InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.ADMIN)
-    {
-        <p>
-            @Html.ActionLink("Creer nouveau classement", "Create")
-        </p>
-    }
+@if (Request.IsAuthenticated) {
+    if (InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.SECRETAIRE ||
+        InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.ADMIN)
+        {
+            <p>
+                @Html.ActionLink("Creer nouveau classement", "Create")
+            </p>
+        }
+}
 <p>
     @Html.ActionLink("Afficher classement marathon", "Index", "Classements" , new { choixcourse = 1 }, null)
 </p>

@@ -49,8 +49,13 @@ namespace Site_Web.Controllers
                     }
                 }
 
+                row.nbBornes = (from borne in db.BORNEs
+                                select borne.BOR_ID).ToList();
+
                 row.prenomCoureur = cour.COU_PRENOM;
                 row.nomCoureur = cour.COU_NOM;
+
+                
 
                 tempsBorneRows.lignes.Add(row);
 

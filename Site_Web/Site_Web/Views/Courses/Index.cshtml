@@ -47,7 +47,10 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.COR_PRIX)
                 </td>
-                @if (InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.SECRETAIRE ||
+
+@if (Request.IsAuthenticated)
+            {
+                if (InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.SECRETAIRE ||
                     InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.ADMIN)
                     {
                         <td>
@@ -57,18 +60,18 @@
                         </td>
                 }
             </tr>
-        }
-
+            }
     </table>
 
-    
-    @if (InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.SECRETAIRE ||
-    InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.ADMIN)
-    {
-        <p class="texteBoutton">
-            @Html.ActionLink("Créer une nouvelle course", "Create")
-        </p>
-    }
-    
+    @if (Request.IsAuthenticated)
+            {
+                if (InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.SECRETAIRE ||
+                InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.ADMIN)
+                {
+                    <p class="texteBoutton">
+                        @Html.ActionLink("Créer une nouvelle course", "Create")
+                    </p>
+                }
+        }
 </section>
 
