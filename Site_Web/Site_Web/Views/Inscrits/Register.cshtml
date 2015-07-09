@@ -12,26 +12,30 @@
 
     @using (Html.BeginForm())
     {
-        @Html.ValidationSummary(true, "Registeration Failed, fields.");
+        @Html.ValidationSummary(true, "Inscription impossible");
         <div>
             <fieldset>
-                <legend>Register Form</legend>
-                <div class="editor-label">@Html.LabelFor(u => u.INS_LOGIN)</div>
+                <div class="editor-label">@Html.LabelFor(u => u.INS_LOGIN, "Identifiant")</div>
                 <div class="editor-field">
                     @Html.TextBoxFor(u => u.INS_LOGIN)
                     @Html.ValidationMessageFor(u => u.INS_LOGIN)
                 </div>
 
-                <div class="form-group" /> @Html.LabelFor(model => model.INS_NIVEAUAUTHENTIFICATION, "INS_NIVEAUAUTHENTIFICATION")
+                <div class="form-group" /> @Html.LabelFor(model => model.INS_NIVEAUAUTHENTIFICATION, "Profil")
                 <div /> @Html.EnumDropDownListFor(model => model.INS_NIVEAUAUTHENTIFICATION)
 
-                <div class="editor-label">@Html.LabelFor(u => u.INS_MDP)</div>
+                <div class="editor-label">@Html.LabelFor(u => u.INS_MDP, "Mot de passe")</div>
                 <div class="editor-field">
                     @Html.PasswordFor(u => u.INS_MDP)
                     @Html.ValidationMessageFor(u => u.INS_MDP)
                 </div>
+                <div class="editor-label">@Html.LabelFor(u => u.Confirm_INS_MDP, "Confirmer le mot de passe")</div>
+                <div class="editor-field">
+                    @Html.PasswordFor(u => u.Confirm_INS_MDP)
+                    @Html.ValidationMessageFor(u => u.Confirm_INS_MDP)
+                </div>
             </fieldset>
-            <input type="submit" value="Register" />
+            <input type="submit" value="S'inscrire" />
         </div>
     }
 </section>

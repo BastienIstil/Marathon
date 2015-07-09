@@ -211,6 +211,7 @@
     <Compile Include="Class_Metier\ExtensionModels\ExtensionCoureur.cs" />
     <Compile Include="Class_Metier\PBKDF2.cs" />
     <Compile Include="Class_Metier\SimpleCrypto.cs" />
+    <Compile Include="Class_Metier\ViewCustomModels\InscriptionCourreurCourseModel.cs" />
     <Compile Include="Class_Metier\ViewCustomModels\TempsBorneViewModel.cs" />
     <Compile Include="Class_Metier\ViewCustomModels\CoureurInscriptions.cs" />
     <Compile Include="Class_Metier\ViewCustomModels\InscriptionClubCourreurDefie.cs" />
@@ -338,6 +339,7 @@
     <Content Include="Views\Clubs\AddInscritDefi.cshtml" />
     <Content Include="Views\Home\InscriptionDefiFail.cshtml" />
     <Content Include="Views\Home\InscriptionDefiOK.cshtml" />
+    <Content Include="Views\Courses\InscriptionCoureurCourse.cshtml" />
     <None Include="Views\Inscrits\Logout.cshtml" />
     <None Include="Views\Inscrits\Register.cshtml" />
     <Content Include="Views\Inscrits\Login.cshtml" />

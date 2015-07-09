@@ -35,7 +35,7 @@ namespace Site_Web.Controllers
                 return RedirectToAction("Index","Home");
             }
 
-            ModelState.AddModelError("", "Login details are wrong.");
+            ModelState.AddModelError("", "Identifiant ou mot de passe incorrect");
             return View(user);
         }
 
@@ -69,7 +69,7 @@ namespace Site_Web.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Data is not correct");
+                    ModelState.AddModelError("", "Données incorrect");
                 }
 
             }
