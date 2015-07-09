@@ -18,6 +18,9 @@ namespace Site_Web.Class_Metier
         [Display(Name = "Prenom du coureur")]
         public string prenomCoureur;
 
+        [Display(Name = "Catégorie")]
+        public string categorieCoureur;
+
         [Display(Name = "Course")]
         public string nomCourse;
 
