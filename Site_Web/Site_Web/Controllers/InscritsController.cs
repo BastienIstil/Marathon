@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using Site_Web.App_Data;
 using System.Web.Security;
-
+using Site_Web.Class_Metier;
 using Site_Web.Class_Metier.ViewCustomModels;
 
 namespace Site_Web.Controllers
@@ -32,6 +32,24 @@ namespace Site_Web.Controllers
             if (IsValid(user.INS_LOGIN, user.INS_MDP))
             {
                 FormsAuthentication.SetAuthCookie(user.INS_LOGIN, false);
+
+                int insID = (from i in db.INSCRITs.ToList()
+                                 where i.INS_LOGIN == user.INS_LOGIN
+                                 select i).FirstOrDefault().INS_ID;
+
+                COUREUR courreur = (from c in  db.COUREURs.ToList()
+                                    where c.INS_ID == insID
+                                        select c).FirstOrDefault();
+
+                if (courreur != null)
+                {
+                    int cat = UpdateCat.getCat(courreur.COU_DATENAISSANCE);
+                    courreur.CAT_ID = cat;
+                    db.Entry(courreur).State = EntityState.Modified;
+                    db.SaveChanges();
+                    // update cat id needed
+                }
+
                 return RedirectToAction("Index","Home");
             }
 
