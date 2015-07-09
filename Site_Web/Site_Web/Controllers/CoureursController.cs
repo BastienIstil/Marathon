@@ -189,6 +189,7 @@ namespace Site_Web.Controllers
                                        select u).First();
 
                     cOUREUR.INS_ID = inscrit.INS_ID;
+                    cOUREUR.CAT_ID = 1;
                     db.COUREURs.Add(cOUREUR);
                 }
                 else
