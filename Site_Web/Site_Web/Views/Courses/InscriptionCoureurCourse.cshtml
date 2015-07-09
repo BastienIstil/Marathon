@@ -1,0 +1,96 @@
+﻿@using Site_Web.Class_Metier.ViewCustomModels
+@model InscriptionCourreurCourseModel
+
+
+<section class="bg-fiche-unique">
+    <h2>Inscription Course</h2>
+
+    @using (Html.BeginForm(new { ListInscriptionCoureur = Model }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            <!-- Sauvegarde du coureur -->
+            @Html.HiddenFor(model => model.coureur.COU_ID)
+            @Html.HiddenFor(model => model.coureur.COU_ADRESSE)
+            @Html.HiddenFor(model => model.coureur.COU_CERTIFICATMEDICAL)
+            @Html.HiddenFor(model => model.coureur.COU_CODEPOSTAL)
+            @Html.HiddenFor(model => model.coureur.COU_DATENAISSANCE)
+            @Html.HiddenFor(model => model.coureur.COU_EMAIL)
+            @Html.HiddenFor(model => model.coureur.COU_ENTREPRISEGROUPEASSOCIATION)
+            @Html.HiddenFor(model => model.coureur.COU_FAX)
+            @Html.HiddenFor(model => model.coureur.COU_FEDERATION)
+            @Html.HiddenFor(model => model.coureur.COU_NOM)
+            @Html.HiddenFor(model => model.coureur.COU_NUMEROLICENCE)
+            @Html.HiddenFor(model => model.coureur.COU_PAYS)
+            @Html.HiddenFor(model => model.coureur.COU_PRENOM)
+            @Html.HiddenFor(model => model.coureur.COU_SEXE)
+            @Html.HiddenFor(model => model.coureur.COU_TELEPHONE)
+            @Html.HiddenFor(model => model.coureur.COU_VILLE)
+            @Html.HiddenFor(model => model.coureur.FED_ID)
+            @Html.HiddenFor(model => model.coureur.CLU_ID)
+            @Html.HiddenFor(model => model.coureur.CAT_ID)
+            @Html.HiddenFor(model => model.coureur.INS_ID)
+            
+            <!-- Entete -->
+            <!-- NOM course -->
+            <!-- DISTANCE course -->
+            <!-- DATE course-->
+            <!-- NOMBRE MAX course-->
+            <!-- PRIX course -->
+            <!-- Check Inscription -->
+            <!-- Check Pasta Partie-->
+            <!-- Tableaux -->
+
+            <table class="tableCoureur">
+                <tr>
+                    <th> @Html.DisplayNameFor(model => model.listCourse.FirstOrDefault().COR_NOM)</th>
+                    <th> @Html.DisplayNameFor(model => model.listCourse.FirstOrDefault().COR_DISTANCE)</th>
+                    <th> @Html.DisplayNameFor(model => model.listCourse.FirstOrDefault().COR_DATE)</th>
+                    <th> @Html.DisplayNameFor(model => model.listCourse.FirstOrDefault().COR_NOMBREMAXPARTICIPANT)</th>
+                    <th> @Html.DisplayNameFor(model => model.listCourse.FirstOrDefault().COR_PRIX)</th>
+                    <th> @Html.DisplayNameFor(model => model.InscriptionCourse)</th>
+                    <th> @Html.DisplayNameFor(model => model.InscriptionPastaparty)</th>
+                    <th> @Html.DisplayNameFor(model => model.TempsEstimé)</th>
+                </tr>
+
+                @for (int i = 0; i < Model.listCourse.Count; i++)
+                {
+                    @Html.HiddenFor(model => Model.listCourse[i].COR_ID)
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.listCourse[i].COR_NOM)
+                            @Html.HiddenFor(modelItem => Model.listCourse[i].COR_NOM)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.listCourse[i].COR_DISTANCE)
+                            @Html.HiddenFor(modelItem => Model.listCourse[i].COR_DISTANCE)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.listCourse[i].COR_DATE)
+                            @Html.HiddenFor(modelItem => Model.listCourse[i].COR_DATE)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.listCourse[i].COR_NOMBREMAXPARTICIPANT)
+                            @Html.HiddenFor(modelItem => Model.listCourse[i].COR_NOMBREMAXPARTICIPANT)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => Model.listCourse[i].COR_PRIX)
+                            @Html.HiddenFor(modelItem => Model.listCourse[i].COR_PRIX)
+                        </td>
+                        <td>
+                            @Html.CheckBoxFor(modelItem => modelItem.listEtatInscription[i])
+                        </td>
+                        <td>
+                            @Html.CheckBoxFor(modelItem => modelItem.listEtatPastaParty[i])
+                        </td>
+                        <td>
+                            @Html.EditorFor(modelItem => modelItem.tempsEstime[i])
+                        </td>
+                    </tr>
+                }
+            </table>
+
+            <input type="submit" value="Ajouter" />
+        </div>
+    }
+</section>

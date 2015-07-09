@@ -1,5 +1,6 @@
-﻿@model IEnumerable<Site_Web.App_Data.TEMPSCOUBORNE>
+﻿@using Site_Web.Models
 @using Site_Web.Class_Metier.ViewCustomModels;
+@model TempsBorneViewModel
 
 @{
     ViewBag.Title = "Index";
@@ -7,9 +8,16 @@
 <section class="bg-fiche-unique">
     <h2>Temps coureur par borne</h2>
 
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
+@if (Request.IsAuthenticated)
+{
+    if (InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.SECRETAIRE ||
+        InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.ADMIN)
+    {
+        <p>
+            @Html.ActionLink("Creer nouveau temps par borne", "Create")
+        </p>
+    }
+}
     <table class="table">
         <tr>
             <th>
@@ -18,34 +26,52 @@
             <th>
                 Prenom
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.T_R_BORNE_BOR.BOR_ID)
-            </th>
-            <th></th>
+            @foreach (var test in Model.lignes)
+            {
+                foreach (var nb in test.nbBornes)
+                {
+                    <th>
+                        @Html.DisplayFor(modelItem => nb) 
+                    </th>
+                }
+
+                break;
+            }
+            
         </tr>
 
-        @foreach (var item in Model)
+        @foreach (var item in Model.lignes)
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.TCB_TEMPS)
+                    @Html.DisplayFor(modelItem => item.nomCoureur)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.T_E_COUREUR_COU.COU_NOM)
+                    @Html.DisplayFor(modelItem => item.prenomCoureur)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.T_R_BORNE_BOR.BOR_ID)
-                </td>
-                @if (InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.SECRETAIRE ||
-                        InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.ADMIN)
+                @foreach (var nb in item.nbBornes)
                 {
+                    
+                    String result = "" ;
+                    
+                    
+                    foreach (var bra in item.TempsBorne)
+                    {
+                        if (nb == bra.Key)
+                        {
+                            result = bra.Value;
+                            
+                        }
+                        
+                       
+                    }
+                    
                     <td>
-                        @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                        @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                        @Html.DisplayFor(modelItem => result)
                     </td>
+                   
                 }
-                
+            
             </tr>
         }
 

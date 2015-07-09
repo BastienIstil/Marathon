@@ -63,7 +63,24 @@
                             
                             <li>@Html.ActionLink("Telecharger le formulaire d'inscription individuelle", "Telecharge", "Home", new { Fichier = "InscriptionMarathonAnnecyIndividuelle2015.pdf" }, null)</li>
                             <li>@Html.ActionLink("Telecharger le formulaire d'inscription d'un Club", "Telecharge", "Home", new { Fichier = "InscriptionMarathonAnnecyClub2015.pdf" }, null)</li>
-                            <li>@Html.ActionLink("Inscription en ligne",null, "Home")</li>
+                          
+                            @if (Request.IsAuthenticated)
+                            {
+                                if (InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.COUREUR)
+                                {
+                                    <li>@Html.ActionLink("Inscription à une course", "InscriptionCoureurCourse", "Courses")</li>
+                                }
+                                else if (InscritCustom.getLevelAutenticate(User.Identity.Name) == NiveauAuthentification.CLUB)
+                                {
+                                    
+                                    <li>@Html.ActionLink("inscrire coureur au club", "AddCoureur", "Clubs")</li>
+                                    <li>@Html.ActionLink("inscrire coureur au défi", "AddInscritDefi", "Clubs")</li>
+                                }
+                            }
+                            else
+                            {
+                                <li>@Html.ActionLink("Inscription à une course", "Register", "Inscrits")</li>
+                            }
                         </ul>
                     </div>
                     <!-- Fin Sous Menu-->
@@ -75,8 +92,6 @@
                     <div class="ssMenu">
                         <ul class="texte">
                             <li>@Html.ActionLink("Liste des courses", "Index", "Courses")</li>
-                            <li>@Html.ActionLink("Liens vers Index 2", "Index2", "Home")</li>
-                            
                         </ul>
                     </div>
                     <!-- Fin Sous Menu-->
