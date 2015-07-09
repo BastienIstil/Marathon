@@ -141,8 +141,10 @@ namespace Site_Web.Controllers
             // On récupere le coureur
             COUREUR courreur = (from c in db.COUREURs
                                        where c.INS_ID == idInscrit
-                                       select c).First();
-                 
+                                       select c).FirstOrDefault();
+
+            if (courreur == null)
+                return RedirectToAction("EditProfile", "Coureurs");
             // On récupere la liste de course de sa catégorie
             List<COURSE> courses = db.COURSEs.ToList();
 
