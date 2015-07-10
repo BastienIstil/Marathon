@@ -6,7 +6,6 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Site_Web.App_Data
 {
-
     [MetadataType(typeof(BORNEMetadata))]
     public partial class BORNE
     {
