@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="db21e2a0f0fd4146ab1d4aad1e70a57c" Name="Diagram1">
+        <EntityTypeShape EntityType="CPINFO02Model.T_E_COUREUR_COU" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CPINFO02Model.T_E_INFORMATIONPUBLIQUE_INF" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CPINFO02Model.T_E_INSCRIT_INS" Width="1.5" PointX="0.75" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="CPINFO02Model.T_E_PAIEMENT_PAI" Width="1.5" PointX="10.5" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CPINFO02Model.T_E_PARTICIPATION_PAR" Width="1.5" PointX="8.25" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CPINFO02Model.T_E_PASTAPARTY_PAS" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CPINFO02Model.T_J_CLASSEMENT_CLA" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="CPINFO02Model.T_J_TEMPSCOUBORNE_TCB" Width="1.5" PointX="5.25" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CPINFO02Model.T_R_BORNE_BOR" Width="1.5" PointX="3" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CPINFO02Model.T_R_CATEGORIE_CAT" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CPINFO02Model.T_R_CLUB_CLU" Width="1.5" PointX="6" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CPINFO02Model.T_R_COURSE_COR" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CPINFO02Model.T_R_DEFI_DEF" Width="1.5" PointX="8.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="CPINFO02Model.T_R_FEDERATION_FED" Width="1.5" PointX="0.75" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CPINFO02Model.T_R_LOT_LOT" Width="1.5" PointX="5.25" PointY="24.75" IsExpanded="true" />
+        <AssociationConnector Association="CPINFO02Model.FK_T_E_COUR_A_T_R_FEDE" ManuallyRouted="false" />
+        <AssociationConnector Association="CPINFO02Model.FK_T_E_COUR_EST_AFFIL_T_R_CLUB" ManuallyRouted="false" />
+        <AssociationConnector Association="CPINFO02Model.FK_T_E_COUR_EST_DEFIN_T_R_CATE" ManuallyRouted="false" />
+        <AssociationConnector Association="CPINFO02Model.FK_T_E_COUR_EST_INSCR_T_E_INSC" ManuallyRouted="false" />
+        <AssociationConnector Association="CPINFO02Model.FK_T_E_PART_PARTICIPE_T_E_COUR" ManuallyRouted="false" />
+        <AssociationConnector Association="CPINFO02Model.FK_T_J_CLAS_T_J_CLASS_T_E_COUR" ManuallyRouted="false" />
+        <AssociationConnector Association="CPINFO02Model.FK_T_J_TEMP_T_J_TEMPS_T_E_COUR" ManuallyRouted="false" />
+        <AssociationConnector Association="CPINFO02Model.FK_T_R_LOT__DISTRIBUE_T_E_COUR" ManuallyRouted="false" />
+        <AssociationConnector Association="CPINFO02Model.FK_T_R_CLUB_EST_INSCR_T_E_INSC" ManuallyRouted="false" />
+        <AssociationConnector Association="CPINFO02Model.FK_T_E_PAIE_PAYE_T_E_PART" ManuallyRouted="false" />
+        <AssociationConnector Association="CPINFO02Model.FK_T_E_PART_PAYE2_T_E_PAIE" ManuallyRouted="false" />
+        <AssociationConnector Association="CPINFO02Model.FK_T_E_PART_A_UNE_T_R_COUR" ManuallyRouted="false" />
+        <AssociationConnector Association="CPINFO02Model.FK_T_E_PART_ASSOCIE_T_E_PAST" ManuallyRouted="false" />
+        <AssociationConnector Association="CPINFO02Model.FK_T_E_PART_PARTICIPE_T_R_CLUB" ManuallyRouted="false" />
+        <AssociationConnector Association="CPINFO02Model.FK_T_J_CLAS_T_J_CLASS_T_R_COUR" ManuallyRouted="false" />
+        <AssociationConnector Association="CPINFO02Model.FK_T_J_TEMP_T_J_TEMPS_T_R_BORN" ManuallyRouted="false" />
+        <AssociationConnector Association="CPINFO02Model.FK_T_R_BORN_EST_COMPO_T_R_COUR" ManuallyRouted="false" />
+        <AssociationConnector Association="CPINFO02Model.FK_T_R_CLUB_A1_T_R_FEDE" ManuallyRouted="false" />
+        <AssociationConnector Association="CPINFO02Model.T_J_DEFICOURSE_DEC" ManuallyRouted="false" />
+        <AssociationConnector Association="CPINFO02Model.T_J_PARTICIPATIONDEFI_PAD" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

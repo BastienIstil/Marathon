@@ -1,0 +1,1317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CPINFO02Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="T_E_COUREUR_COU">
+          <Key>
+            <PropertyRef Name="COU_ID" />
+          </Key>
+          <Property Name="COU_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="INS_ID" Type="int" Nullable="false" />
+          <Property Name="FED_ID" Type="int" />
+          <Property Name="CLU_ID" Type="int" />
+          <Property Name="CAT_ID" Type="int" Nullable="false" />
+          <Property Name="COU_NOM" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="COU_PRENOM" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="COU_DATENAISSANCE" Type="datetime" Nullable="false" />
+          <Property Name="COU_SEXE" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="COU_NUMEROLICENCE" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="COU_EMAIL" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="COU_ADRESSE" Type="varchar" MaxLength="255" />
+          <Property Name="COU_CODEPOSTAL" Type="char" MaxLength="5" />
+          <Property Name="COU_VILLE" Type="varchar" MaxLength="255" />
+          <Property Name="COU_PAYS" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="COU_TELEPHONE" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="COU_FAX" Type="char" MaxLength="10" />
+          <Property Name="COU_ENTREPRISEGROUPEASSOCIATION" Type="varchar" MaxLength="255" />
+          <Property Name="COU_CERTIFICATMEDICAL" Type="varchar" MaxLength="255" />
+          <Property Name="COU_FEDERATION" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="T_E_INFORMATIONPUBLIQUE_INF">
+          <Key>
+            <PropertyRef Name="INF_ID" />
+          </Key>
+          <Property Name="INF_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="INF_NOM" Type="varchar" MaxLength="50" />
+          <Property Name="INF_PRENOM" Type="varchar" MaxLength="50" />
+          <Property Name="INF_EMAIL" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="INF_CONTENUE" Type="text" Nullable="false" />
+          <Property Name="INF_TITRE" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_E_INSCRIT_INS">
+          <Key>
+            <PropertyRef Name="INS_ID" />
+          </Key>
+          <Property Name="INS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="INS_LOGIN" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="INS_MDP" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="INS_NIVEAUAUTHENTIFICATION" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_E_PAIEMENT_PAI">
+          <Key>
+            <PropertyRef Name="PAI_ID" />
+          </Key>
+          <Property Name="PAI_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PAR_ID" Type="int" Nullable="false" />
+          <Property Name="PAI_MONTANT" Type="int" Nullable="false" />
+          <Property Name="PAI_MOYENPAIEMENT" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="PAI_DATEPAIEMENT" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_E_PARTICIPATION_PAR">
+          <Key>
+            <PropertyRef Name="PAR_ID" />
+          </Key>
+          <Property Name="PAR_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CLU_ID" Type="int" Nullable="false" />
+          <Property Name="COR_ID" Type="int" Nullable="false" />
+          <Property Name="PAS_ID" Type="int" Nullable="false" />
+          <Property Name="COU_ID" Type="int" Nullable="false" />
+          <Property Name="PAI_ID" Type="int" />
+          <Property Name="PAR_DOSSARD" Type="int" Nullable="false" />
+          <Property Name="PAR_TEMPS_ESTIME" Type="int" />
+          <Property Name="PAR_NBPARTICIPANTCOURSE" Type="int" Nullable="false" />
+          <Property Name="PAR_PARTICIPEPASTAPARTY" Type="bit" Nullable="false" />
+          <Property Name="PAR_NBPARTICIPANTPASTAPARTY" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_E_PASTAPARTY_PAS">
+          <Key>
+            <PropertyRef Name="PAS_ID" />
+          </Key>
+          <Property Name="PAS_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PAS_NBMAXPARTICIPANT" Type="int" />
+        </EntityType>
+        <EntityType Name="T_J_CLASSEMENT_CLA">
+          <Key>
+            <PropertyRef Name="COR_ID" />
+            <PropertyRef Name="COU_ID" />
+          </Key>
+          <Property Name="COR_ID" Type="int" Nullable="false" />
+          <Property Name="COU_ID" Type="int" Nullable="false" />
+          <Property Name="CLA_TEMPS" Type="int" />
+          <Property Name="CLA_RANG" Type="int" />
+        </EntityType>
+        <EntityType Name="T_J_DEFICOURSE_DEC">
+          <Key>
+            <PropertyRef Name="COR_ID" />
+            <PropertyRef Name="DEF_ID" />
+          </Key>
+          <Property Name="COR_ID" Type="int" Nullable="false" />
+          <Property Name="DEF_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_J_PARTICIPATIONDEFI_PAD">
+          <Key>
+            <PropertyRef Name="DEF_ID" />
+            <PropertyRef Name="COU_ID" />
+          </Key>
+          <Property Name="DEF_ID" Type="int" Nullable="false" />
+          <Property Name="COU_ID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_J_TEMPSCOUBORNE_TCB">
+          <Key>
+            <PropertyRef Name="BOR_ID" />
+            <PropertyRef Name="COU_ID" />
+          </Key>
+          <Property Name="BOR_ID" Type="int" Nullable="false" />
+          <Property Name="COU_ID" Type="int" Nullable="false" />
+          <Property Name="TCB_TEMPS" Type="int" />
+        </EntityType>
+        <EntityType Name="T_R_BORNE_BOR">
+          <Key>
+            <PropertyRef Name="BOR_ID" />
+          </Key>
+          <Property Name="BOR_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="COR_ID" Type="int" Nullable="false" />
+          <Property Name="BOR_EMPLACEMENT" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_R_CATEGORIE_CAT">
+          <Key>
+            <PropertyRef Name="CAT_ID" />
+          </Key>
+          <Property Name="CAT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CAT_LIBELLE" Type="varchar" MaxLength="255" />
+          <Property Name="CAT_CODE" Type="varchar" MaxLength="3" />
+        </EntityType>
+        <EntityType Name="T_R_CLUB_CLU">
+          <Key>
+            <PropertyRef Name="CLU_ID" />
+          </Key>
+          <Property Name="CLU_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FED_ID" Type="int" />
+          <Property Name="INS_ID" Type="int" Nullable="false" />
+          <Property Name="CLU_NOM" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="CLU_LICENCE" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="CLU_EMAIL" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="CLU_ADRESSE" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="CLU_CODEPOSTAL" Type="char" MaxLength="5" Nullable="false" />
+          <Property Name="CLU_VILLE" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="CLU_PAYS" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="CLU_TELEPHONE" Type="char" MaxLength="10" />
+          <Property Name="CLU_FAX" Type="char" MaxLength="10" />
+          <Property Name="CLU_NUMERO" Type="char" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_R_COURSE_COR">
+          <Key>
+            <PropertyRef Name="COR_ID" />
+          </Key>
+          <Property Name="COR_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="COR_NOM" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="COR_DISTANCE" Type="int" Nullable="false" />
+          <Property Name="COR_DATE" Type="datetime" />
+          <Property Name="COR_NOMBREMAXPARTICIPANT" Type="int" />
+          <Property Name="COR_PRIX" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="T_R_DEFI_DEF">
+          <Key>
+            <PropertyRef Name="DEF_ID" />
+          </Key>
+          <Property Name="DEF_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DEF_NOM" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="DEF_NOMBREMAXPARTICIPANT" Type="int" Nullable="false" />
+          <Property Name="DEF_EXPLICATION" Type="text" />
+        </EntityType>
+        <EntityType Name="T_R_FEDERATION_FED">
+          <Key>
+            <PropertyRef Name="FED_ID" />
+          </Key>
+          <Property Name="FED_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FED_NOM" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_R_LOT_LOT">
+          <Key>
+            <PropertyRef Name="LOT_ID" />
+          </Key>
+          <Property Name="LOT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="COU_ID" Type="int" />
+          <Property Name="LOT_NOM" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_T_E_COUR_A_T_R_FEDE">
+          <End Role="T_R_FEDERATION_FED" Type="Self.T_R_FEDERATION_FED" Multiplicity="0..1" />
+          <End Role="T_E_COUREUR_COU" Type="Self.T_E_COUREUR_COU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_FEDERATION_FED">
+              <PropertyRef Name="FED_ID" />
+            </Principal>
+            <Dependent Role="T_E_COUREUR_COU">
+              <PropertyRef Name="FED_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_E_COUR_EST_AFFIL_T_R_CLUB">
+          <End Role="T_R_CLUB_CLU" Type="Self.T_R_CLUB_CLU" Multiplicity="0..1" />
+          <End Role="T_E_COUREUR_COU" Type="Self.T_E_COUREUR_COU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_CLUB_CLU">
+              <PropertyRef Name="CLU_ID" />
+            </Principal>
+            <Dependent Role="T_E_COUREUR_COU">
+              <PropertyRef Name="CLU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_E_COUR_EST_DEFIN_T_R_CATE">
+          <End Role="T_R_CATEGORIE_CAT" Type="Self.T_R_CATEGORIE_CAT" Multiplicity="1" />
+          <End Role="T_E_COUREUR_COU" Type="Self.T_E_COUREUR_COU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_CATEGORIE_CAT">
+              <PropertyRef Name="CAT_ID" />
+            </Principal>
+            <Dependent Role="T_E_COUREUR_COU">
+              <PropertyRef Name="CAT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_E_COUR_EST_INSCR_T_E_INSC">
+          <End Role="T_E_INSCRIT_INS" Type="Self.T_E_INSCRIT_INS" Multiplicity="1" />
+          <End Role="T_E_COUREUR_COU" Type="Self.T_E_COUREUR_COU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_INSCRIT_INS">
+              <PropertyRef Name="INS_ID" />
+            </Principal>
+            <Dependent Role="T_E_COUREUR_COU">
+              <PropertyRef Name="INS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_E_PAIE_PAYE_T_E_PART">
+          <End Role="T_E_PARTICIPATION_PAR" Type="Self.T_E_PARTICIPATION_PAR" Multiplicity="1" />
+          <End Role="T_E_PAIEMENT_PAI" Type="Self.T_E_PAIEMENT_PAI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_PARTICIPATION_PAR">
+              <PropertyRef Name="PAR_ID" />
+            </Principal>
+            <Dependent Role="T_E_PAIEMENT_PAI">
+              <PropertyRef Name="PAR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_E_PART_A_UNE_T_R_COUR">
+          <End Role="T_R_COURSE_COR" Type="Self.T_R_COURSE_COR" Multiplicity="1" />
+          <End Role="T_E_PARTICIPATION_PAR" Type="Self.T_E_PARTICIPATION_PAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_COURSE_COR">
+              <PropertyRef Name="COR_ID" />
+            </Principal>
+            <Dependent Role="T_E_PARTICIPATION_PAR">
+              <PropertyRef Name="COR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_E_PART_ASSOCIE_T_E_PAST">
+          <End Role="T_E_PASTAPARTY_PAS" Type="Self.T_E_PASTAPARTY_PAS" Multiplicity="1" />
+          <End Role="T_E_PARTICIPATION_PAR" Type="Self.T_E_PARTICIPATION_PAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_PASTAPARTY_PAS">
+              <PropertyRef Name="PAS_ID" />
+            </Principal>
+            <Dependent Role="T_E_PARTICIPATION_PAR">
+              <PropertyRef Name="PAS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_E_PART_PARTICIPE_T_E_COUR">
+          <End Role="T_E_COUREUR_COU" Type="Self.T_E_COUREUR_COU" Multiplicity="1" />
+          <End Role="T_E_PARTICIPATION_PAR" Type="Self.T_E_PARTICIPATION_PAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_COUREUR_COU">
+              <PropertyRef Name="COU_ID" />
+            </Principal>
+            <Dependent Role="T_E_PARTICIPATION_PAR">
+              <PropertyRef Name="COU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_E_PART_PARTICIPE_T_R_CLUB">
+          <End Role="T_R_CLUB_CLU" Type="Self.T_R_CLUB_CLU" Multiplicity="1" />
+          <End Role="T_E_PARTICIPATION_PAR" Type="Self.T_E_PARTICIPATION_PAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_CLUB_CLU">
+              <PropertyRef Name="CLU_ID" />
+            </Principal>
+            <Dependent Role="T_E_PARTICIPATION_PAR">
+              <PropertyRef Name="CLU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_E_PART_PAYE2_T_E_PAIE">
+          <End Role="T_E_PAIEMENT_PAI" Type="Self.T_E_PAIEMENT_PAI" Multiplicity="0..1" />
+          <End Role="T_E_PARTICIPATION_PAR" Type="Self.T_E_PARTICIPATION_PAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_PAIEMENT_PAI">
+              <PropertyRef Name="PAI_ID" />
+            </Principal>
+            <Dependent Role="T_E_PARTICIPATION_PAR">
+              <PropertyRef Name="PAI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_J_CLAS_T_J_CLASS_T_E_COUR">
+          <End Role="T_E_COUREUR_COU" Type="Self.T_E_COUREUR_COU" Multiplicity="1" />
+          <End Role="T_J_CLASSEMENT_CLA" Type="Self.T_J_CLASSEMENT_CLA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_COUREUR_COU">
+              <PropertyRef Name="COU_ID" />
+            </Principal>
+            <Dependent Role="T_J_CLASSEMENT_CLA">
+              <PropertyRef Name="COU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_J_CLAS_T_J_CLASS_T_R_COUR">
+          <End Role="T_R_COURSE_COR" Type="Self.T_R_COURSE_COR" Multiplicity="1" />
+          <End Role="T_J_CLASSEMENT_CLA" Type="Self.T_J_CLASSEMENT_CLA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_COURSE_COR">
+              <PropertyRef Name="COR_ID" />
+            </Principal>
+            <Dependent Role="T_J_CLASSEMENT_CLA">
+              <PropertyRef Name="COR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_J_DEFI_T_J_DEFIC_T_R_COUR">
+          <End Role="T_R_COURSE_COR" Type="Self.T_R_COURSE_COR" Multiplicity="1" />
+          <End Role="T_J_DEFICOURSE_DEC" Type="Self.T_J_DEFICOURSE_DEC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_COURSE_COR">
+              <PropertyRef Name="COR_ID" />
+            </Principal>
+            <Dependent Role="T_J_DEFICOURSE_DEC">
+              <PropertyRef Name="COR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_J_DEFI_T_J_DEFIC_T_R_DEFI">
+          <End Role="T_R_DEFI_DEF" Type="Self.T_R_DEFI_DEF" Multiplicity="1" />
+          <End Role="T_J_DEFICOURSE_DEC" Type="Self.T_J_DEFICOURSE_DEC" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_DEFI_DEF">
+              <PropertyRef Name="DEF_ID" />
+            </Principal>
+            <Dependent Role="T_J_DEFICOURSE_DEC">
+              <PropertyRef Name="DEF_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_J_PART_T_J_PARTI_T_E_COUR">
+          <End Role="T_E_COUREUR_COU" Type="Self.T_E_COUREUR_COU" Multiplicity="1" />
+          <End Role="T_J_PARTICIPATIONDEFI_PAD" Type="Self.T_J_PARTICIPATIONDEFI_PAD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_COUREUR_COU">
+              <PropertyRef Name="COU_ID" />
+            </Principal>
+            <Dependent Role="T_J_PARTICIPATIONDEFI_PAD">
+              <PropertyRef Name="COU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_J_PART_T_J_PARTI_T_R_DEFI">
+          <End Role="T_R_DEFI_DEF" Type="Self.T_R_DEFI_DEF" Multiplicity="1" />
+          <End Role="T_J_PARTICIPATIONDEFI_PAD" Type="Self.T_J_PARTICIPATIONDEFI_PAD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_DEFI_DEF">
+              <PropertyRef Name="DEF_ID" />
+            </Principal>
+            <Dependent Role="T_J_PARTICIPATIONDEFI_PAD">
+              <PropertyRef Name="DEF_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_J_TEMP_T_J_TEMPS_T_E_COUR">
+          <End Role="T_E_COUREUR_COU" Type="Self.T_E_COUREUR_COU" Multiplicity="1" />
+          <End Role="T_J_TEMPSCOUBORNE_TCB" Type="Self.T_J_TEMPSCOUBORNE_TCB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_COUREUR_COU">
+              <PropertyRef Name="COU_ID" />
+            </Principal>
+            <Dependent Role="T_J_TEMPSCOUBORNE_TCB">
+              <PropertyRef Name="COU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_J_TEMP_T_J_TEMPS_T_R_BORN">
+          <End Role="T_R_BORNE_BOR" Type="Self.T_R_BORNE_BOR" Multiplicity="1" />
+          <End Role="T_J_TEMPSCOUBORNE_TCB" Type="Self.T_J_TEMPSCOUBORNE_TCB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_BORNE_BOR">
+              <PropertyRef Name="BOR_ID" />
+            </Principal>
+            <Dependent Role="T_J_TEMPSCOUBORNE_TCB">
+              <PropertyRef Name="BOR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_R_BORN_EST_COMPO_T_R_COUR">
+          <End Role="T_R_COURSE_COR" Type="Self.T_R_COURSE_COR" Multiplicity="1" />
+          <End Role="T_R_BORNE_BOR" Type="Self.T_R_BORNE_BOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_COURSE_COR">
+              <PropertyRef Name="COR_ID" />
+            </Principal>
+            <Dependent Role="T_R_BORNE_BOR">
+              <PropertyRef Name="COR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_R_CLUB_A1_T_R_FEDE">
+          <End Role="T_R_FEDERATION_FED" Type="Self.T_R_FEDERATION_FED" Multiplicity="0..1" />
+          <End Role="T_R_CLUB_CLU" Type="Self.T_R_CLUB_CLU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_FEDERATION_FED">
+              <PropertyRef Name="FED_ID" />
+            </Principal>
+            <Dependent Role="T_R_CLUB_CLU">
+              <PropertyRef Name="FED_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_R_CLUB_EST_INSCR_T_E_INSC">
+          <End Role="T_E_INSCRIT_INS" Type="Self.T_E_INSCRIT_INS" Multiplicity="1" />
+          <End Role="T_R_CLUB_CLU" Type="Self.T_R_CLUB_CLU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_INSCRIT_INS">
+              <PropertyRef Name="INS_ID" />
+            </Principal>
+            <Dependent Role="T_R_CLUB_CLU">
+              <PropertyRef Name="INS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_R_LOT__DISTRIBUE_T_E_COUR">
+          <End Role="T_E_COUREUR_COU" Type="Self.T_E_COUREUR_COU" Multiplicity="0..1" />
+          <End Role="T_R_LOT_LOT" Type="Self.T_R_LOT_LOT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_COUREUR_COU">
+              <PropertyRef Name="COU_ID" />
+            </Principal>
+            <Dependent Role="T_R_LOT_LOT">
+              <PropertyRef Name="COU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CPINFO02ModelStoreContainer">
+          <EntitySet Name="T_E_COUREUR_COU" EntityType="Self.T_E_COUREUR_COU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_E_INFORMATIONPUBLIQUE_INF" EntityType="Self.T_E_INFORMATIONPUBLIQUE_INF" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_E_INSCRIT_INS" EntityType="Self.T_E_INSCRIT_INS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_E_PAIEMENT_PAI" EntityType="Self.T_E_PAIEMENT_PAI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_E_PARTICIPATION_PAR" EntityType="Self.T_E_PARTICIPATION_PAR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_E_PASTAPARTY_PAS" EntityType="Self.T_E_PASTAPARTY_PAS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_J_CLASSEMENT_CLA" EntityType="Self.T_J_CLASSEMENT_CLA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_J_DEFICOURSE_DEC" EntityType="Self.T_J_DEFICOURSE_DEC" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_J_PARTICIPATIONDEFI_PAD" EntityType="Self.T_J_PARTICIPATIONDEFI_PAD" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_J_TEMPSCOUBORNE_TCB" EntityType="Self.T_J_TEMPSCOUBORNE_TCB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_R_BORNE_BOR" EntityType="Self.T_R_BORNE_BOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_R_CATEGORIE_CAT" EntityType="Self.T_R_CATEGORIE_CAT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_R_CLUB_CLU" EntityType="Self.T_R_CLUB_CLU" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_R_COURSE_COR" EntityType="Self.T_R_COURSE_COR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_R_DEFI_DEF" EntityType="Self.T_R_DEFI_DEF" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_R_FEDERATION_FED" EntityType="Self.T_R_FEDERATION_FED" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_R_LOT_LOT" EntityType="Self.T_R_LOT_LOT" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_T_E_COUR_A_T_R_FEDE" Association="Self.FK_T_E_COUR_A_T_R_FEDE">
+            <End Role="T_R_FEDERATION_FED" EntitySet="T_R_FEDERATION_FED" />
+            <End Role="T_E_COUREUR_COU" EntitySet="T_E_COUREUR_COU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_E_COUR_EST_AFFIL_T_R_CLUB" Association="Self.FK_T_E_COUR_EST_AFFIL_T_R_CLUB">
+            <End Role="T_R_CLUB_CLU" EntitySet="T_R_CLUB_CLU" />
+            <End Role="T_E_COUREUR_COU" EntitySet="T_E_COUREUR_COU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_E_COUR_EST_DEFIN_T_R_CATE" Association="Self.FK_T_E_COUR_EST_DEFIN_T_R_CATE">
+            <End Role="T_R_CATEGORIE_CAT" EntitySet="T_R_CATEGORIE_CAT" />
+            <End Role="T_E_COUREUR_COU" EntitySet="T_E_COUREUR_COU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_E_COUR_EST_INSCR_T_E_INSC" Association="Self.FK_T_E_COUR_EST_INSCR_T_E_INSC">
+            <End Role="T_E_INSCRIT_INS" EntitySet="T_E_INSCRIT_INS" />
+            <End Role="T_E_COUREUR_COU" EntitySet="T_E_COUREUR_COU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_E_PAIE_PAYE_T_E_PART" Association="Self.FK_T_E_PAIE_PAYE_T_E_PART">
+            <End Role="T_E_PARTICIPATION_PAR" EntitySet="T_E_PARTICIPATION_PAR" />
+            <End Role="T_E_PAIEMENT_PAI" EntitySet="T_E_PAIEMENT_PAI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_E_PART_A_UNE_T_R_COUR" Association="Self.FK_T_E_PART_A_UNE_T_R_COUR">
+            <End Role="T_R_COURSE_COR" EntitySet="T_R_COURSE_COR" />
+            <End Role="T_E_PARTICIPATION_PAR" EntitySet="T_E_PARTICIPATION_PAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_E_PART_ASSOCIE_T_E_PAST" Association="Self.FK_T_E_PART_ASSOCIE_T_E_PAST">
+            <End Role="T_E_PASTAPARTY_PAS" EntitySet="T_E_PASTAPARTY_PAS" />
+            <End Role="T_E_PARTICIPATION_PAR" EntitySet="T_E_PARTICIPATION_PAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_E_PART_PARTICIPE_T_E_COUR" Association="Self.FK_T_E_PART_PARTICIPE_T_E_COUR">
+            <End Role="T_E_COUREUR_COU" EntitySet="T_E_COUREUR_COU" />
+            <End Role="T_E_PARTICIPATION_PAR" EntitySet="T_E_PARTICIPATION_PAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_E_PART_PARTICIPE_T_R_CLUB" Association="Self.FK_T_E_PART_PARTICIPE_T_R_CLUB">
+            <End Role="T_R_CLUB_CLU" EntitySet="T_R_CLUB_CLU" />
+            <End Role="T_E_PARTICIPATION_PAR" EntitySet="T_E_PARTICIPATION_PAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_E_PART_PAYE2_T_E_PAIE" Association="Self.FK_T_E_PART_PAYE2_T_E_PAIE">
+            <End Role="T_E_PAIEMENT_PAI" EntitySet="T_E_PAIEMENT_PAI" />
+            <End Role="T_E_PARTICIPATION_PAR" EntitySet="T_E_PARTICIPATION_PAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_J_CLAS_T_J_CLASS_T_E_COUR" Association="Self.FK_T_J_CLAS_T_J_CLASS_T_E_COUR">
+            <End Role="T_E_COUREUR_COU" EntitySet="T_E_COUREUR_COU" />
+            <End Role="T_J_CLASSEMENT_CLA" EntitySet="T_J_CLASSEMENT_CLA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_J_CLAS_T_J_CLASS_T_R_COUR" Association="Self.FK_T_J_CLAS_T_J_CLASS_T_R_COUR">
+            <End Role="T_R_COURSE_COR" EntitySet="T_R_COURSE_COR" />
+            <End Role="T_J_CLASSEMENT_CLA" EntitySet="T_J_CLASSEMENT_CLA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_J_DEFI_T_J_DEFIC_T_R_COUR" Association="Self.FK_T_J_DEFI_T_J_DEFIC_T_R_COUR">
+            <End Role="T_R_COURSE_COR" EntitySet="T_R_COURSE_COR" />
+            <End Role="T_J_DEFICOURSE_DEC" EntitySet="T_J_DEFICOURSE_DEC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_J_DEFI_T_J_DEFIC_T_R_DEFI" Association="Self.FK_T_J_DEFI_T_J_DEFIC_T_R_DEFI">
+            <End Role="T_R_DEFI_DEF" EntitySet="T_R_DEFI_DEF" />
+            <End Role="T_J_DEFICOURSE_DEC" EntitySet="T_J_DEFICOURSE_DEC" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_J_PART_T_J_PARTI_T_E_COUR" Association="Self.FK_T_J_PART_T_J_PARTI_T_E_COUR">
+            <End Role="T_E_COUREUR_COU" EntitySet="T_E_COUREUR_COU" />
+            <End Role="T_J_PARTICIPATIONDEFI_PAD" EntitySet="T_J_PARTICIPATIONDEFI_PAD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_J_PART_T_J_PARTI_T_R_DEFI" Association="Self.FK_T_J_PART_T_J_PARTI_T_R_DEFI">
+            <End Role="T_R_DEFI_DEF" EntitySet="T_R_DEFI_DEF" />
+            <End Role="T_J_PARTICIPATIONDEFI_PAD" EntitySet="T_J_PARTICIPATIONDEFI_PAD" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_J_TEMP_T_J_TEMPS_T_E_COUR" Association="Self.FK_T_J_TEMP_T_J_TEMPS_T_E_COUR">
+            <End Role="T_E_COUREUR_COU" EntitySet="T_E_COUREUR_COU" />
+            <End Role="T_J_TEMPSCOUBORNE_TCB" EntitySet="T_J_TEMPSCOUBORNE_TCB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_J_TEMP_T_J_TEMPS_T_R_BORN" Association="Self.FK_T_J_TEMP_T_J_TEMPS_T_R_BORN">
+            <End Role="T_R_BORNE_BOR" EntitySet="T_R_BORNE_BOR" />
+            <End Role="T_J_TEMPSCOUBORNE_TCB" EntitySet="T_J_TEMPSCOUBORNE_TCB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_R_BORN_EST_COMPO_T_R_COUR" Association="Self.FK_T_R_BORN_EST_COMPO_T_R_COUR">
+            <End Role="T_R_COURSE_COR" EntitySet="T_R_COURSE_COR" />
+            <End Role="T_R_BORNE_BOR" EntitySet="T_R_BORNE_BOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_R_CLUB_A1_T_R_FEDE" Association="Self.FK_T_R_CLUB_A1_T_R_FEDE">
+            <End Role="T_R_FEDERATION_FED" EntitySet="T_R_FEDERATION_FED" />
+            <End Role="T_R_CLUB_CLU" EntitySet="T_R_CLUB_CLU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_R_CLUB_EST_INSCR_T_E_INSC" Association="Self.FK_T_R_CLUB_EST_INSCR_T_E_INSC">
+            <End Role="T_E_INSCRIT_INS" EntitySet="T_E_INSCRIT_INS" />
+            <End Role="T_R_CLUB_CLU" EntitySet="T_R_CLUB_CLU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_R_LOT__DISTRIBUE_T_E_COUR" Association="Self.FK_T_R_LOT__DISTRIBUE_T_E_COUR">
+            <End Role="T_E_COUREUR_COU" EntitySet="T_E_COUREUR_COU" />
+            <End Role="T_R_LOT_LOT" EntitySet="T_R_LOT_LOT" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CPINFO02Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="T_E_COUREUR_COU">
+          <Key>
+            <PropertyRef Name="COU_ID" />
+          </Key>
+          <Property Name="COU_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="INS_ID" Type="Int32" Nullable="false" />
+          <Property Name="FED_ID" Type="Int32" />
+          <Property Name="CLU_ID" Type="Int32" />
+          <Property Name="CAT_ID" Type="Int32" Nullable="false" />
+          <Property Name="COU_NOM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="COU_PRENOM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="COU_DATENAISSANCE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="COU_SEXE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="COU_NUMEROLICENCE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="COU_EMAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="COU_ADRESSE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="COU_CODEPOSTAL" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+          <Property Name="COU_VILLE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="COU_PAYS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="COU_TELEPHONE" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="COU_FAX" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="COU_ENTREPRISEGROUPEASSOCIATION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="COU_CERTIFICATMEDICAL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="COU_FEDERATION" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_R_FEDERATION_FED" Relationship="Self.FK_T_E_COUR_A_T_R_FEDE" FromRole="T_E_COUREUR_COU" ToRole="T_R_FEDERATION_FED" />
+          <NavigationProperty Name="T_R_CLUB_CLU" Relationship="Self.FK_T_E_COUR_EST_AFFIL_T_R_CLUB" FromRole="T_E_COUREUR_COU" ToRole="T_R_CLUB_CLU" />
+          <NavigationProperty Name="T_R_CATEGORIE_CAT" Relationship="Self.FK_T_E_COUR_EST_DEFIN_T_R_CATE" FromRole="T_E_COUREUR_COU" ToRole="T_R_CATEGORIE_CAT" />
+          <NavigationProperty Name="T_E_INSCRIT_INS" Relationship="Self.FK_T_E_COUR_EST_INSCR_T_E_INSC" FromRole="T_E_COUREUR_COU" ToRole="T_E_INSCRIT_INS" />
+          <NavigationProperty Name="T_E_PARTICIPATION_PAR" Relationship="Self.FK_T_E_PART_PARTICIPE_T_E_COUR" FromRole="T_E_COUREUR_COU" ToRole="T_E_PARTICIPATION_PAR" />
+          <NavigationProperty Name="T_J_CLASSEMENT_CLA" Relationship="Self.FK_T_J_CLAS_T_J_CLASS_T_E_COUR" FromRole="T_E_COUREUR_COU" ToRole="T_J_CLASSEMENT_CLA" />
+          <NavigationProperty Name="T_J_TEMPSCOUBORNE_TCB" Relationship="Self.FK_T_J_TEMP_T_J_TEMPS_T_E_COUR" FromRole="T_E_COUREUR_COU" ToRole="T_J_TEMPSCOUBORNE_TCB" />
+          <NavigationProperty Name="T_R_LOT_LOT" Relationship="Self.FK_T_R_LOT__DISTRIBUE_T_E_COUR" FromRole="T_E_COUREUR_COU" ToRole="T_R_LOT_LOT" />
+          <NavigationProperty Name="T_R_DEFI_DEF" Relationship="Self.T_J_PARTICIPATIONDEFI_PAD" FromRole="T_E_COUREUR_COU" ToRole="T_R_DEFI_DEF" />
+        </EntityType>
+        <EntityType Name="T_E_INFORMATIONPUBLIQUE_INF">
+          <Key>
+            <PropertyRef Name="INF_ID" />
+          </Key>
+          <Property Name="INF_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="INF_NOM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="INF_PRENOM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="INF_EMAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="INF_CONTENUE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="INF_TITRE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="T_E_INSCRIT_INS">
+          <Key>
+            <PropertyRef Name="INS_ID" />
+          </Key>
+          <Property Name="INS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="INS_LOGIN" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="INS_MDP" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="INS_NIVEAUAUTHENTIFICATION" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="T_E_COUREUR_COU" Relationship="Self.FK_T_E_COUR_EST_INSCR_T_E_INSC" FromRole="T_E_INSCRIT_INS" ToRole="T_E_COUREUR_COU" />
+          <NavigationProperty Name="T_R_CLUB_CLU" Relationship="Self.FK_T_R_CLUB_EST_INSCR_T_E_INSC" FromRole="T_E_INSCRIT_INS" ToRole="T_R_CLUB_CLU" />
+        </EntityType>
+        <EntityType Name="T_E_PAIEMENT_PAI">
+          <Key>
+            <PropertyRef Name="PAI_ID" />
+          </Key>
+          <Property Name="PAI_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PAR_ID" Type="Int32" Nullable="false" />
+          <Property Name="PAI_MONTANT" Type="Int32" Nullable="false" />
+          <Property Name="PAI_MOYENPAIEMENT" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PAI_DATEPAIEMENT" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="T_E_PARTICIPATION_PAR" Relationship="Self.FK_T_E_PAIE_PAYE_T_E_PART" FromRole="T_E_PAIEMENT_PAI" ToRole="T_E_PARTICIPATION_PAR" />
+          <NavigationProperty Name="T_E_PARTICIPATION_PAR1" Relationship="Self.FK_T_E_PART_PAYE2_T_E_PAIE" FromRole="T_E_PAIEMENT_PAI" ToRole="T_E_PARTICIPATION_PAR" />
+        </EntityType>
+        <EntityType Name="T_E_PARTICIPATION_PAR">
+          <Key>
+            <PropertyRef Name="PAR_ID" />
+          </Key>
+          <Property Name="PAR_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CLU_ID" Type="Int32" Nullable="false" />
+          <Property Name="COR_ID" Type="Int32" Nullable="false" />
+          <Property Name="PAS_ID" Type="Int32" Nullable="false" />
+          <Property Name="COU_ID" Type="Int32" Nullable="false" />
+          <Property Name="PAI_ID" Type="Int32" />
+          <Property Name="PAR_DOSSARD" Type="Int32" Nullable="false" />
+          <Property Name="PAR_TEMPS_ESTIME" Type="Int32" />
+          <Property Name="PAR_NBPARTICIPANTCOURSE" Type="Int32" Nullable="false" />
+          <Property Name="PAR_PARTICIPEPASTAPARTY" Type="Boolean" Nullable="false" />
+          <Property Name="PAR_NBPARTICIPANTPASTAPARTY" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="T_E_COUREUR_COU" Relationship="Self.FK_T_E_PART_PARTICIPE_T_E_COUR" FromRole="T_E_PARTICIPATION_PAR" ToRole="T_E_COUREUR_COU" />
+          <NavigationProperty Name="T_E_PAIEMENT_PAI" Relationship="Self.FK_T_E_PAIE_PAYE_T_E_PART" FromRole="T_E_PARTICIPATION_PAR" ToRole="T_E_PAIEMENT_PAI" />
+          <NavigationProperty Name="T_E_PAIEMENT_PAI1" Relationship="Self.FK_T_E_PART_PAYE2_T_E_PAIE" FromRole="T_E_PARTICIPATION_PAR" ToRole="T_E_PAIEMENT_PAI" />
+          <NavigationProperty Name="T_R_COURSE_COR" Relationship="Self.FK_T_E_PART_A_UNE_T_R_COUR" FromRole="T_E_PARTICIPATION_PAR" ToRole="T_R_COURSE_COR" />
+          <NavigationProperty Name="T_E_PASTAPARTY_PAS" Relationship="Self.FK_T_E_PART_ASSOCIE_T_E_PAST" FromRole="T_E_PARTICIPATION_PAR" ToRole="T_E_PASTAPARTY_PAS" />
+          <NavigationProperty Name="T_R_CLUB_CLU" Relationship="Self.FK_T_E_PART_PARTICIPE_T_R_CLUB" FromRole="T_E_PARTICIPATION_PAR" ToRole="T_R_CLUB_CLU" />
+        </EntityType>
+        <EntityType Name="T_E_PASTAPARTY_PAS">
+          <Key>
+            <PropertyRef Name="PAS_ID" />
+          </Key>
+          <Property Name="PAS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PAS_NBMAXPARTICIPANT" Type="Int32" />
+          <NavigationProperty Name="T_E_PARTICIPATION_PAR" Relationship="Self.FK_T_E_PART_ASSOCIE_T_E_PAST" FromRole="T_E_PASTAPARTY_PAS" ToRole="T_E_PARTICIPATION_PAR" />
+        </EntityType>
+        <EntityType Name="T_J_CLASSEMENT_CLA">
+          <Key>
+            <PropertyRef Name="COR_ID" />
+            <PropertyRef Name="COU_ID" />
+          </Key>
+          <Property Name="COR_ID" Type="Int32" Nullable="false" />
+          <Property Name="COU_ID" Type="Int32" Nullable="false" />
+          <Property Name="CLA_TEMPS" Type="Int32" />
+          <Property Name="CLA_RANG" Type="Int32" />
+          <NavigationProperty Name="T_E_COUREUR_COU" Relationship="Self.FK_T_J_CLAS_T_J_CLASS_T_E_COUR" FromRole="T_J_CLASSEMENT_CLA" ToRole="T_E_COUREUR_COU" />
+          <NavigationProperty Name="T_R_COURSE_COR" Relationship="Self.FK_T_J_CLAS_T_J_CLASS_T_R_COUR" FromRole="T_J_CLASSEMENT_CLA" ToRole="T_R_COURSE_COR" />
+        </EntityType>
+        <EntityType Name="T_J_TEMPSCOUBORNE_TCB">
+          <Key>
+            <PropertyRef Name="BOR_ID" />
+            <PropertyRef Name="COU_ID" />
+          </Key>
+          <Property Name="BOR_ID" Type="Int32" Nullable="false" />
+          <Property Name="COU_ID" Type="Int32" Nullable="false" />
+          <Property Name="TCB_TEMPS" Type="Int32" />
+          <NavigationProperty Name="T_E_COUREUR_COU" Relationship="Self.FK_T_J_TEMP_T_J_TEMPS_T_E_COUR" FromRole="T_J_TEMPSCOUBORNE_TCB" ToRole="T_E_COUREUR_COU" />
+          <NavigationProperty Name="T_R_BORNE_BOR" Relationship="Self.FK_T_J_TEMP_T_J_TEMPS_T_R_BORN" FromRole="T_J_TEMPSCOUBORNE_TCB" ToRole="T_R_BORNE_BOR" />
+        </EntityType>
+        <EntityType Name="T_R_BORNE_BOR">
+          <Key>
+            <PropertyRef Name="BOR_ID" />
+          </Key>
+          <Property Name="BOR_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="COR_ID" Type="Int32" Nullable="false" />
+          <Property Name="BOR_EMPLACEMENT" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="T_J_TEMPSCOUBORNE_TCB" Relationship="Self.FK_T_J_TEMP_T_J_TEMPS_T_R_BORN" FromRole="T_R_BORNE_BOR" ToRole="T_J_TEMPSCOUBORNE_TCB" />
+          <NavigationProperty Name="T_R_COURSE_COR" Relationship="Self.FK_T_R_BORN_EST_COMPO_T_R_COUR" FromRole="T_R_BORNE_BOR" ToRole="T_R_COURSE_COR" />
+        </EntityType>
+        <EntityType Name="T_R_CATEGORIE_CAT">
+          <Key>
+            <PropertyRef Name="CAT_ID" />
+          </Key>
+          <Property Name="CAT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CAT_LIBELLE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CAT_CODE" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_E_COUREUR_COU" Relationship="Self.FK_T_E_COUR_EST_DEFIN_T_R_CATE" FromRole="T_R_CATEGORIE_CAT" ToRole="T_E_COUREUR_COU" />
+        </EntityType>
+        <EntityType Name="T_R_CLUB_CLU">
+          <Key>
+            <PropertyRef Name="CLU_ID" />
+          </Key>
+          <Property Name="CLU_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FED_ID" Type="Int32" />
+          <Property Name="INS_ID" Type="Int32" Nullable="false" />
+          <Property Name="CLU_NOM" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CLU_LICENCE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CLU_EMAIL" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CLU_ADRESSE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CLU_CODEPOSTAL" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="CLU_VILLE" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CLU_PAYS" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CLU_TELEPHONE" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="CLU_FAX" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="CLU_NUMERO" Type="String" MaxLength="10" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="T_E_COUREUR_COU" Relationship="Self.FK_T_E_COUR_EST_AFFIL_T_R_CLUB" FromRole="T_R_CLUB_CLU" ToRole="T_E_COUREUR_COU" />
+          <NavigationProperty Name="T_E_INSCRIT_INS" Relationship="Self.FK_T_R_CLUB_EST_INSCR_T_E_INSC" FromRole="T_R_CLUB_CLU" ToRole="T_E_INSCRIT_INS" />
+          <NavigationProperty Name="T_E_PARTICIPATION_PAR" Relationship="Self.FK_T_E_PART_PARTICIPE_T_R_CLUB" FromRole="T_R_CLUB_CLU" ToRole="T_E_PARTICIPATION_PAR" />
+          <NavigationProperty Name="T_R_FEDERATION_FED" Relationship="Self.FK_T_R_CLUB_A1_T_R_FEDE" FromRole="T_R_CLUB_CLU" ToRole="T_R_FEDERATION_FED" />
+        </EntityType>
+        <EntityType Name="T_R_COURSE_COR">
+          <Key>
+            <PropertyRef Name="COR_ID" />
+          </Key>
+          <Property Name="COR_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="COR_NOM" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="COR_DISTANCE" Type="Int32" Nullable="false" />
+          <Property Name="COR_DATE" Type="DateTime" Precision="3" />
+          <Property Name="COR_NOMBREMAXPARTICIPANT" Type="Int32" />
+          <Property Name="COR_PRIX" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="T_E_PARTICIPATION_PAR" Relationship="Self.FK_T_E_PART_A_UNE_T_R_COUR" FromRole="T_R_COURSE_COR" ToRole="T_E_PARTICIPATION_PAR" />
+          <NavigationProperty Name="T_J_CLASSEMENT_CLA" Relationship="Self.FK_T_J_CLAS_T_J_CLASS_T_R_COUR" FromRole="T_R_COURSE_COR" ToRole="T_J_CLASSEMENT_CLA" />
+          <NavigationProperty Name="T_R_BORNE_BOR" Relationship="Self.FK_T_R_BORN_EST_COMPO_T_R_COUR" FromRole="T_R_COURSE_COR" ToRole="T_R_BORNE_BOR" />
+          <NavigationProperty Name="T_R_DEFI_DEF" Relationship="Self.T_J_DEFICOURSE_DEC" FromRole="T_R_COURSE_COR" ToRole="T_R_DEFI_DEF" />
+        </EntityType>
+        <EntityType Name="T_R_DEFI_DEF">
+          <Key>
+            <PropertyRef Name="DEF_ID" />
+          </Key>
+          <Property Name="DEF_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DEF_NOM" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DEF_NOMBREMAXPARTICIPANT" Type="Int32" Nullable="false" />
+          <Property Name="DEF_EXPLICATION" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_R_COURSE_COR" Relationship="Self.T_J_DEFICOURSE_DEC" FromRole="T_R_DEFI_DEF" ToRole="T_R_COURSE_COR" />
+          <NavigationProperty Name="T_E_COUREUR_COU" Relationship="Self.T_J_PARTICIPATIONDEFI_PAD" FromRole="T_R_DEFI_DEF" ToRole="T_E_COUREUR_COU" />
+        </EntityType>
+        <EntityType Name="T_R_FEDERATION_FED">
+          <Key>
+            <PropertyRef Name="FED_ID" />
+          </Key>
+          <Property Name="FED_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FED_NOM" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="T_E_COUREUR_COU" Relationship="Self.FK_T_E_COUR_A_T_R_FEDE" FromRole="T_R_FEDERATION_FED" ToRole="T_E_COUREUR_COU" />
+          <NavigationProperty Name="T_R_CLUB_CLU" Relationship="Self.FK_T_R_CLUB_A1_T_R_FEDE" FromRole="T_R_FEDERATION_FED" ToRole="T_R_CLUB_CLU" />
+        </EntityType>
+        <EntityType Name="T_R_LOT_LOT">
+          <Key>
+            <PropertyRef Name="LOT_ID" />
+          </Key>
+          <Property Name="LOT_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="COU_ID" Type="Int32" />
+          <Property Name="LOT_NOM" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="T_E_COUREUR_COU" Relationship="Self.FK_T_R_LOT__DISTRIBUE_T_E_COUR" FromRole="T_R_LOT_LOT" ToRole="T_E_COUREUR_COU" />
+        </EntityType>
+        <Association Name="FK_T_E_COUR_A_T_R_FEDE">
+          <End Role="T_R_FEDERATION_FED" Type="Self.T_R_FEDERATION_FED" Multiplicity="0..1" />
+          <End Role="T_E_COUREUR_COU" Type="Self.T_E_COUREUR_COU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_FEDERATION_FED">
+              <PropertyRef Name="FED_ID" />
+            </Principal>
+            <Dependent Role="T_E_COUREUR_COU">
+              <PropertyRef Name="FED_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_E_COUR_EST_AFFIL_T_R_CLUB">
+          <End Role="T_R_CLUB_CLU" Type="Self.T_R_CLUB_CLU" Multiplicity="0..1" />
+          <End Role="T_E_COUREUR_COU" Type="Self.T_E_COUREUR_COU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_CLUB_CLU">
+              <PropertyRef Name="CLU_ID" />
+            </Principal>
+            <Dependent Role="T_E_COUREUR_COU">
+              <PropertyRef Name="CLU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_E_COUR_EST_DEFIN_T_R_CATE">
+          <End Role="T_R_CATEGORIE_CAT" Type="Self.T_R_CATEGORIE_CAT" Multiplicity="1" />
+          <End Role="T_E_COUREUR_COU" Type="Self.T_E_COUREUR_COU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_CATEGORIE_CAT">
+              <PropertyRef Name="CAT_ID" />
+            </Principal>
+            <Dependent Role="T_E_COUREUR_COU">
+              <PropertyRef Name="CAT_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_E_COUR_EST_INSCR_T_E_INSC">
+          <End Role="T_E_INSCRIT_INS" Type="Self.T_E_INSCRIT_INS" Multiplicity="1" />
+          <End Role="T_E_COUREUR_COU" Type="Self.T_E_COUREUR_COU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_INSCRIT_INS">
+              <PropertyRef Name="INS_ID" />
+            </Principal>
+            <Dependent Role="T_E_COUREUR_COU">
+              <PropertyRef Name="INS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_E_PART_PARTICIPE_T_E_COUR">
+          <End Role="T_E_COUREUR_COU" Type="Self.T_E_COUREUR_COU" Multiplicity="1" />
+          <End Role="T_E_PARTICIPATION_PAR" Type="Self.T_E_PARTICIPATION_PAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_COUREUR_COU">
+              <PropertyRef Name="COU_ID" />
+            </Principal>
+            <Dependent Role="T_E_PARTICIPATION_PAR">
+              <PropertyRef Name="COU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_J_CLAS_T_J_CLASS_T_E_COUR">
+          <End Role="T_E_COUREUR_COU" Type="Self.T_E_COUREUR_COU" Multiplicity="1" />
+          <End Role="T_J_CLASSEMENT_CLA" Type="Self.T_J_CLASSEMENT_CLA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_COUREUR_COU">
+              <PropertyRef Name="COU_ID" />
+            </Principal>
+            <Dependent Role="T_J_CLASSEMENT_CLA">
+              <PropertyRef Name="COU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_J_TEMP_T_J_TEMPS_T_E_COUR">
+          <End Role="T_E_COUREUR_COU" Type="Self.T_E_COUREUR_COU" Multiplicity="1" />
+          <End Role="T_J_TEMPSCOUBORNE_TCB" Type="Self.T_J_TEMPSCOUBORNE_TCB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_COUREUR_COU">
+              <PropertyRef Name="COU_ID" />
+            </Principal>
+            <Dependent Role="T_J_TEMPSCOUBORNE_TCB">
+              <PropertyRef Name="COU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_R_LOT__DISTRIBUE_T_E_COUR">
+          <End Role="T_E_COUREUR_COU" Type="Self.T_E_COUREUR_COU" Multiplicity="0..1" />
+          <End Role="T_R_LOT_LOT" Type="Self.T_R_LOT_LOT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_COUREUR_COU">
+              <PropertyRef Name="COU_ID" />
+            </Principal>
+            <Dependent Role="T_R_LOT_LOT">
+              <PropertyRef Name="COU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_R_CLUB_EST_INSCR_T_E_INSC">
+          <End Role="T_E_INSCRIT_INS" Type="Self.T_E_INSCRIT_INS" Multiplicity="1" />
+          <End Role="T_R_CLUB_CLU" Type="Self.T_R_CLUB_CLU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_INSCRIT_INS">
+              <PropertyRef Name="INS_ID" />
+            </Principal>
+            <Dependent Role="T_R_CLUB_CLU">
+              <PropertyRef Name="INS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_E_PAIE_PAYE_T_E_PART">
+          <End Role="T_E_PARTICIPATION_PAR" Type="Self.T_E_PARTICIPATION_PAR" Multiplicity="1" />
+          <End Role="T_E_PAIEMENT_PAI" Type="Self.T_E_PAIEMENT_PAI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_PARTICIPATION_PAR">
+              <PropertyRef Name="PAR_ID" />
+            </Principal>
+            <Dependent Role="T_E_PAIEMENT_PAI">
+              <PropertyRef Name="PAR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_E_PART_PAYE2_T_E_PAIE">
+          <End Role="T_E_PAIEMENT_PAI" Type="Self.T_E_PAIEMENT_PAI" Multiplicity="0..1" />
+          <End Role="T_E_PARTICIPATION_PAR" Type="Self.T_E_PARTICIPATION_PAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_PAIEMENT_PAI">
+              <PropertyRef Name="PAI_ID" />
+            </Principal>
+            <Dependent Role="T_E_PARTICIPATION_PAR">
+              <PropertyRef Name="PAI_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_E_PART_A_UNE_T_R_COUR">
+          <End Role="T_R_COURSE_COR" Type="Self.T_R_COURSE_COR" Multiplicity="1" />
+          <End Role="T_E_PARTICIPATION_PAR" Type="Self.T_E_PARTICIPATION_PAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_COURSE_COR">
+              <PropertyRef Name="COR_ID" />
+            </Principal>
+            <Dependent Role="T_E_PARTICIPATION_PAR">
+              <PropertyRef Name="COR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_E_PART_ASSOCIE_T_E_PAST">
+          <End Role="T_E_PASTAPARTY_PAS" Type="Self.T_E_PASTAPARTY_PAS" Multiplicity="1" />
+          <End Role="T_E_PARTICIPATION_PAR" Type="Self.T_E_PARTICIPATION_PAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_E_PASTAPARTY_PAS">
+              <PropertyRef Name="PAS_ID" />
+            </Principal>
+            <Dependent Role="T_E_PARTICIPATION_PAR">
+              <PropertyRef Name="PAS_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_E_PART_PARTICIPE_T_R_CLUB">
+          <End Role="T_R_CLUB_CLU" Type="Self.T_R_CLUB_CLU" Multiplicity="1" />
+          <End Role="T_E_PARTICIPATION_PAR" Type="Self.T_E_PARTICIPATION_PAR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_CLUB_CLU">
+              <PropertyRef Name="CLU_ID" />
+            </Principal>
+            <Dependent Role="T_E_PARTICIPATION_PAR">
+              <PropertyRef Name="CLU_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_J_CLAS_T_J_CLASS_T_R_COUR">
+          <End Role="T_R_COURSE_COR" Type="Self.T_R_COURSE_COR" Multiplicity="1" />
+          <End Role="T_J_CLASSEMENT_CLA" Type="Self.T_J_CLASSEMENT_CLA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_COURSE_COR">
+              <PropertyRef Name="COR_ID" />
+            </Principal>
+            <Dependent Role="T_J_CLASSEMENT_CLA">
+              <PropertyRef Name="COR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_J_TEMP_T_J_TEMPS_T_R_BORN">
+          <End Role="T_R_BORNE_BOR" Type="Self.T_R_BORNE_BOR" Multiplicity="1" />
+          <End Role="T_J_TEMPSCOUBORNE_TCB" Type="Self.T_J_TEMPSCOUBORNE_TCB" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_BORNE_BOR">
+              <PropertyRef Name="BOR_ID" />
+            </Principal>
+            <Dependent Role="T_J_TEMPSCOUBORNE_TCB">
+              <PropertyRef Name="BOR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_R_BORN_EST_COMPO_T_R_COUR">
+          <End Role="T_R_COURSE_COR" Type="Self.T_R_COURSE_COR" Multiplicity="1" />
+          <End Role="T_R_BORNE_BOR" Type="Self.T_R_BORNE_BOR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_COURSE_COR">
+              <PropertyRef Name="COR_ID" />
+            </Principal>
+            <Dependent Role="T_R_BORNE_BOR">
+              <PropertyRef Name="COR_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_T_R_CLUB_A1_T_R_FEDE">
+          <End Role="T_R_FEDERATION_FED" Type="Self.T_R_FEDERATION_FED" Multiplicity="0..1" />
+          <End Role="T_R_CLUB_CLU" Type="Self.T_R_CLUB_CLU" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_R_FEDERATION_FED">
+              <PropertyRef Name="FED_ID" />
+            </Principal>
+            <Dependent Role="T_R_CLUB_CLU">
+              <PropertyRef Name="FED_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="T_J_DEFICOURSE_DEC">
+          <End Role="T_R_COURSE_COR" Type="Self.T_R_COURSE_COR" Multiplicity="*" />
+          <End Role="T_R_DEFI_DEF" Type="Self.T_R_DEFI_DEF" Multiplicity="*" />
+        </Association>
+        <Association Name="T_J_PARTICIPATIONDEFI_PAD">
+          <End Role="T_E_COUREUR_COU" Type="Self.T_E_COUREUR_COU" Multiplicity="*" />
+          <End Role="T_R_DEFI_DEF" Type="Self.T_R_DEFI_DEF" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="MarathonEntititesTest" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="T_E_COUREUR_COU" EntityType="Self.T_E_COUREUR_COU" />
+          <EntitySet Name="T_E_INFORMATIONPUBLIQUE_INF" EntityType="Self.T_E_INFORMATIONPUBLIQUE_INF" />
+          <EntitySet Name="T_E_INSCRIT_INS" EntityType="Self.T_E_INSCRIT_INS" />
+          <EntitySet Name="T_E_PAIEMENT_PAI" EntityType="Self.T_E_PAIEMENT_PAI" />
+          <EntitySet Name="T_E_PARTICIPATION_PAR" EntityType="Self.T_E_PARTICIPATION_PAR" />
+          <EntitySet Name="T_E_PASTAPARTY_PAS" EntityType="Self.T_E_PASTAPARTY_PAS" />
+          <EntitySet Name="T_J_CLASSEMENT_CLA" EntityType="Self.T_J_CLASSEMENT_CLA" />
+          <EntitySet Name="T_J_TEMPSCOUBORNE_TCB" EntityType="Self.T_J_TEMPSCOUBORNE_TCB" />
+          <EntitySet Name="T_R_BORNE_BOR" EntityType="Self.T_R_BORNE_BOR" />
+          <EntitySet Name="T_R_CATEGORIE_CAT" EntityType="Self.T_R_CATEGORIE_CAT" />
+          <EntitySet Name="T_R_CLUB_CLU" EntityType="Self.T_R_CLUB_CLU" />
+          <EntitySet Name="T_R_COURSE_COR" EntityType="Self.T_R_COURSE_COR" />
+          <EntitySet Name="T_R_DEFI_DEF" EntityType="Self.T_R_DEFI_DEF" />
+          <EntitySet Name="T_R_FEDERATION_FED" EntityType="Self.T_R_FEDERATION_FED" />
+          <EntitySet Name="T_R_LOT_LOT" EntityType="Self.T_R_LOT_LOT" />
+          <AssociationSet Name="FK_T_E_COUR_A_T_R_FEDE" Association="Self.FK_T_E_COUR_A_T_R_FEDE">
+            <End Role="T_R_FEDERATION_FED" EntitySet="T_R_FEDERATION_FED" />
+            <End Role="T_E_COUREUR_COU" EntitySet="T_E_COUREUR_COU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_E_COUR_EST_AFFIL_T_R_CLUB" Association="Self.FK_T_E_COUR_EST_AFFIL_T_R_CLUB">
+            <End Role="T_R_CLUB_CLU" EntitySet="T_R_CLUB_CLU" />
+            <End Role="T_E_COUREUR_COU" EntitySet="T_E_COUREUR_COU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_E_COUR_EST_DEFIN_T_R_CATE" Association="Self.FK_T_E_COUR_EST_DEFIN_T_R_CATE">
+            <End Role="T_R_CATEGORIE_CAT" EntitySet="T_R_CATEGORIE_CAT" />
+            <End Role="T_E_COUREUR_COU" EntitySet="T_E_COUREUR_COU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_E_COUR_EST_INSCR_T_E_INSC" Association="Self.FK_T_E_COUR_EST_INSCR_T_E_INSC">
+            <End Role="T_E_INSCRIT_INS" EntitySet="T_E_INSCRIT_INS" />
+            <End Role="T_E_COUREUR_COU" EntitySet="T_E_COUREUR_COU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_E_PART_PARTICIPE_T_E_COUR" Association="Self.FK_T_E_PART_PARTICIPE_T_E_COUR">
+            <End Role="T_E_COUREUR_COU" EntitySet="T_E_COUREUR_COU" />
+            <End Role="T_E_PARTICIPATION_PAR" EntitySet="T_E_PARTICIPATION_PAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_J_CLAS_T_J_CLASS_T_E_COUR" Association="Self.FK_T_J_CLAS_T_J_CLASS_T_E_COUR">
+            <End Role="T_E_COUREUR_COU" EntitySet="T_E_COUREUR_COU" />
+            <End Role="T_J_CLASSEMENT_CLA" EntitySet="T_J_CLASSEMENT_CLA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_J_TEMP_T_J_TEMPS_T_E_COUR" Association="Self.FK_T_J_TEMP_T_J_TEMPS_T_E_COUR">
+            <End Role="T_E_COUREUR_COU" EntitySet="T_E_COUREUR_COU" />
+            <End Role="T_J_TEMPSCOUBORNE_TCB" EntitySet="T_J_TEMPSCOUBORNE_TCB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_R_LOT__DISTRIBUE_T_E_COUR" Association="Self.FK_T_R_LOT__DISTRIBUE_T_E_COUR">
+            <End Role="T_E_COUREUR_COU" EntitySet="T_E_COUREUR_COU" />
+            <End Role="T_R_LOT_LOT" EntitySet="T_R_LOT_LOT" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_R_CLUB_EST_INSCR_T_E_INSC" Association="Self.FK_T_R_CLUB_EST_INSCR_T_E_INSC">
+            <End Role="T_E_INSCRIT_INS" EntitySet="T_E_INSCRIT_INS" />
+            <End Role="T_R_CLUB_CLU" EntitySet="T_R_CLUB_CLU" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_E_PAIE_PAYE_T_E_PART" Association="Self.FK_T_E_PAIE_PAYE_T_E_PART">
+            <End Role="T_E_PARTICIPATION_PAR" EntitySet="T_E_PARTICIPATION_PAR" />
+            <End Role="T_E_PAIEMENT_PAI" EntitySet="T_E_PAIEMENT_PAI" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_E_PART_PAYE2_T_E_PAIE" Association="Self.FK_T_E_PART_PAYE2_T_E_PAIE">
+            <End Role="T_E_PAIEMENT_PAI" EntitySet="T_E_PAIEMENT_PAI" />
+            <End Role="T_E_PARTICIPATION_PAR" EntitySet="T_E_PARTICIPATION_PAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_E_PART_A_UNE_T_R_COUR" Association="Self.FK_T_E_PART_A_UNE_T_R_COUR">
+            <End Role="T_R_COURSE_COR" EntitySet="T_R_COURSE_COR" />
+            <End Role="T_E_PARTICIPATION_PAR" EntitySet="T_E_PARTICIPATION_PAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_E_PART_ASSOCIE_T_E_PAST" Association="Self.FK_T_E_PART_ASSOCIE_T_E_PAST">
+            <End Role="T_E_PASTAPARTY_PAS" EntitySet="T_E_PASTAPARTY_PAS" />
+            <End Role="T_E_PARTICIPATION_PAR" EntitySet="T_E_PARTICIPATION_PAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_E_PART_PARTICIPE_T_R_CLUB" Association="Self.FK_T_E_PART_PARTICIPE_T_R_CLUB">
+            <End Role="T_R_CLUB_CLU" EntitySet="T_R_CLUB_CLU" />
+            <End Role="T_E_PARTICIPATION_PAR" EntitySet="T_E_PARTICIPATION_PAR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_J_CLAS_T_J_CLASS_T_R_COUR" Association="Self.FK_T_J_CLAS_T_J_CLASS_T_R_COUR">
+            <End Role="T_R_COURSE_COR" EntitySet="T_R_COURSE_COR" />
+            <End Role="T_J_CLASSEMENT_CLA" EntitySet="T_J_CLASSEMENT_CLA" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_J_TEMP_T_J_TEMPS_T_R_BORN" Association="Self.FK_T_J_TEMP_T_J_TEMPS_T_R_BORN">
+            <End Role="T_R_BORNE_BOR" EntitySet="T_R_BORNE_BOR" />
+            <End Role="T_J_TEMPSCOUBORNE_TCB" EntitySet="T_J_TEMPSCOUBORNE_TCB" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_R_BORN_EST_COMPO_T_R_COUR" Association="Self.FK_T_R_BORN_EST_COMPO_T_R_COUR">
+            <End Role="T_R_COURSE_COR" EntitySet="T_R_COURSE_COR" />
+            <End Role="T_R_BORNE_BOR" EntitySet="T_R_BORNE_BOR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_T_R_CLUB_A1_T_R_FEDE" Association="Self.FK_T_R_CLUB_A1_T_R_FEDE">
+            <End Role="T_R_FEDERATION_FED" EntitySet="T_R_FEDERATION_FED" />
+            <End Role="T_R_CLUB_CLU" EntitySet="T_R_CLUB_CLU" />
+          </AssociationSet>
+          <AssociationSet Name="T_J_DEFICOURSE_DEC" Association="Self.T_J_DEFICOURSE_DEC">
+            <End Role="T_R_COURSE_COR" EntitySet="T_R_COURSE_COR" />
+            <End Role="T_R_DEFI_DEF" EntitySet="T_R_DEFI_DEF" />
+          </AssociationSet>
+          <AssociationSet Name="T_J_PARTICIPATIONDEFI_PAD" Association="Self.T_J_PARTICIPATIONDEFI_PAD">
+            <End Role="T_E_COUREUR_COU" EntitySet="T_E_COUREUR_COU" />
+            <End Role="T_R_DEFI_DEF" EntitySet="T_R_DEFI_DEF" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CPINFO02ModelStoreContainer" CdmEntityContainer="MarathonEntititesTest">
+          <EntitySetMapping Name="T_E_COUREUR_COU">
+            <EntityTypeMapping TypeName="CPINFO02Model.T_E_COUREUR_COU">
+              <MappingFragment StoreEntitySet="T_E_COUREUR_COU">
+                <ScalarProperty Name="COU_ID" ColumnName="COU_ID" />
+                <ScalarProperty Name="INS_ID" ColumnName="INS_ID" />
+                <ScalarProperty Name="FED_ID" ColumnName="FED_ID" />
+                <ScalarProperty Name="CLU_ID" ColumnName="CLU_ID" />
+                <ScalarProperty Name="CAT_ID" ColumnName="CAT_ID" />
+                <ScalarProperty Name="COU_NOM" ColumnName="COU_NOM" />
+                <ScalarProperty Name="COU_PRENOM" ColumnName="COU_PRENOM" />
+                <ScalarProperty Name="COU_DATENAISSANCE" ColumnName="COU_DATENAISSANCE" />
+                <ScalarProperty Name="COU_SEXE" ColumnName="COU_SEXE" />
+                <ScalarProperty Name="COU_NUMEROLICENCE" ColumnName="COU_NUMEROLICENCE" />
+                <ScalarProperty Name="COU_EMAIL" ColumnName="COU_EMAIL" />
+                <ScalarProperty Name="COU_ADRESSE" ColumnName="COU_ADRESSE" />
+                <ScalarProperty Name="COU_CODEPOSTAL" ColumnName="COU_CODEPOSTAL" />
+                <ScalarProperty Name="COU_VILLE" ColumnName="COU_VILLE" />
+                <ScalarProperty Name="COU_PAYS" ColumnName="COU_PAYS" />
+                <ScalarProperty Name="COU_TELEPHONE" ColumnName="COU_TELEPHONE" />
+                <ScalarProperty Name="COU_FAX" ColumnName="COU_FAX" />
+                <ScalarProperty Name="COU_ENTREPRISEGROUPEASSOCIATION" ColumnName="COU_ENTREPRISEGROUPEASSOCIATION" />
+                <ScalarProperty Name="COU_CERTIFICATMEDICAL" ColumnName="COU_CERTIFICATMEDICAL" />
+                <ScalarProperty Name="COU_FEDERATION" ColumnName="COU_FEDERATION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_E_INFORMATIONPUBLIQUE_INF">
+            <EntityTypeMapping TypeName="CPINFO02Model.T_E_INFORMATIONPUBLIQUE_INF">
+              <MappingFragment StoreEntitySet="T_E_INFORMATIONPUBLIQUE_INF">
+                <ScalarProperty Name="INF_ID" ColumnName="INF_ID" />
+                <ScalarProperty Name="INF_NOM" ColumnName="INF_NOM" />
+                <ScalarProperty Name="INF_PRENOM" ColumnName="INF_PRENOM" />
+                <ScalarProperty Name="INF_EMAIL" ColumnName="INF_EMAIL" />
+                <ScalarProperty Name="INF_CONTENUE" ColumnName="INF_CONTENUE" />
+                <ScalarProperty Name="INF_TITRE" ColumnName="INF_TITRE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_E_INSCRIT_INS">
+            <EntityTypeMapping TypeName="CPINFO02Model.T_E_INSCRIT_INS">
+              <MappingFragment StoreEntitySet="T_E_INSCRIT_INS">
+                <ScalarProperty Name="INS_ID" ColumnName="INS_ID" />
+                <ScalarProperty Name="INS_LOGIN" ColumnName="INS_LOGIN" />
+                <ScalarProperty Name="INS_MDP" ColumnName="INS_MDP" />
+                <ScalarProperty Name="INS_NIVEAUAUTHENTIFICATION" ColumnName="INS_NIVEAUAUTHENTIFICATION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_E_PAIEMENT_PAI">
+            <EntityTypeMapping TypeName="CPINFO02Model.T_E_PAIEMENT_PAI">
+              <MappingFragment StoreEntitySet="T_E_PAIEMENT_PAI">
+                <ScalarProperty Name="PAI_ID" ColumnName="PAI_ID" />
+                <ScalarProperty Name="PAR_ID" ColumnName="PAR_ID" />
+                <ScalarProperty Name="PAI_MONTANT" ColumnName="PAI_MONTANT" />
+                <ScalarProperty Name="PAI_MOYENPAIEMENT" ColumnName="PAI_MOYENPAIEMENT" />
+                <ScalarProperty Name="PAI_DATEPAIEMENT" ColumnName="PAI_DATEPAIEMENT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_E_PARTICIPATION_PAR">
+            <EntityTypeMapping TypeName="CPINFO02Model.T_E_PARTICIPATION_PAR">
+              <MappingFragment StoreEntitySet="T_E_PARTICIPATION_PAR">
+                <ScalarProperty Name="PAR_ID" ColumnName="PAR_ID" />
+                <ScalarProperty Name="CLU_ID" ColumnName="CLU_ID" />
+                <ScalarProperty Name="COR_ID" ColumnName="COR_ID" />
+                <ScalarProperty Name="PAS_ID" ColumnName="PAS_ID" />
+                <ScalarProperty Name="COU_ID" ColumnName="COU_ID" />
+                <ScalarProperty Name="PAI_ID" ColumnName="PAI_ID" />
+                <ScalarProperty Name="PAR_DOSSARD" ColumnName="PAR_DOSSARD" />
+                <ScalarProperty Name="PAR_TEMPS_ESTIME" ColumnName="PAR_TEMPS_ESTIME" />
+                <ScalarProperty Name="PAR_NBPARTICIPANTCOURSE" ColumnName="PAR_NBPARTICIPANTCOURSE" />
+                <ScalarProperty Name="PAR_PARTICIPEPASTAPARTY" ColumnName="PAR_PARTICIPEPASTAPARTY" />
+                <ScalarProperty Name="PAR_NBPARTICIPANTPASTAPARTY" ColumnName="PAR_NBPARTICIPANTPASTAPARTY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_E_PASTAPARTY_PAS">
+            <EntityTypeMapping TypeName="CPINFO02Model.T_E_PASTAPARTY_PAS">
+              <MappingFragment StoreEntitySet="T_E_PASTAPARTY_PAS">
+                <ScalarProperty Name="PAS_ID" ColumnName="PAS_ID" />
+                <ScalarProperty Name="PAS_NBMAXPARTICIPANT" ColumnName="PAS_NBMAXPARTICIPANT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_J_CLASSEMENT_CLA">
+            <EntityTypeMapping TypeName="CPINFO02Model.T_J_CLASSEMENT_CLA">
+              <MappingFragment StoreEntitySet="T_J_CLASSEMENT_CLA">
+                <ScalarProperty Name="COR_ID" ColumnName="COR_ID" />
+                <ScalarProperty Name="COU_ID" ColumnName="COU_ID" />
+                <ScalarProperty Name="CLA_TEMPS" ColumnName="CLA_TEMPS" />
+                <ScalarProperty Name="CLA_RANG" ColumnName="CLA_RANG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_J_TEMPSCOUBORNE_TCB">
+            <EntityTypeMapping TypeName="CPINFO02Model.T_J_TEMPSCOUBORNE_TCB">
+              <MappingFragment StoreEntitySet="T_J_TEMPSCOUBORNE_TCB">
+                <ScalarProperty Name="BOR_ID" ColumnName="BOR_ID" />
+                <ScalarProperty Name="COU_ID" ColumnName="COU_ID" />
+                <ScalarProperty Name="TCB_TEMPS" ColumnName="TCB_TEMPS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_R_BORNE_BOR">
+            <EntityTypeMapping TypeName="CPINFO02Model.T_R_BORNE_BOR">
+              <MappingFragment StoreEntitySet="T_R_BORNE_BOR">
+                <ScalarProperty Name="BOR_ID" ColumnName="BOR_ID" />
+                <ScalarProperty Name="COR_ID" ColumnName="COR_ID" />
+                <ScalarProperty Name="BOR_EMPLACEMENT" ColumnName="BOR_EMPLACEMENT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_R_CATEGORIE_CAT">
+            <EntityTypeMapping TypeName="CPINFO02Model.T_R_CATEGORIE_CAT">
+              <MappingFragment StoreEntitySet="T_R_CATEGORIE_CAT">
+                <ScalarProperty Name="CAT_ID" ColumnName="CAT_ID" />
+                <ScalarProperty Name="CAT_LIBELLE" ColumnName="CAT_LIBELLE" />
+                <ScalarProperty Name="CAT_CODE" ColumnName="CAT_CODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_R_CLUB_CLU">
+            <EntityTypeMapping TypeName="CPINFO02Model.T_R_CLUB_CLU">
+              <MappingFragment StoreEntitySet="T_R_CLUB_CLU">
+                <ScalarProperty Name="CLU_ID" ColumnName="CLU_ID" />
+                <ScalarProperty Name="FED_ID" ColumnName="FED_ID" />
+                <ScalarProperty Name="INS_ID" ColumnName="INS_ID" />
+                <ScalarProperty Name="CLU_NOM" ColumnName="CLU_NOM" />
+                <ScalarProperty Name="CLU_LICENCE" ColumnName="CLU_LICENCE" />
+                <ScalarProperty Name="CLU_EMAIL" ColumnName="CLU_EMAIL" />
+                <ScalarProperty Name="CLU_ADRESSE" ColumnName="CLU_ADRESSE" />
+                <ScalarProperty Name="CLU_CODEPOSTAL" ColumnName="CLU_CODEPOSTAL" />
+                <ScalarProperty Name="CLU_VILLE" ColumnName="CLU_VILLE" />
+                <ScalarProperty Name="CLU_PAYS" ColumnName="CLU_PAYS" />
+                <ScalarProperty Name="CLU_TELEPHONE" ColumnName="CLU_TELEPHONE" />
+                <ScalarProperty Name="CLU_FAX" ColumnName="CLU_FAX" />
+                <ScalarProperty Name="CLU_NUMERO" ColumnName="CLU_NUMERO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_R_COURSE_COR">
+            <EntityTypeMapping TypeName="CPINFO02Model.T_R_COURSE_COR">
+              <MappingFragment StoreEntitySet="T_R_COURSE_COR">
+                <ScalarProperty Name="COR_ID" ColumnName="COR_ID" />
+                <ScalarProperty Name="COR_NOM" ColumnName="COR_NOM" />
+                <ScalarProperty Name="COR_DISTANCE" ColumnName="COR_DISTANCE" />
+                <ScalarProperty Name="COR_DATE" ColumnName="COR_DATE" />
+                <ScalarProperty Name="COR_NOMBREMAXPARTICIPANT" ColumnName="COR_NOMBREMAXPARTICIPANT" />
+                <ScalarProperty Name="COR_PRIX" ColumnName="COR_PRIX" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_R_DEFI_DEF">
+            <EntityTypeMapping TypeName="CPINFO02Model.T_R_DEFI_DEF">
+              <MappingFragment StoreEntitySet="T_R_DEFI_DEF">
+                <ScalarProperty Name="DEF_ID" ColumnName="DEF_ID" />
+                <ScalarProperty Name="DEF_NOM" ColumnName="DEF_NOM" />
+                <ScalarProperty Name="DEF_NOMBREMAXPARTICIPANT" ColumnName="DEF_NOMBREMAXPARTICIPANT" />
+                <ScalarProperty Name="DEF_EXPLICATION" ColumnName="DEF_EXPLICATION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_R_FEDERATION_FED">
+            <EntityTypeMapping TypeName="CPINFO02Model.T_R_FEDERATION_FED">
+              <MappingFragment StoreEntitySet="T_R_FEDERATION_FED">
+                <ScalarProperty Name="FED_ID" ColumnName="FED_ID" />
+                <ScalarProperty Name="FED_NOM" ColumnName="FED_NOM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_R_LOT_LOT">
+            <EntityTypeMapping TypeName="CPINFO02Model.T_R_LOT_LOT">
+              <MappingFragment StoreEntitySet="T_R_LOT_LOT">
+                <ScalarProperty Name="LOT_ID" ColumnName="LOT_ID" />
+                <ScalarProperty Name="COU_ID" ColumnName="COU_ID" />
+                <ScalarProperty Name="LOT_NOM" ColumnName="LOT_NOM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="T_J_DEFICOURSE_DEC" TypeName="CPINFO02Model.T_J_DEFICOURSE_DEC" StoreEntitySet="T_J_DEFICOURSE_DEC">
+            <EndProperty Name="T_R_COURSE_COR">
+              <ScalarProperty Name="COR_ID" ColumnName="COR_ID" />
+            </EndProperty>
+            <EndProperty Name="T_R_DEFI_DEF">
+              <ScalarProperty Name="DEF_ID" ColumnName="DEF_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="T_J_PARTICIPATIONDEFI_PAD" TypeName="CPINFO02Model.T_J_PARTICIPATIONDEFI_PAD" StoreEntitySet="T_J_PARTICIPATIONDEFI_PAD">
+            <EndProperty Name="T_E_COUREUR_COU">
+              <ScalarProperty Name="COU_ID" ColumnName="COU_ID" />
+            </EndProperty>
+            <EndProperty Name="T_R_DEFI_DEF">
+              <ScalarProperty Name="DEF_ID" ColumnName="DEF_ID" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Aucun" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
