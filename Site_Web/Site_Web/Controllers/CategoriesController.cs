@@ -10,11 +10,17 @@ using Site_Web.App_Data;
 
 namespace Site_Web.Controllers
 {
+    /// <summary>
+    /// Categories controller est le controlleur gérant le CRUD et différente vues lié au model CATEGORIEs.
+    /// </summary>
     public class CategoriesController : Controller
     {
         private MarathonEntities db = new MarathonEntities();
 
-        // GET: Categories
+        /// <summary>
+        /// Index du CRUD des catégories.
+        /// </summary>
+        /// <returns> la view Index.</returns>
         public ActionResult Index()
         {
             return View(db.CATEGORIEs.ToList());

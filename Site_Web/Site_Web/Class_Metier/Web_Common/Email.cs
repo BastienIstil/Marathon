@@ -6,10 +6,15 @@ using System.Net.Mail;
 
 namespace Site_Web.Class_Metier.Web_Common
 {
+    /// <summary>
+    /// Classe utilitaire contenant des fonction statique lié au Email
+    /// </summary>
     public class Email
     {
 
-
+        /// <summary>
+        /// Fonction de test pour l'envoie d'email d'une adresse définie a une autre adresse déjà définie
+        /// </summary>
         public static void SendEmail()
         {
             try
@@ -40,7 +45,14 @@ namespace Site_Web.Class_Metier.Web_Common
             }
         }
 
-
+        /// <summary>
+        /// Fonction d'envoie d'email définissant déjà le serveur d'envoie comme "smtp.gmail.com"
+        /// </summary>
+        /// <param name="sender">Messagerie d'envoie appartenant au domainde de google</param>
+        /// <param name="mdp">Le mot de passe de la messagerie d'envoie</param>
+        /// <param name="receiver">L'adresse e-mail du receveur</param>
+        /// <param name="subject">L'objet du mail</param>
+        /// <param name="body">Le corps du mail acceptant l'HTML</param>
         public static void SendEmail(string sender,string mdp, string receiver,string subject, string body)
         {
             try
