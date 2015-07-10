@@ -5,9 +5,16 @@ using System.Web;
 
 namespace Site_Web.Class_Metier
 {
+    /// <summary>
+    /// Classe utilitaire faisant la mise à jours de la catégorie du coureur lors de sa connection ou création
+    /// </summary>
     public class UpdateCat
     {
-
+        /// <summary>
+        /// Permet de récuperer la catégorie d'un coureur en fonction de son age
+        /// </summary>
+        /// <param name="birthdayDate"></param>
+        /// <returns>l'id de la catégorie correspondant à l'age du coureur</returns>
         public static int getCat(DateTime birthdayDate)
         {
             DateTime now = DateTime.Now;

@@ -5,8 +5,17 @@ using System.Web;
 
 namespace Site_Web.Class_Metier.Web_Common
 {
+    /// <summary>
+    /// Classe utilitaire contenant des fonction statique lié au Email
+    /// </summary>
     public class Telechargement
     {
+        /// <summary>
+        /// Permet a l'utilisateur de télécharger un fichier.
+        /// </summary>
+        /// <param name="pResp">Objet Response lié au controller</param>
+        /// <param name="pFileName">Nom du fichier que l'utilisateur aura au téléchargement</param>
+        /// <param name="pUrl">L'url source du fichier</param>
         public static void telechargementWeb(HttpResponseBase pResp, string pFileName, string pUrl)
         {
             //Create a stream for the file
@@ -75,6 +84,12 @@ namespace Site_Web.Class_Metier.Web_Common
             }
         }
 
+        /// <summary>
+        /// Permet a l'utilisateur de télécharger un fichier.
+        /// </summary>
+        /// <param name="pResp">Objet Response lié au controller</param>
+        /// <param name="pFileName">Nom du fichier que l'utilisateur aura au téléchargement</param>
+        /// <param name="pPath">Le path server du fichier</param>
         public static void telechargementLocal(HttpResponseBase pResp, string pFileName, string pPath)
         {
             string filename = pPath ;
