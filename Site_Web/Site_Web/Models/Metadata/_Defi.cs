@@ -9,6 +9,9 @@ namespace Site_Web.App_Data
     [MetadataType(typeof(DEFIMetadata))]
     public partial class DEFI
     {
+        /// <summary>
+        /// metadonnées de la classe Défi, avec les libellés de chacun des champs
+        /// </summary>
         public class DEFIMetadata
         {
             [Display(Name = "Nom du défi")]

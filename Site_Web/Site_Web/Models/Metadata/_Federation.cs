@@ -9,6 +9,9 @@ namespace Site_Web.App_Data
     [MetadataType(typeof(FEDERATIONMetadata))]
     public partial class FEDERATION
     {
+        /// <summary>
+        /// metadonnées de la classe Club, avec le libellé du champ nom
+        /// </summary>
         public class FEDERATIONMetadata
         {
             [Display(Name = "Nom de la fédération")]

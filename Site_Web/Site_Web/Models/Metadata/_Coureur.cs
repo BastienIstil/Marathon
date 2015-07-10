@@ -9,6 +9,9 @@ namespace Site_Web.App_Data
     [MetadataType(typeof(COUREURMetadata))]
     public partial class COUREUR
     {
+        /// <summary>
+        /// metadonnées de la classe Coureur, avec les libellés de chacun des champs
+        /// </summary>
         public class COUREURMetadata
         {
             [Display(Name = "Nom du coureur")]

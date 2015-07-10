@@ -9,6 +9,9 @@ namespace Site_Web.App_Data
     [MetadataType(typeof(COURSEMetadata))]
     public partial class COURSE
     {
+        /// <summary>
+        /// metadonnées de la classe Course, avec les libellés de chacun des champs
+        /// </summary>
         public class COURSEMetadata
         {
             [Display(Name = "Nom de la course")]

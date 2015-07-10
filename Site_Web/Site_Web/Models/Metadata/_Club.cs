@@ -9,6 +9,9 @@ namespace Site_Web.App_Data
     [MetadataType(typeof(CLUBMetadata))]
     public partial class CLUB
     {
+        /// <summary>
+        /// metadonnées de la classe Club, avec les libellés de chacun des champs
+        /// </summary>
         public class CLUBMetadata
         {
             [Display(Name = "Nom du club")]
