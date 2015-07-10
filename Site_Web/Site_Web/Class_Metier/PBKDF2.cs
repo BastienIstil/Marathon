@@ -10,7 +10,7 @@ namespace SimpleCrypto
 {
 
     /// <summary>
-    /// 
+    /// Classe importé, servant à la génération de grain de sel et opération sur HashCode
     /// </summary>
     public class PBKDF2 : ICryptoService
     {
