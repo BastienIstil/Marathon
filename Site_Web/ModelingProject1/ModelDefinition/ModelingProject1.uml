@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
-  Id="fb846685-0c63-453a-85f8-f0c957d239ad"
-  name="DiagClass" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  Id="43ba79fb-f9a4-47a0-b3f1-e2ef91ffbaa1"
+  name="ModelingProject1" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
   <profileInstances>
     <packageHasProfileInstances
       Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
@@ -16,33 +16,25 @@
         Id="532ea607-fb19-44b8-8502-3351b05452be"
         name="StandardProfileL3" />
     </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="879a34b2-8c17-4368-be02-7b32f94bfadd">
+      <profileInstance
+        Id="655c5f77-cb00-4c6b-971d-fd9229acfc96"
+        name="CSharpProfile" />
+    </packageHasProfileInstances>
   </profileInstances>
   <packagedElements>
     <packageHasNamedElement>
       <packageMoniker
-        Id="32b0c2bb-ca7d-4734-afaa-8e0241bdd2bb"
+        Id="e4a1a969-7284-4c40-973e-dfe7a30cd1ba"
         LastKnownName="Site_Web"
-        LastKnownLocation="Package_1626.uml" />
+        LastKnownLocation="Package_1650.uml" />
     </packageHasNamedElement>
     <packageHasNamedElement>
       <packageMoniker
-        Id="27ef9061-3b86-4ef9-a4c0-4c3b58d1e833"
+        Id="595a5b43-68c0-424e-9251-15d216781cf4"
         LastKnownName="System"
-        LastKnownLocation="Package3_1626.uml" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <class
-        Id="aaa86c1f-09de-40c5-b045-64dd90445963"
-        name="Class1"
-        isAbstract="false"
-        isLeaf="false"
-        isActiveClass="false" />
-    </packageHasNamedElement>
-    <packageHasNamedElement>
-      <packageMoniker
-        Id="93d83fea-6356-4669-99b7-416c66004097"
-        LastKnownName="Package1"
-        LastKnownLocation="Package_1629.uml" />
+        LastKnownLocation="Package5_1650.uml" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType

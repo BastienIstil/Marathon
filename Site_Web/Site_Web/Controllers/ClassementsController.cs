@@ -20,9 +20,15 @@ namespace Site_Web.Controllers
         public ActionResult Index(int choixcourse = 0, int choixcategorie = 0)
         {
 
+            // Chargement du ViewModel personnalisé :
             ClassementViewModel classementRows = new ClassementViewModel();
+
+            // Creation d'une liste de classement :
             List<CLASSEMENT> classement;
 
+
+            // Si le filtre du choix de la course est null alors on retourne tous les temps :
+            // Sinon on sort les course dont l'ID est passé en parametre de fonction.
             if (choixcourse == 0)
             {
                 classement = db.CLASSEMENTs.ToList();
@@ -35,12 +41,14 @@ namespace Site_Web.Controllers
                                                select course).ToList();
             }
             
-
+            // Creaino de la liste des catégories :
             List<CATEGORIE> categories = db.CATEGORIEs.ToList();
 
+            // Création de la liste des différentes courses :
             List<COURSE> Course = db.COURSEs.ToList();
 
-
+            // Si le filtre du choix de la categorie est null alors on retourne tous les temps :
+            // Sinon on sort les catégories dont l'ID est passé en parametre de fonction.
             if (choixcategorie == 0)
             {
                 List<COUREUR> listeCoureurs = db.COUREURs.ToList();
@@ -55,16 +63,15 @@ namespace Site_Web.Controllers
             classementRows.lignes = new List<ClassementRow>();
 
 
-
-
             if (Course == null) Course = new List<COURSE>();
 
-
+            // Liste de toute les courses :
             classementRows.courses = Course;
 
+            // Liste de toute les catégories :
             classementRows.categories = categories;
 
-
+            // Variables pour le ViewModel :
             int tps = 0;
             string nomcoureur = "";
             string prenomcoureur = "";
@@ -76,23 +83,27 @@ namespace Site_Web.Controllers
 
                 tps = clas.CLA_TEMPS.Value;
 
+                // Recuperer toute les infos coureur à partir de son ID sur la ligne du classement :
                 COUREUR cour = (from coureur in db.COUREURs
                                 where coureur.COU_ID == clas.COU_ID
                                 select coureur).First();
 
+                // Récupere le nom + prenom pour la ligne
                 nomcoureur = cour.COU_NOM;
                 prenomcoureur = cour.COU_PRENOM;
 
+                // Récuperation des infos de la course :
                 COURSE course = (from cours in db.COURSEs
                                  where cours.COR_ID == clas.COR_ID
                                  select cours).First();
 
+                // Récuperation des infos de la catégorie :
                 CATEGORIE cat = (from categorie in db.CATEGORIEs
                                  where cour.CAT_ID == categorie.CAT_ID
                                  select categorie).First();
 
 
-
+                // Alimentation du nom de la course
                 nomcourse = course.COR_NOM;
 
 
@@ -102,7 +113,7 @@ namespace Site_Web.Controllers
                 row.nomCourse = nomcourse;
                 row.categorieCoureur = cat.CAT_LIBELLE;
 
-                ///
+                /// Algorithme pour convertir des secondes en "HH:MM:SS" 
 
                 int sec = tps % 60;
                 int min = (tps - sec) / 60;

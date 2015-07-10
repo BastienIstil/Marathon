@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="32b0c2bb-ca7d-4734-afaa-8e0241bdd2bb"
+  name="Site_Web"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="851135d3-5ab2-49f3-948c-e2d166ec2fa1"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DSite_Web"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="15809481-c20b-47a5-826c-d3366315563a"
+        LastKnownName="Class_Metier"
+        LastKnownLocation="Package1_1626.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="6b01e2cf-0247-42d5-8157-51aad76b8bbe"
+        LastKnownName="App_Data"
+        LastKnownLocation="Package6_1626.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="06de2024-9a9f-4a6b-a19c-f11b1c4cbd23"
+        LastKnownName="Controllers"
+        LastKnownLocation="Package_1627.uml" />
+    </packageHasNamedElement>
+  </packagedElements>
+</package>
