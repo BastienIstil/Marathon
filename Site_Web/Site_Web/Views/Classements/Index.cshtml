@@ -20,7 +20,7 @@
 
     @foreach (var course in Model.courses)
     {
-        <p>
+        <p class="lienClassement">
             @Html.ActionLink("Afficher classement de : "+course.COR_NOM, "Index", "Classements", new { choixcourse = course.COR_ID }, null)
         </p>
     }
@@ -28,7 +28,7 @@
     @using (Html.BeginForm("Index", "Classements"))
     {
 
-        <fieldset>
+        <fieldset style="margin-bottom: 15px">
             Categorie <select id="choixcategorie" name="choixcategorie">
 
                 <option value=""></option>
@@ -47,16 +47,14 @@
 <table class="table">
     <tr>
         <th>
-            Prenom
+            Prénom du Coureur
         </th>
         <th>
-            Nom
+            Nom du Coureur
         </th>
+        <th>Categorie</th>
         <th>
-            Categorie
-        </th>
-        <th>
-            Nom de la course
+            Course
         </th>
         
         <th>

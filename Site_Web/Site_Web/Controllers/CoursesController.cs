@@ -210,6 +210,10 @@ namespace Site_Web.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult InscriptionCoureurCourse(InscriptionCourreurCourseModel inscription)
         {
+            if (inscription.listEtatInscription == null)
+                return RedirectToAction("Index", "Home");
+
+
             for (int i = 0; i < inscription.listEtatInscription.Count; i++)
             {
                 if (inscription.listEtatInscription[i]) // Participation Course

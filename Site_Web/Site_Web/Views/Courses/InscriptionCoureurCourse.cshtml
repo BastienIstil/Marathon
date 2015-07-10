@@ -43,14 +43,14 @@
 
             <table class="tableCoureur">
                 <tr>
-                    <th> @Html.DisplayNameFor(model => model.listCourse.FirstOrDefault().COR_NOM)</th>
+                    <th> Nom de la course</th>
                     <th> @Html.DisplayNameFor(model => model.listCourse.FirstOrDefault().COR_DISTANCE)</th>
                     <th> @Html.DisplayNameFor(model => model.listCourse.FirstOrDefault().COR_DATE)</th>
-                    <th> @Html.DisplayNameFor(model => model.listCourse.FirstOrDefault().COR_NOMBREMAXPARTICIPANT)</th>
-                    <th> @Html.DisplayNameFor(model => model.listCourse.FirstOrDefault().COR_PRIX)</th>
-                    <th> @Html.DisplayNameFor(model => model.InscriptionCourse)</th>
-                    <th> @Html.DisplayNameFor(model => model.InscriptionPastaparty)</th>
-                    <th> @Html.DisplayNameFor(model => model.TempsEstimé)</th>
+                    <th> Maximum de participant</th>
+                    <th> Prix</th>
+                    <th> Inscription à la course</th>
+                    <th> PastaParty</th>
+                    <th> Temps estimé</th>
                 </tr>
 
                 @for (int i = 0; i < Model.listCourse.Count; i++)
