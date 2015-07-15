@@ -18,7 +18,7 @@ namespace Site_Web.Models
         }
 
         /// <summary>
-        /// Une liste de lignes correspondant au information voulue d'une borne
+        /// Une liste de lignes correspondant aux informations voulue d'une borne
         /// </summary>
         public List<TempsBorneRow> lignes;
 

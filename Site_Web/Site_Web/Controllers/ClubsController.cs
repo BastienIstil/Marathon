@@ -14,11 +14,17 @@ using Site_Web.Class_Metier.ViewCustomModels;
 
 namespace Site_Web.Controllers
 {
+    /// <summary>
+    /// Clubs controller est le controlleur gérant le CRUD et différente vues lié au model CLUB.
+    /// </summary>
     public class ClubsController : Controller
     {
         private MarathonEntities db = new MarathonEntities();
 
-        // GET: CLUBs
+        /// <summary>
+        /// Index du CRUD des clubs.
+        /// </summary>
+        /// <returns> la view Index.</returns>
         public ActionResult Index()
         {
 
@@ -26,7 +32,11 @@ namespace Site_Web.Controllers
             return View(cLUBs.ToList());
         }
 
-        // GET: CLUBs/Details/5
+        /// <summary>
+        /// Affiche le detail d'un club
+        /// </summary>
+        /// <param name="id">L'id correspondant au club devant être détaillé.</param>
+        /// <returns>La view detail avec les informations du club fourni en paramètre.</returns>
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -41,7 +51,12 @@ namespace Site_Web.Controllers
             return View(cLUB);
         }
 
-        // GET: CLUBs/Create
+        /// <summary>
+        /// Permet la création d'un club.
+        /// </summary>
+        /// <returns>La view création (GET) qui, si la validation du formulaire est bonne.
+        /// créera un nouveau club.
+        /// </returns>
         public ActionResult Create()
         {
             ViewBag.INS_ID = new SelectList(db.INSCRITs, "INS_ID", "INS_LOGIN");
@@ -49,9 +64,13 @@ namespace Site_Web.Controllers
             return View();
         }
 
-        // POST: CLUBs/Create
-        // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
-        // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Permet la création d'une borne en POST.
+        /// </summary>
+        /// <param name="cLUB">Le club correspondant au formulaire rempli par l'utilisateur.</param>
+        /// <returns>La view création (POST) si la validation est fausse.
+        /// La view index si la validation est bonne.
+        /// </returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(CLUB cLUB)
@@ -68,7 +87,13 @@ namespace Site_Web.Controllers
             return View(cLUB);
         }
 
-        // GET: CLUBs/Edit/5
+        /// <summary>
+        /// Permet la modification d'un club en GET.
+        /// </summary>
+        /// <param name="id">L'id correspondant au club devant être modifié.</param>
+        /// <returns>La view de modification (GET) qui, si la validation du formulaire est bonne.
+        /// modifiera ledit club.
+        /// </returns>
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -85,9 +110,13 @@ namespace Site_Web.Controllers
             return View(cLUB);
         }
 
-        // POST: CLUBs/Edit/5
-        // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
-        // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Permet la modification d'un club en POST.
+        /// </summary>
+        /// <param name="cLUB">Le club correspondant au formulaire rempli par l'utilisateur.</param>
+        /// <returns>La view de modification (POST) si la validation est fausse.
+        /// La view index si la validation est bonne.
+        /// </returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(CLUB cLUB)
@@ -103,7 +132,11 @@ namespace Site_Web.Controllers
             return View(cLUB);
         }
 
-        // GET: CLUBs/Delete/5
+        /// <summary>
+        /// Permet la suppression d'un club en GET.
+        /// </summary>
+        /// <param name="id">L'id correspondant au club devant être supprimé.</param>
+        /// <returns>La view de confirmation de suppression(GET).
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -118,7 +151,11 @@ namespace Site_Web.Controllers
             return View(cLUB);
         }
 
-        // POST: CLUBs/Delete/5
+        /// <summary>
+        /// Permet la suppression d'un club en POST.
+        /// </summary>
+        /// <param name="id">L'id correspondant au club devant être supprimé.</param>
+        /// <returns>La view index si la validation est bonne.</returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -129,6 +166,11 @@ namespace Site_Web.Controllers
             return RedirectToAction("Index");
         }
 
+        /// <summary>
+        /// Destructeur de l'objet
+        /// </summary>
+        /// <param name="disposing">Le paramètre disposing est un booléen qui indique si l'appel de la méthode provient d'une méthode Dispose (sa valeur est true) ou d'un Finalize (sa valeur est false).</param>
+        
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -138,6 +180,10 @@ namespace Site_Web.Controllers
             base.Dispose(disposing);
         }
 
+        /// <summary>
+        /// Permet l'edition d'un coureur pour l'inscrire à un club.
+        /// </summary>
+        /// <returns>La view index si la validation est bonne.</returns>
         public ActionResult EditProfile()
         {
             INSCRIT inscrit = (from u in db.INSCRITs
@@ -166,9 +212,11 @@ namespace Site_Web.Controllers
             return View(club);
         }
 
-        // POST: Coureurs/Profile/5
-        // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
-        // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Permet l'edition d'un club pour l'ajout d'un coureur.
+        /// </summary>
+        /// <param name="club">L'id du club dont les adhérents vont être modérés</param>
+        /// <returns>La view index si la validation est bonne.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EditProfile(CLUB club)
@@ -200,12 +248,10 @@ namespace Site_Web.Controllers
 
 
 
-        //////////////////////////////////////////////////////////////////
-        ///////////
-        /////////// Ajout courreur inscrit au club
-        ///////////
-        //////////////////////////////////////////////////////////////////
-        // GET: Clubs/Ajout Coureur
+        /// <summary>
+        /// Permet l'ajout d'un coureur par le club
+        /// </summary>
+        /// <returns>La view index si la validation est bonne.</returns>
         public ActionResult AddCoureur()
         {
             CoureurInscriptions coureurInscription = new CoureurInscriptions();
@@ -234,7 +280,12 @@ namespace Site_Web.Controllers
             return View(coureurInscription);
         }
 
-        //Ajout d'un coureur au club
+        /// <summary>
+        /// Permet l'ajout d'un ou plusieurs coureurs au club.
+        /// </summary>
+        /// <param name="ListJoueurViewModel"> Une liste des ViewModel des coureurs</param>
+        /// <param name="coureurInscription">La liste des coureurs inscrits sans club</param>
+        /// <returns>La view index si la validation est bonne.</returns>
         [HttpPost, ActionName("AddCoureur")]
         public ActionResult AddCoureur(FormCollection ListJoueurViewModel, CoureurInscriptions coureurInscription)
         {
@@ -274,7 +325,12 @@ namespace Site_Web.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-
+        /// <summary>
+        /// Test la validation d'une inscription d'un coureur à un club.
+        /// </summary>
+        /// <param name="idClub"> l'id du club dont le coureur doit etre inscrit</param>
+        /// <param name="idCoureur">l'id du coureur qui va être inscrit au club</param>
+        /// <returns>La view index si la validation est bonne.</returns>
         [HttpGet, ActionName("ValidCoureurToClub")]
         public ActionResult ValidCoureurToClub(int? idClub, int? idCoureur)
         {
@@ -302,12 +358,10 @@ namespace Site_Web.Controllers
             return RedirectToAction("InscriptionClubOK", "Home");
         }
 
-        //////////////////////////////////////////////////////////////////
-        ///////////
-        /////////// Ajout inscrit club au défis
-        ///////////
-        //////////////////////////////////////////////////////////////////
-        // GET: Clubs/Ajout Coureur
+        /// <summary>
+        /// Ajoute un inscrit du club à un defi
+        /// </summary>
+        /// <returns>La view index si la validation est bonne.</returns>
         public ActionResult AddInscritDefi()
         {
             InscriptionClubCourreurDefie coureurInscription = new InscriptionClubCourreurDefie();
@@ -342,7 +396,12 @@ namespace Site_Web.Controllers
             return View(coureurInscription);
         }
 
-        //Ajout d'un coureur au club
+        /// <summary>
+        /// Ajoute un inscrit du club à un defi
+        /// </summary>
+        /// <param name="ListJoueurViewModel">LA liste des viewModel de la liste des coureurs à inscrire au défi</param>
+        /// <param name="coureurInscription"></param>
+        /// <returns>La view index si la validation est bonne.</returns>
         [HttpPost, ActionName("AddInscritDefi")]
         public ActionResult AddInscritDefi(FormCollection ListJoueurViewModel, InscriptionClubCourreurDefie coureurInscription)
         {
@@ -386,7 +445,12 @@ namespace Site_Web.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-
+        /// <summary>
+        /// Test la validation d'un inscrit à un défi
+        /// </summary>
+        /// <param name="idCoureur">L'id du coureur à inscrire au defi.</param>
+        /// <param name="idDefi">L'id du défi auquel inscrire le coureur</param>
+        /// <returns>La view index si la validation est bonne.</returns>
         [HttpGet, ActionName("ValidAddInscritDefi")]
         public ActionResult ValidAddInscritDefi(int? idCoureur, int? idDefi)
         {
