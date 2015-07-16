@@ -11,17 +11,27 @@ using Site_Web.Class_Metier.ViewCustomModels;
 
 namespace Site_Web.Controllers
 {
+    /// <summary>
+    /// Courses controller est le controlleur gérant le CRUD et différente vues lié au model COURSE.
+    /// </summary>
     public class CoursesController : Controller
     {
         private MarathonEntities db = new MarathonEntities();
 
-        // GET: Courses
+        /// <summary>
+        /// Index du CRUD des courses.
+        /// </summary>
+        /// <returns> la view Index.</returns>
         public ActionResult Index()
         {
             return View(db.COURSEs.ToList());
         }
 
-        // GET: Courses/Details/5
+        /// <summary>
+        /// Affiche le detail d'une course.
+        /// </summary>
+        /// <param name="id">L'id correspondant à la course devant être détaillée.</param>
+        /// <returns>La view detail avec les informations de la course fournie en paramètre.</returns>
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,15 +46,23 @@ namespace Site_Web.Controllers
             return View(cOURSE);
         }
 
-        // GET: Courses/Create
+        /// <summary>
+        /// Permet la création d'une course.
+        /// </summary>
+        /// <returns>La view création (GET) qui, si la validation du formulaire est bonne.
+        /// créera une nouvelle borne.
+        /// </returns>
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Courses/Create
-        // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
-        // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Permet la création d'une course en POST.
+        /// </summary>
+        /// <param name="cOURSE">La course correspondant au formulaire remplie par l'utilisateur.</param>
+        /// <returns>La view création (POST) si la validation est fausse.
+        /// La view index si la validation est bonne.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "COR_NOM,COR_DISTANCE,COR_DATE,COR_NOMBREMAXPARTICIPANT,COR_PRIX")] COURSE cOURSE)
@@ -59,7 +77,13 @@ namespace Site_Web.Controllers
             return View(cOURSE);
         }
 
-        // GET: Courses/Edit/5
+        /// <summary>
+        /// Permet la modification d'une course en GET.
+        /// </summary>
+        /// <param name="id">L'id correspondant à la course devant être modifié.</param>
+        /// <returns>La view de modification (GET) qui, si la validation du formulaire est bonne.
+        /// modifiera ladite course.
+        /// </returns>
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -74,9 +98,13 @@ namespace Site_Web.Controllers
             return View(cOURSE);
         }
 
-        // POST: Courses/Edit/5
-        // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
-        // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Permet la modification d'une course en POST.
+        /// </summary>
+        /// <param name="cOURSE">La course correspondant au formulaire remplie par l'utilisateur.</param>
+        /// <returns>La view de modification (POST) si la validation est fausse.
+        /// La view index si la validation est bonne.
+        /// </returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "COR_ID,COR_NOM,COR_DISTANCE,COR_DATE,COR_NOMBREMAXPARTICIPANT,COR_PRIX")] COURSE cOURSE)
@@ -90,7 +118,12 @@ namespace Site_Web.Controllers
             return View(cOURSE);
         }
 
-        // GET: Courses/Delete/5
+        /// <summary>
+        /// Permet la suppression d'une course en GET.
+        /// </summary>
+        /// <param name="id">L'id correspondant à la course devant être supprimé.</param>
+        /// <returns>La view de confirmation de suppression(GET).
+        /// </returns>
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -105,7 +138,11 @@ namespace Site_Web.Controllers
             return View(cOURSE);
         }
 
-        // POST: Courses/Delete/5
+        /// <summary>
+        /// Permet la suppression d'une course en POST.
+        /// </summary>
+        /// <param name="id">L'id correspondant à la course devant être supprimé.</param>
+        /// <returns>La view index si la validation est bonne.</returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -125,7 +162,10 @@ namespace Site_Web.Controllers
             base.Dispose(disposing);
         }
 
-
+        /// <summary>
+        /// Permet l'inscription d'un coureur à une course
+        /// </summary>
+        /// <returns>La view inscription si la validation est bonne.</returns>
         [HttpGet, ActionName("InscriptionCoureurCourse")]
         public ActionResult InscriptionCoureurCourse()
         {
@@ -206,6 +246,12 @@ namespace Site_Web.Controllers
             return View(inscription);
         }
 
+
+        /// <summary>
+        /// Permet l'inscription d'un coureur à une course
+        /// </summary>
+        /// <param name="inscription">L'objet inscription pour la validation de celle-ci.</param>
+        /// <returns>La view index si la validation est bonne.</returns>
         [HttpPost, ActionName("InscriptionCoureurCourse")]
         [ValidateAntiForgeryToken]
         public ActionResult InscriptionCoureurCourse(InscriptionCourreurCourseModel inscription)

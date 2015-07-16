@@ -10,18 +10,28 @@ using Site_Web.App_Data;
 
 namespace Site_Web.Controllers
 {
+    /// <summary>
+    /// Coureurs controller est le controlleur gérant le CRUD et différente vues lié au model COUREUR.
+    /// </summary>
     public class CoureursController : Controller
     {
         private MarathonEntities db = new MarathonEntities();
 
-        // GET: Coureurs
+        /// <summary>
+        /// Index du CRUD des bornes.
+        /// </summary>
+        /// <returns> la view Index.</returns>
         public ActionResult Index()
         {
             var cOUREURs = db.COUREURs.Include(c => c.T_R_FEDERATION_FED).Include(c => c.T_R_CLUB_CLU).Include(c => c.T_R_CATEGORIE_CAT).Include(c => c.T_E_INSCRIT_INS);
             return View(cOUREURs.ToList());
         }
 
-        // GET: Coureurs/Details/5
+        /// <summary>
+        /// Affiche le detail d'un coureur
+        /// </summary>
+        /// <param name="id">L'id correspondant au coureur devant être détaillé.</param>
+        /// <returns>La view detail avec les informations du coureur fournie en paramètre.</returns>
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,7 +46,12 @@ namespace Site_Web.Controllers
             return View(cOUREUR);
         }
 
-        // GET: Coureurs/Create
+        /// <summary>
+        /// Permet la création d'un coureur.
+        /// </summary>
+        /// <returns>La view création (GET) qui, si la validation du formulaire est bonne.
+        /// créera un nouveau coureur.
+        /// </returns>
         public ActionResult Create()
         {
             ViewBag.FED_ID = new SelectList(db.FEDERATIONs, "FED_ID", "FED_NOM");
@@ -46,9 +61,13 @@ namespace Site_Web.Controllers
             return View();
         }
 
-        // POST: Coureurs/Create
-        // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
-        // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Permet la création d'un coureur en POST.
+        /// </summary>
+        /// <param name="cOUREUR">Le coureur correspondant au formulaire remplie par l'utilisateur.</param>
+        /// <returns>La view création (POST) si la validation est fausse.
+        /// La view index si la validation est bonne.
+        /// </returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(COUREUR cOUREUR)
@@ -67,7 +86,13 @@ namespace Site_Web.Controllers
             return View(cOUREUR);
         }
 
-        // GET: Coureurs/Edit/5
+        /// <summary>
+        /// Permet la modification d'un coureur en GET.
+        /// </summary>
+        /// <param name="id">L'id correspondant au coureur devant être modifié.</param>
+        /// <returns>La view de modification (GET) qui, si la validation du formulaire est bonne.
+        /// modifiera ledit coureur.
+        /// </returns>
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -86,9 +111,13 @@ namespace Site_Web.Controllers
             return View(cOUREUR);
         }
 
-        // POST: Coureurs/Edit/5
-        // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
-        // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Permet la modification d'un coureur en POST.
+        /// </summary>
+        /// <param name="cOUREUR">Le coureur correspondant au formulaire remplie par l'utilisateur.</param>
+        /// <returns>La view de modification (POST) si la validation est fausse.
+        /// La view index si la validation est bonne.
+        /// </returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(COUREUR cOUREUR)
@@ -106,7 +135,12 @@ namespace Site_Web.Controllers
             return View(cOUREUR);
         }
 
-        // GET: Coureurs/Delete/5
+        /// <summary>
+        /// Permet la suppression d'un coureur en GET.
+        /// </summary>
+        /// <param name="id">L'id correspondant au coureur devant être supprimé.</param>
+        /// <returns>La view de confirmation de suppression(GET).
+        /// </returns>
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -121,7 +155,11 @@ namespace Site_Web.Controllers
             return View(cOUREUR);
         }
 
-        // POST: Coureurs/Delete/5
+        /// <summary>
+        /// Permet la suppression d'un coureur en POST.
+        /// </summary>
+        /// <param name="id">L'id correspondant au coureur devant être supprimé.</param>
+        /// <returns>La view index si la validation est bonne.</returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -142,7 +180,10 @@ namespace Site_Web.Controllers
         }
 
 
-        // GET: Coureurs/Edit/5
+        /// <summary>
+        /// Permet l'édition d'un inscrit (inscrit à une course)
+        /// </summary>
+        /// <returns>La view index si la validation est bonne.</returns>
         public ActionResult EditProfile()
         {
             INSCRIT inscrit = (from u in db.INSCRITs
@@ -173,9 +214,12 @@ namespace Site_Web.Controllers
             return View(courreur);
         }
 
-        // POST: Coureurs/Profile/5
-        // Afin de déjouer les attaques par sur-validation, activez les propriétés spécifiques que vous voulez lier. Pour 
-        // plus de détails, voir  http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// Permet l'édition d'un inscrit (inscrit à une course) en ajoutant son certificat médical
+        /// </summary>
+        /// <param name="cOUREUR">L'id correspondant a l'inscrit devant être modifié.</param>
+        /// <param name="file">Le fichier devant être ajouté et affilié à l'inscrit</param>
+        /// <returns>La view index si la validation est bonne.</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EditProfile(COUREUR cOUREUR,HttpPostedFileBase file)

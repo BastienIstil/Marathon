@@ -13,6 +13,9 @@ using Site_Web.Class_Metier.ViewCustomModels;
 
 namespace Site_Web.Controllers
 {
+    /// <summary>
+    /// Inscrits controller est le controlleur gérant le CRUD et différente vues lié au model INSCRIT.
+    /// </summary>
     public class InscritsController : Controller
     {
         private MarathonEntities db = new MarathonEntities();
@@ -20,12 +23,21 @@ namespace Site_Web.Controllers
 
         public static ViewResult homeView;
 
+        /// <summary>
+        /// Login de l'inscrit passé en parametre GET.
+        /// </summary>
+        /// <returns> la view Login.</returns>
         [HttpGet]
         public ActionResult Login()
         {
             return View();
         }
 
+        /// <summary>
+        /// Log un inscrit passé en parametre POST
+        /// </summary>
+        /// <param name="user">L'objet inscrit correspondant à l'internaute.</param>
+        /// <returns>La view user avec les informations de l'inscrit fournie en paramètre.</returns>
         [HttpPost]
         public ActionResult Login(INSCRIT user)
         {
@@ -57,6 +69,10 @@ namespace Site_Web.Controllers
             return View(user);
         }
 
+        /// <summary>
+        /// Inscrit un internaute passé en parametre GET
+        /// </summary>
+        /// <returns>La view REgister avec les informations de l'inscrit fournie en paramètre.</returns>
         [HttpGet]
         public ActionResult Register()
         {
@@ -102,13 +118,23 @@ namespace Site_Web.Controllers
         }
 
 
-
+        /// <summary>
+        /// Déconnecte un internaute passé en parametre GET
+        /// </summary>
+        /// <returns>La view Index de l'Accueil.</returns>
         public ActionResult Logout()
         {
             FormsAuthentication.SignOut();
             return RedirectToAction("Index", "Home");
         }
 
+
+        /// <summary>
+        /// Vérifie les parametres entrés par l'internaute.
+        /// </summary>
+        /// <param name="email">l'Email de l'internaute.</param>
+        /// <param name="password">Le mot de passe de l'internaute qui va être hashé.</param>
+        /// <returns>La view Index de l'Accueil.</returns>
         private bool IsValid(string email, string password)
         {
             var crypto = new SimpleCrypto.PBKDF2();
