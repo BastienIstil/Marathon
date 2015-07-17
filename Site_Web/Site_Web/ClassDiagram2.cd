@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Site_Web.Controllers.BornesController" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\BornesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.Controllers.CategoriesController" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\CategoriesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.Controllers.ClassementsController" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAAAAAAAAAAAAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\ClassementsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.Controllers.ClubsController" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAiARAACAAAAAAAAAEAEEAEACAAUAAAAAAAA=</HashCode>
+      <FileName>Controllers\ClubsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.Controllers.CoureursController" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAiARAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\CoureursController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.Controllers.CoursesController" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAAAAAAAAAAFAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\CoursesController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.Controllers.DefisController" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\DefisController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.Controllers.FederationsController" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAACARAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\FederationsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.Controllers.HomeController" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAEACACAAAAAABAAAAAAAAEAADAAAAA=</HashCode>
+      <FileName>Controllers\HomeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.Controllers.InformationPubliqueController" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\InformationPubliqueController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.Controllers.InscritsController" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQCAQAAAAAAgAAAIAAAABAAAAAAAQABAAAAA=</HashCode>
+      <FileName>Controllers\InscritsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.Controllers.LotsController" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\LotsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.Controllers.PaimentsController" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\PaimentsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.Controllers.ParticipationsController" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\ParticipationsController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.Controllers.PastasPartyController" Collapsed="true">
+    <Position X="4" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAAAAAAAAAAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\PastasPartyController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.Controllers.TempsCoureurBorneController" Collapsed="true">
+    <Position X="5.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACARAACAAAAAAAAABAEAAEACAAEAAAAAAAA=</HashCode>
+      <FileName>Controllers\TempsCoureurBorneController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.Models.ClassementViewModel" Collapsed="true">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAQAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Class_Metier\ViewCustomModels\ClassementViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.Models.TempsBorneViewModel" Collapsed="true">
+    <Position X="11.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Class_Metier\ViewCustomModels\TempsBorneViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.Class_Metier.ViewCustomModels.CoureurInscriptions" Collapsed="true">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAgAAAAAAAAAA=</HashCode>
+      <FileName>Class_Metier\ViewCustomModels\CoureurInscriptions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.Class_Metier.ViewCustomModels.InscriptionClubCourreurDefie" Collapsed="true">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>Class_Metier\ViewCustomModels\InscriptionClubCourreurDefie.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.Class_Metier.ViewCustomModels.InscriptionCourreurCourseModel" Collapsed="true">
+    <Position X="8" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAEAAAAAAAAAAAAAAAEAAAAAAAAAAAACAAACAAA=</HashCode>
+      <FileName>Class_Metier\ViewCustomModels\InscriptionCourreurCourseModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.Class_Metier.ViewCustomModels.InscritCustom" Collapsed="true">
+    <Position X="9.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>DAAAAAIAAAAAAAAAIAAABAAAAAAgBAAAAAAAAAAIAAE=</HashCode>
+      <FileName>Class_Metier\ViewCustomModels\InscritCustom.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.App_Data.BORNE" Collapsed="true">
+    <Position X="0.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAAIAAAAAAAACAAAAAAAABAAAAQAA=</HashCode>
+      <FileName>Models\Metadata\_Borne.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.App_Data.CATEGORIE" Collapsed="true">
+    <Position X="2.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAACAgAAAAAAAAAAgAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>App_Data\CATEGORIE.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.App_Data.CLASSEMENT" Collapsed="true">
+    <Position X="4" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAACAAAAAAAIgAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Data\CLASSEMENT.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.App_Data.CLUB" Collapsed="true">
+    <Position X="5.75" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAABAAAAgEIAgAJAgAAEAAAAgAAAAiEICAAAAAAA=</HashCode>
+      <FileName>App_Data\CLUB.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.App_Data.COUREUR" Collapsed="true">
+    <Position X="0.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>SCEAQAhgQAEIhAQAYIAAEAEAAAAAAAAUqAIhBAAIAAA=</HashCode>
+      <FileName>App_Data\COUREUR.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.App_Data.COURSE" Collapsed="true">
+    <Position X="2.25" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAQAAAAAEACAAAAAAAFAAAAIAAAAAACAAABAAAAIA=</HashCode>
+      <FileName>App_Data\COURSE.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.App_Data.DEFI" Collapsed="true">
+    <Position X="4" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAIAAAAAAAAEgAAAAAAAAAAAAAAI=</HashCode>
+      <FileName>App_Data\DEFI.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.App_Data.FEDERATION" Collapsed="true">
+    <Position X="5.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAgAAAAAAIAAAAIAAA=</HashCode>
+      <FileName>App_Data\FEDERATION.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.App_Data.INFORMATIONPUBLIQUE" Collapsed="true">
+    <Position X="0.5" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAgAAAAABABAAAAAAAAAAAAAAAAAAAAAACAAAAAAAE=</HashCode>
+      <FileName>App_Data\INFORMATIONPUBLIQUE.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.App_Data.INSCRIT" Collapsed="true">
+    <Position X="2.25" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAIAAAAAAAAAAAAABAAAAAAgAAAAAAAAAAAIAAE=</HashCode>
+      <FileName>App_Data\INSCRIT.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.App_Data.LOT" Collapsed="true">
+    <Position X="4" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAgAAAAAAIAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Data\LOT.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.App_Data.PAIEMENT" Collapsed="true">
+    <Position X="5.75" Y="7.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAAACAAAAIAAAAABAACAAAAAAAAAA=</HashCode>
+      <FileName>App_Data\PAIEMENT.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.App_Data.PARTICIPATION" Collapsed="true">
+    <Position X="0.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAQBAAEAAAAAIAQAAAIAAAgAAEAgAAACAgKAAA=</HashCode>
+      <FileName>App_Data\PARTICIPATION.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.App_Data.PASTAPARTY" Collapsed="true">
+    <Position X="2.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAACAAAAIAAAAA=</HashCode>
+      <FileName>App_Data\PASTAPARTY.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Site_Web.App_Data.TEMPSCOUBORNE" Collapsed="true">
+    <Position X="4" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEIAAAAAAAACAAAAAAAAAAAAACgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>App_Data\TEMPSCOUBORNE.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Site_Web.Class_Metier.ViewCustomModels.NiveauAuthentification" Collapsed="true">
+    <Position X="8" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAACAABAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Class_Metier\ViewCustomModels\InscritCustom.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Site_Web.Class_Metier.ViewCustomModels.NiveauAuthentificationInscription" Collapsed="true">
+    <Position X="9.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Class_Metier\ViewCustomModels\InscritCustom.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

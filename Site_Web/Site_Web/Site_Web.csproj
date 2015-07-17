@@ -341,6 +341,7 @@
     <Content Include="Views\Home\InscriptionDefiOK.cshtml" />
     <Content Include="Views\Courses\InscriptionCoureurCourse.cshtml" />
     <Content Include="ClassDiagram1.cd" />
+    <Content Include="ClassDiagram2.cd" />
     <None Include="Views\Inscrits\Logout.cshtml" />
     <None Include="Views\Inscrits\Register.cshtml" />
     <Content Include="Views\Inscrits\Login.cshtml" />
